@@ -14,9 +14,6 @@
 
         /* SIDEBAR */
         .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; z-index: 200; }
-
-/* SIDEBAR */
-        .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; z-index: 200; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 10px 0; }
         .nav-item { display: flex; flex-direction: column; padding: 18px 25px; text-decoration: none; color: #bdc3c7; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .nav-item.active { background: var(--secondary); border-left: 5px solid var(--primary); color: white; }
@@ -78,7 +75,9 @@
 </head>
 <body>
 
-    <nav class="sidebar"></nav>
+    <nav class="sidebar">
+        <div id="dynamic-links"></div>
+    </nav>
 
     <main class="content-wrapper" id="mainScroll">
         <header><h1 id="main-title">Day 3: Echoes of Kurukṣetra</h1></header>
@@ -105,43 +104,30 @@
         <section class="tab-panel">
             <article id="t1" class="content-pane active">
                 <h2>The Prelude and Lineage of Vyāsa</h2>
-                <p>The discourse begins with the recognition of <span class="sanskrit">Vyāsa Bhagavān</span>, the compiler of the Mahābhārata. His lineage is a divine chain of wisdom:</p>
+                <p>The discourse begins with the recognition of <span class="sanskrit">Vyāsa Bhagavān</span>. His lineage is a divine chain of wisdom:</p>
                 <div class="highlight-box">
                     <strong>Lineage:</strong> Great-grandson of Vasiṣṭha → Grandson of Śakti → Son of Parāśara → Father of Śuka.
                 </div>
-                <p>Vyāsa is identified as <span class="sanskrit">vyāsāya viṣṇu rūpāya</span>—a manifestation of Viṣṇu Himself. He is the one who divided the single Veda into four and composed the Purāṇas to make Vedic knowledge accessible.</p>
+                <p>Vyāsa is identified as <span class="sanskrit">vyāsāya viṣṇu rūpāya</span>—a manifestation of Viṣṇu Himself. He divided the single Veda into four and composed the Purāṇas to make Vedic knowledge accessible.</p>
                 <h3>Removal of Obstacles</h3>
                 <p>Before any sacred work, one meditates on <span class="sanskrit">śuklāmbaradharaṃ</span> (the one clad in white) with a <span class="sanskrit">prasannavadanaṃ</span> (benign smile) to remove all <span class="sanskrit">vighnas</span> (obstacles).</p>
             </article>
 
             <article id="t2" class="content-pane">
                 <h2>The Survival of the Lineage</h2>
-                <p>After the Kurukṣetra war, the Pāṇḍava lineage faced extinction when Aśvatthāmā directed a <span class="sanskrit">Brahmāstra</span> toward the womb of Uttarā. In her desperation, she prayed to Kṛṣṇa: <span class="sanskrit">pāhi pāhi mahāyogin</span>.</p>
-                <p>Kṛṣṇa entered the womb to neutralize the weapon, saving the child. This child was named <span class="sanskrit">Viṣṇurāta</span>, but became known as <strong>Parīkṣit</strong> because he "examined" (parīkṣā) every face he met, looking for the divine form he had seen while in the womb.</p>
+                <p>After the Kurukṣetra war, Kṛṣṇa saved the child in Uttarā's womb from the <span class="sanskrit">Brahmāstra</span>. This child was named <span class="sanskrit">Viṣṇurāta</span>, but became known as <strong>Parīkṣit</strong> because he "examined" (parīkṣā) every face he met, looking for the divine form he saw in the womb.</p>
             </article>
 
             <article id="t3" class="content-pane">
                 <h2>The Arrival of Kaliyuga</h2>
-                <p>As Kṛṣṇa departed, Kaliyuga began. Parīkṣit encountered Kali tormenting a bull (Dharma) standing on only one leg, representing <strong>Satya</strong> (Truth) or <strong>Dāna</strong> (Charity).</p>
-                <h3>The Five Abodes of Kali</h3>
-                <ul>
-                    <li><strong>Dyūtaṃ:</strong> Gambling.</li>
-                    <li><strong>Pānaṃ:</strong> Alcohol consumption.</li>
-                    <li><strong>Striyaḥ:</strong> Licentiousness.</li>
-                    <li><strong>Sūnā:</strong> Animal butchery.</li>
-                    <li><strong>Suvarṇa:</strong> Excessive attachment to gold/wealth.</li>
-                </ul>
-                <p>Kali influenced the King's mind through his golden crown, leading to the incident with Sage Śamīka and the subsequent curse by Śṛṅgī. Parīkṣit was destined to die from the bite of the snake <span class="sanskrit">Takṣaka</span> within seven days, which turned his focus toward ultimate liberation.</p>
+                <p>Parīkṣit encountered Kali tormenting a bull (Dharma) standing on only one leg. Parīkṣit permitted Kali to reside in five abodes: gambling, alcohol, licentiousness, animal butchery, and excessive gold.</p>
+                <p>Kali influenced the King's mind through his golden crown, leading to a curse by Śṛṅgī. Parīkṣit was destined to die from the bite of <span class="sanskrit">Takṣaka</span> within seven days, turning his focus toward ultimate liberation.</p>
             </article>
 
             <article id="t4" class="content-pane">
                 <h2>The Writing of the Mahābhārata</h2>
-                <p>Vyāsa sought <strong>Lord Gaṇeśa</strong> as his scribe for the great epic. The collaboration involved a unique intellectual contract:</p>
-                <ul>
-                    <li><strong>Gaṇeśa's Condition:</strong> Vyāsa must never stop dictating.</li>
-                    <li><strong>Vyāsa's Condition:</strong> Gaṇeśa must understand every verse before writing it.</li>
-                </ul>
-                <p>To gain time to compose new verses, Vyāsa would insert complex philosophical <span class="sanskrit">ślokas</span> that forced Gaṇeśa to pause and reflect. This took place near Badrināth, where the Sarasvatī river was requested to go underground (<span class="sanskrit">antah-salilā</span>) so its noise wouldn't disturb the dictation.</p>
+                <p>Vyāsa sought <strong>Lord Gaṇeśa</strong> as his scribe. The contract: Vyāsa must never stop dictating, and Gaṇeśa must understand every verse before writing it.</p>
+                <p>To gain time to compose, Vyāsa inserted complex <span class="sanskrit">ślokas</span> that forced Gaṇeśa to reflect. This took place near Badrināth, where the Sarasvatī river went underground (<span class="sanskrit">antah-salilā</span>) to ensure silence for the dictation.</p>
             </article>
 
             <article id="t5" class="content-pane">
@@ -160,14 +146,7 @@
 
             <article id="t6" class="content-pane">
                 <h2>Bhīṣma’s Final Teachings</h2>
-                <p>Bhīṣma addressed why he remained silent during Draupadī's humiliation. He explained that his mind had been clouded by the <span class="sanskrit">adharmic</span> food provided by Duryodhana. On the bed of arrows, that "bad blood" had drained, leaving him in a pure state to teach.</p>
-                <h3>The Nature of Mahāviṣṇu</h3>
-                <p>He identifies Viṣṇu as <strong>Anantam</strong> (Limitless) across three dimensions:</p>
-                <ul>
-                    <li><strong>Time:</strong> He is <span class="sanskrit">anādi</span> (without beginning) and <span class="sanskrit">anidhanam</span> (without end).</li>
-                    <li><strong>Space:</strong> All-pervading, like fire present everywhere even if only visible in one spot.</li>
-                    <li><strong>Objects:</strong> Residing in all things, from gold to wood.</li>
-                </ul>
+                <p>On the bed of arrows, Bhīṣma explained that his mind was finally pure after Duryodhana's <span class="sanskrit">adharmic</span> blood had drained from him. He identifies Viṣṇu as <strong>Anantam</strong> (Limitless) across Time, Space, and Objects.</p>
                 <div class="highlight-box">
                     <strong>The Lesson of Vidura:</strong> Bhagavān accepts even banana skins if offered with pure love. Devotion (<span class="sanskrit">bhakti</span>) is the only requirement for worship.
                 </div>
