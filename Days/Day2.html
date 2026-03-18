@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2 - Pūrvāṅgam: Vighna-Nivāraṇa</title>
+    <title>Day 2 - The Supremacy of Viṣṇu Sahasranāmam</title>
     <style>
         :root { 
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
@@ -12,7 +12,7 @@
 
         body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
 
-        /* --- Sidebar Formatting Fix --- */
+        /* Sidebar Styles */
         .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 15px rgba(0,0,0,0.2); }
         .sidebar-brand { padding: 30px 20px; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--primary); background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 15px 0; }
@@ -20,44 +20,46 @@
         .nav-item { display: block; padding: 18px 25px; color: rgba(255,255,255,0.5); text-decoration: none; border-left: 4px solid transparent; transition: all 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.03); }
         .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
         .nav-item.active { background: rgba(230, 126, 34, 0.12); color: var(--primary); border-left-color: var(--primary); }
-        .nav-item.active .day-name { color: #fff; font-weight: 600; }
-        
         .day-num { font-size: 0.7rem; display: block; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; opacity: 0.8; }
         .day-name { font-size: 0.95rem; display: block; line-height: 1.4; }
 
-        /* --- Content Layout --- */
+        /* Content Layout */
         .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
-        header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; }
+        header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
         header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
 
+        /* Video Section */
         .video-container { width: 92%; max-width: 950px; margin: 25px auto; }
-        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; transition: 0.3s; }
-        .video-toggle-btn:hover { background: #34495e; }
-        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); background: #000; border-radius: 0 0 8px 8px; }
+        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
         .video-content.expanded { max-height: 580px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .tabs-nav { width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; scrollbar-width: none; }
-        .tab-btn { flex: 1; padding: 16px 20px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.85rem; transition: 0.2s; }
+        /* Tabs */
+        .tabs-nav { width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; }
+        .tab-btn { flex: 1; padding: 16px 20px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.8rem; }
         .tab-btn.active { background: var(--primary); color: white; }
 
         .tab-panel { width: 92%; max-width: 950px; margin: 0 auto 60px; background: white; padding: 45px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; }
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
+        /* Typography */
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
-        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin-bottom: 25px; }
-        p { line-height: 1.8; font-size: 1.05rem; }
+        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 30px 0 20px; }
+        h3 { color: var(--secondary); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; }
+        ul, ol { line-height: 1.8; margin-bottom: 20px; }
+        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; font-style: italic; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 850px) {
             body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 2px solid var(--primary); }
-            #dynamic-links { display: flex; padding: 0; }
-            .nav-item { border-left: none; border-bottom: none; border-right: 1px solid rgba(255,255,255,0.05); padding: 12px 20px; min-width: 140px; }
-            .nav-item.active { border-bottom: 4px solid var(--primary); }
+            .sidebar { width: 100%; height: auto; }
+            #dynamic-links { display: flex; }
+            .nav-item { border-left: none; min-width: 120px; padding: 10px; font-size: 0.8rem; }
             .tab-panel { padding: 25px; }
         }
     </style>
@@ -65,16 +67,16 @@
 <body>
 
     <nav class="sidebar">
-        <div class="sidebar-brand">VIṢṆU SAHASRANĀMAM</div>
+        <div class="sidebar-brand">By Shri. Ramabhadran V Guruji</div>
         <div id="dynamic-links"></div>
     </nav>
 
     <main class="content-wrapper">
-        <header><h1 id="main-title">Loading...</h1></header>
+        <header><h1 id="main-title">Day 2: Pūrvāṅgam: Vighna-Nivāraṇa</h1></header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
-                <span>▶ Watch Discourse Video</span>
+                <span>▶ Watch Day 2 Discourse</span>
                 <span id="toggleChevron">▼</span>
             </button>
             <div id="videoCollapsible" class="video-content">
@@ -83,28 +85,113 @@
         </div>
 
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 'part1')">Vedic Theory</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part2')">The Stotra's Birth</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part3')">Greatness & Form</button>
+            <button class="tab-btn active" onclick="switchTab(this, 'theory')">Vedic Theory</button>
+            <button class="tab-btn" onclick="switchTab(this, 'history')">History & Origin</button>
+            <button class="tab-btn" onclick="switchTab(this, 'greatness')">Greatness</button>
+            <button class="tab-btn" onclick="switchTab(this, 'prelude')">The Prelude</button>
+            <button class="tab-btn" onclick="switchTab(this, 'attributes')">Attributes</button>
+            <button class="tab-btn" onclick="switchTab(this, 'karma')">Karma & Practice</button>
         </nav>
 
         <section class="tab-panel">
-            <article id="part1" class="content-pane active">
-                <h2>The Three Guṇas & Structure of the Vedas</h2>
-                <p>The discourse begins by explaining the three types of <span class="sanskrit">guṇas</span> residing in every individual: <span class="sanskrit">Sattva</span>, <span class="sanskrit">Rajas</span>, and <span class="sanskrit">Tamas</span>.</p>
+            <article id="theory" class="content-pane active">
+                <h2>The Three Guṇas & Vedic Structure</h2>
+                <p>Human nature is governed by three <span class="sanskrit">guṇas</span> (qualities). The proportion of these varies in every individual, and the Vedas provide the means to fulfill desires arising from them:</p>
+                <ul>
+                    <li><strong>Sattvaguṇa:</strong> A calm, peaceful, and happy mind.</li>
+                    <li><strong>Rajoguṇa:</strong> Restlessness and an unending desire for action.</li>
+                    <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and a lack of spiritual willingness.</li>
+                </ul>
+                <p>The Vedas are classified into <span class="sanskrit">Saṃhitā, Brāhmaṇas, Āraṇyakas,</span> and <span class="sanskrit">Upaniṣads</span>. They are broadly divided into the <strong>Karmakāṇḍa</strong> (action) and the <strong>Jñānakāṇḍa</strong> (knowledge/contemplation).</p>
+                
+                <h3>The Role of the Guru</h3>
+                <p>The Vedas are indirect. A Guru is essential to interpret mantras like the <em>Śānti Mantra</em>. Without depth, a literal translation of "completeness" might seem like blabbering; in reality, it describes how Bhagavān resides in both <span class="sanskrit">Vaikuṇṭha</span> and all 14 <span class="sanskrit">lokas</span> simultaneously.</p>
             </article>
-            </section>
+
+            <article id="history" class="content-pane">
+                <h2>The Itihāsas: Practical Proof</h2>
+                <p>The <span class="sanskrit">ṛṣis</span> recognized that theory is difficult for common people. They composed <em>Purāṇas</em> and <em>Itihāsas</em> as practical demonstrations of Vedic principles.</p>
+                <ul>
+                    <li><strong>Rāmacandra:</strong> Practically demonstrated the Vedic command to worship one's father by entering the forest for 14 years.</li>
+                    <li><strong>Rāmāyaṇa & Gāyatrī:</strong> The Rāmāyaṇa’s 24,000 ślokas are structured so each 1,000 starts with a letter of the 24-syllable Gāyatrī mantra.</li>
+                </ul>
+
+                <h3>The "Executive Summary"</h3>
+                <p>The <strong>Mahābhārata</strong> (<span class="sanskrit">Pañcamo Veda</span>) contains 125,000 ślokas. For those in <em>Kaliyuga</em> who cannot read it all, there are two "executive summaries": the <strong>Bhagavad Gītā</strong> and the <strong>Śrī Viṣṇu Sahasranāmam</strong>.</p>
+                <div class="highlight-box">
+                    The Sahasranāmam originates in the 149th chapter of the <strong>Anuśāsana Parva</strong>. It was given by Bhīṣma to Yudhiṣṭhira on the bed of arrows (<span class="sanskrit">śarapañjara</span>) in the presence of Śrī Kṛṣṇa.
+                </div>
+            </article>
+
+            <article id="greatness" class="content-pane">
+                <h2>Six Reasons for Greatness</h2>
+                <p>Ādi Śaṅkarācārya cites six specific reasons why this text is supreme:</p>
+                <ol>
+                    <li><strong>Mahābhārata-sāratvāt:</strong> Essence of the Fifth Veda.</li>
+                    <li><strong>Ṛṣibhiḥ parigītatvāt:</strong> Chanted by ancient sages before compilation.</li>
+                    <li><strong>Vedavyāsena grathitatvāt:</strong> Compiled by Vyāsa, an incarnation of Viṣṇu.</li>
+                    <li><strong>Bhīṣma-parigrahāt:</strong> The ultimate opinion of a supreme devotee.</li>
+                    <li><strong>Sarva-parigrahāt:</strong> Accepted by all scholars (even in medicine/Charaka Saṃhitā).</li>
+                    <li><strong>Gītā-samvādāt:</strong> Harmony with the Gītā's <em>Japa-yajña</em>.</li>
+                </ol>
+                <h3>The Easiest Path in Kaliyuga</h3>
+                <p>Unlike rituals requiring wealth or specific timing, <strong>Japam</strong> (chanting) can be done by anyone, anywhere. It is the most effective "shoes" to insulate yourself from the "thorns" of a wicked world.</p>
+            </article>
+
+            <article id="prelude" class="content-pane">
+                <h2>The Six Preliminary Ślokas</h2>
+                <p>Before the 1,000 names, we chant six ślokas covering: <strong>Vighna-nivāraṇa</strong> (removing obstacles), gratitude to Vyāsa, and meditation on Mahāviṣṇu.</p>
+                
+                <h3>Analysis of the First Śloka</h3>
+                <p class="sanskrit">śuklāmbaradharaṃ viṣṇuṃ śaśivarṇaṃ caturbhujam | prasannavadanaṃ dhyāyet sarvavighnopaśāntaye ||</p>
+                <p>We meditate on Him for the pacification of three types of obstacles (<span class="sanskrit">Vighnas</span>):</p>
+                <ul>
+                    <li><strong>Ādhyātmika:</strong> Internal obstacles like laziness.</li>
+                    <li><strong>Ādhidaivika:</strong> Natural obstacles (weather, technical failures).</li>
+                    <li><strong>Ādhibhautika:</strong> Obstacles caused by others (distractions).</li>
+                </ul>
+            </article>
+
+            <article id="attributes" class="content-pane">
+                <h2>Viṣvaksena & Vyāsa</h2>
+                <h3>Viṣvaksena: The CEO</h3>
+                <p>Bhagavān delegated universe management to <strong>Viṣvaksena</strong>. He commands an army (<span class="sanskrit">dviradavaktrādyāḥ</span>) that shatters obstacles. We worship him as a <span class="sanskrit">bhāgavata</span> (supreme devotee).</p>
+
+                <h3>Vyāsa Bhagavān: The Compiler</h3>
+                <p>His name is <strong>Kṛṣṇa Dvaipāyana</strong> (born on an island). He is called Vyāsa because he provided the exposition (<span class="sanskrit">vyāsam</span>) of the Vedas.</p>
+                <p><strong>The Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.</p>
+                <div class="highlight-box">
+                    "Vyāsāya Viṣṇu rūpāya" — Vyāsa is a manifestation of Mahāviṣṇu, appearing in Dvāpara Yuga to classify knowledge for our benefit.
+                </div>
+            </article>
+
+            <article id="karma" class="content-pane">
+                <h2>Karma and the Path to Bliss</h2>
+                <p>Beings are trapped in the <span class="sanskrit">Saṃsāra-cakra</span> (cycle of birth/death) due to karma:</p>
+                <ul>
+                    <li><strong>Sañcita Karma:</strong> Accumulation of all past actions.</li>
+                    <li><strong>Prārabdha Karma:</strong> The subset selected for this current life.</li>
+                </ul>
+                <p><strong>Free Will:</strong> Like a cow tied to a rope, we have freedom within a radius. While events are predetermined, our <em>reaction</em> to them is our choice.</p>
+
+                <h3>Purity in Daily Life</h3>
+                <p><strong>Dietary Control:</strong> Food affects the mind. The cook’s thoughts enter the food. Offer food as <span class="sanskrit">naivedya</span> to sanctify it into <span class="sanskrit">prasāda</span>.</p>
+                <p><strong>Lunar Eclipse:</strong> Chanting during an eclipse is thousands of times more potent. Use the eclipse period for continuous Sahasranāmam chanting.</p>
+            </article>
+        </section>
     </main>
 
     <script src="../course-sidebar.js"></script>
     <script>
-        window.onload = () => initPortal("Day 2");
+        // Init logic
+        window.onload = () => initSidebar("Day 2");
 
         function switchTab(btn, paneId) {
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(paneId).classList.add('active');
             btn.classList.add('active');
+            document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
         }
 
         function toggleVideo() {
@@ -117,6 +204,7 @@
                 chevron.innerHTML = '▼';
                 iframe.src = ""; 
             } else {
+                // window.currentVideoId is set by initSidebar in course-sidebar.js
                 iframe.src = `https://www.youtube.com/embed/${window.currentVideoId}?autoplay=1`;
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲';
