@@ -28,8 +28,17 @@
         header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
         header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
 
+        /* VIDEO PLAYER STYLING */
+        .video-container { width: 92%; max-width: 1100px; margin: 25px auto; }
+        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; transition: background 0.3s; }
+        .video-toggle-btn:hover { background: #34495e; }
+        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
+        .video-content.expanded { max-height: 620px; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
         /* TABS NAVIGATION */
-        .tabs-nav { width: 92%; max-width: 1100px; margin: 20px auto 0; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; position: sticky; top: 0; z-index: 9; }
+        .tabs-nav { width: 92%; max-width: 1100px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; position: sticky; top: 78px; z-index: 9; }
         .tab-btn { flex: 1; padding: 16px 12px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.75rem; text-transform: uppercase; border-right: 1px solid #ddd; }
         .tab-btn.active { background: var(--primary); color: white; }
 
@@ -62,6 +71,16 @@
 
     <main class="content-wrapper" id="mainScroll">
         <header><h1>Day 2: The Vedic Path to Sahasranāmam</h1></header>
+
+        <div class="video-container">
+            <button class="video-toggle-btn" onclick="toggleVideo()">
+                <span>▶ Watch Day 2 Discourse</span>
+                <span id="toggleChevron">▼</span>
+            </button>
+            <div id="videoCollapsible" class="video-content">
+                <div class="video-box"><iframe id="ytPlayer" allowfullscreen></iframe></div>
+            </div>
+        </div>
         
         <nav class="tabs-nav">
             <button class="tab-btn active" onclick="switchTab(this, 't1')">Vedas & Guru</button>
@@ -176,6 +195,9 @@
 
     <script src="../course-sidebar.js"></script>
     <script>
+        // Set the video ID for Day 2 here
+        window.currentVideoId = "INSERT_YOUTUBE_ID_HERE"; 
+
         window.onload = () => { if (typeof initSidebar === "function") { initSidebar("Day 2"); } };
 
         function switchTab(btn, paneId) {
@@ -191,6 +213,24 @@
                 btn.classList.add('active');
             }
             document.getElementById('mainScroll').scrollTop = 0;
+        }
+
+        function toggleVideo() {
+            const content = document.getElementById('videoCollapsible');
+            const chevron = document.getElementById('toggleChevron');
+            const iframe = document.getElementById('ytPlayer');
+
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                chevron.innerHTML = '▼';
+                iframe.src = ""; 
+            } else {
+                if (window.currentVideoId) {
+                    iframe.src = `https://www.youtube.com/embed/${window.currentVideoId}?autoplay=1`;
+                    content.classList.add('expanded');
+                    chevron.innerHTML = '▲';
+                }
+            }
         }
     </script>
 </body>
