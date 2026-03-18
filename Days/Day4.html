@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4 - Sacred Architecture: The Armor of Names</title>
+    <title id="page-title">Course Leaf - Day 4</title>
     <style>
         :root { 
             --primary: #e67e22; 
@@ -19,11 +19,7 @@
 
         /* Sidebar */
         .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
-        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; }
-        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
-        .day-link:hover { background: #2c3e50; color: white; }
-        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
 
         /* Content Area */
         .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
@@ -79,10 +75,13 @@
 <body>
 
     <nav class="sidebar">
-        </nav>
+        <div id="dynamic-links"></div>
+    </nav>
 
     <main class="content-wrapper">
-        <header><h1>Day 4: The Sacred Architecture</h1></header>
+        <header>
+            <h1 id="main-title"></h1>
+        </header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
@@ -91,7 +90,7 @@
             </button>
             <div id="videoCollapsible" class="video-content">
                 <div class="video-box">
-                    <iframe id="ytPlayer" src="https://www.youtube.com/embed/S2pX9jHwFz0" allowfullscreen></iframe>
+                    <iframe id="ytPlayer" src="" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -107,66 +106,60 @@
         <section class="tab-panel">
             <article id="part1" class="content-pane active">
                 <h2>Genesis, Dissolution & Fear</h2>
-                <p>Day 4 begins with Śloka 17, establishing Bhagavān as the source of all. All <span class="sanskrit">jīvātmās</span> emerge from Him and return during <span class="sanskrit">pralaya</span> (dissolution).</p>
-                <div class="highlight-box">
-                    <strong>The Return:</strong> Dissolution is not destruction; it is a return to an original form. Like a mud pot returning to mud, we return to an ātmic stage in the Lord.
-                </div>
-                <h3>Removing the Fear of Sins</h3>
-                <p>Addressing Yudhiṣṭhira as <em>bhūpate</em>, Bhīṣma offers the thousand names as a remedy for the burden of sins (<span class="sanskrit">pāpa</span>) accumulated across millions of births. It was Kṛṣṇa’s <span class="sanskrit">saṅkalpa</span> (divine intention) to provide this treasure for the vice-filled age of Kaliyuga.</p>
+                <p>Establishing Bhagavān as the source of all. All <span class="sanskrit">jīvātmās</span> emerge from Him and return during <span class="sanskrit">pralaya</span> (dissolution).</p>
                 
+                <div class="highlight-box">
+                    <strong>The Return:</strong> Dissolution is not destruction; it is a return to an original form. Like a mud pot returning to mud, we return to the Lord.
+                </div>
             </article>
 
             <article id="part2" class="content-pane">
                 <h2>Technical Components of the Mantra</h2>
-                <p>The <span class="sanskrit">Viṣṇu Sahasranāmam</span> is not just a poem; it is a structured mantra with specific spiritual "gears":</p>
+                <p>The <span class="sanskrit">Viṣṇu Sahasranāmam</span> is a structured mantra with specific spiritual "gears":</p>
+                
                 <table>
                     <tr><th>Component</th><th>Significance</th></tr>
-                    <tr><td><strong>Ṛṣi (The Seer)</strong></td><td><strong>Veda Vyāsa</strong>. He "visualized" the mantra in meditation.</td></tr>
-                    <tr><td><strong>Chandas (Meter)</strong></td><td><strong>Anuṣṭup Chandas</strong>. 4 lines of 8 syllables (32 total).</td></tr>
-                    <tr><td><strong>Devatā (Deity)</strong></td><td><strong>Kṛṣṇa Paramātmā</strong>, the manifestation of Mahāviṣṇu.</td></tr>
-                    <tr><td><strong>Bījam (Seed)</strong></td><td><strong>Amṛtāṃśūdbhavaḥ</strong>. Represents the immortality of the Lord.</td></tr>
-                    <tr><td><strong>Śakti (Strength)</strong></td><td><strong>Devakīnandanaḥ</strong>. The power Kṛṣṇa gave Bhīṣma to speak.</td></tr>
-                    <tr><td><strong>Hṛdayam (Heart)</strong></td><td>The <strong>Sāma Veda</strong> (Bṛhat, Rathantara, Vāmadevya).</td></tr>
+                    <tr><td><strong>Ṛṣi (The Seer)</strong></td><td><strong>Veda Vyāsa</strong>. The visualizer.</td></tr>
+                    <tr><td><strong>Chandas (Meter)</strong></td><td><strong>Anuṣṭup Chandas</strong>. 32 syllables total.</td></tr>
+                    <tr><td><strong>Devatā (Deity)</strong></td><td><strong>Kṛṣṇa Paramātmā</strong>.</td></tr>
+                    <tr><td><strong>Bījam (Seed)</strong></td><td><strong>Amṛtāṃśūdbhavaḥ</strong>.</td></tr>
+                    <tr><td><strong>Śakti (Strength)</strong></td><td><strong>Devakīnandanaḥ</strong>.</td></tr>
+                    <tr><td><strong>Hṛdayam (Heart)</strong></td><td>The <strong>Sāma Veda</strong>.</td></tr>
                 </table>
             </article>
 
             <article id="part3" class="content-pane">
                 <h2>Nyāsam: Installing the Divine</h2>
-                <p><strong>Nyāsam</strong> involves depositing divine power into the physical body. By invoking these aspects, we acknowledge that the body is a <strong>Temple</strong> and the <span class="sanskrit">jīvātmā</span> is the resident deity.</p>
+                <p><strong>Nyāsam</strong> involves depositing divine power into the physical body. By invoking these aspects, we acknowledge that the body is a <strong>Temple</strong>.</p>
                 
                 <h3>The Holy Right Ear</h3>
-                <p>The right ear is considered a universal purifier containing the holy Gaṅgā. This is rooted in the story of <strong>Jahnu Maharṣi</strong>, who released the river through his right ear, earning her the name <span class="sanskrit">Jāhnavī</span>.</p>
-                
-                <div class="highlight-box">
-                    <strong>Karma Yoga:</strong> The Lord provides a physical body as a tool for action. Once sanctified via Nyāsam, the body is used for service and worship, leading to liberation.
-                </div>
+                <p>The right ear is considered a universal purifier containing the holy Gaṅgā, released the river through <strong>Jahnu Maharṣi's</strong> ear.</p>
             </article>
 
             <article id="part4" class="content-pane">
                 <h2>The Chariot of Self-Control</h2>
-                <p>To protect the "Temple of the Body," we invoke the Lord's weapons. The <strong>Śārṅga</strong> (Bow) represents the control of the five senses.</p>
+                <p>To protect the "Temple of the Body," we invoke the Lord's weapons. The <strong>Śārṅga</strong> (Bow) represents the control of the senses.</p>
                 
-                <h3>The Chariot Analogy</h3>
+                
                 
                 <ul>
-                    <li><strong>The Horses:</strong> The 5 Senses (running toward sensory objects).</li>
-                    <li><strong>The Reins:</strong> The Mind (the connecting link).</li>
+                    <li><strong>The Horses:</strong> The 5 Senses.</li>
+                    <li><strong>The Reins:</strong> The Mind.</li>
                     <li><strong>The Charioteer:</strong> The Intellect (Buddhi).</li>
                 </ul>
-                <p>When the Intellect (Kṛṣṇa) holds the mind in check, the practitioner reaches the spiritual destination safely.</p>
+                <p>When the Intellect (Kṛṣṇa) holds the mind in check, the practitioner reaches the destination safely.</p>
             </article>
 
             <article id="part5" class="content-pane">
                 <h2>Sincerity in Daily Motion</h2>
-                <p>Is it okay to chant while working or driving? The Guru provides comfort through the story of <strong>Nārada and the Farmer</strong>.</p>
+                <p>Is it okay to chant while working or driving? The story of <strong>Nārada and the Farmer</strong> provides the answer.</p>
                 <div class="highlight-box">
-                    <strong>The Lesson:</strong> A farmer who remembers God briefly while tending his heavy worldly duties is as dear to the Lord as a sage who chants 24/7.
+                    <strong>The Lesson:</strong> A farmer who remembers God briefly while tending his duties is as dear to the Lord as a sage who chants 24/7.
                 </div>
                 <h3>Chanting Tips:</h3>
                 <ul>
-                    <li><strong>Location:</strong> Any place—car, kitchen, or office—is acceptable.</li>
-                    <li><strong>State:</strong> Can be chanted before or after a bath.</li>
-                    <li><strong>Focus:</strong> Sincerity and <span class="sanskrit">bhakti</span> (devotion) are the primary requirements.</li>
+                    <li><strong>Location:</strong> Any place—car, kitchen, or office.</li>
+                    <li><strong>State:</strong> Sincerity and <span class="sanskrit">bhakti</span> are the primary requirements.</li>
                 </ul>
             </article>
         </section>
@@ -192,8 +185,11 @@
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼'; playIcon.innerHTML = '▶';
-                const src = iframe.src; iframe.src = ''; iframe.src = src;
+                iframe.src = ""; 
             } else {
+                if (typeof currentVideoId !== 'undefined') {
+                    iframe.src = `https://www.youtube.com/embed/${currentVideoId}`;
+                }
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
             }
