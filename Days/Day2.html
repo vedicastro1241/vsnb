@@ -181,35 +181,52 @@
         </section>
     </main>
 
-    <script src="../course-sidebar.js"></script>
-    <script>
-        // Init logic
-        window.onload = () => initSidebar("Day 2");
-
-        function switchTab(btn, paneId) {
-            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(paneId).classList.add('active');
-            btn.classList.add('active');
-            document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
+<script src="../course-sidebar.js"></script>
+<script>
+    // Tab Switching Logic
+    function switchTab(btn, paneId) {
+        console.log("Switching to tab:", paneId); // Debugging line
+        
+        // Remove active from all buttons
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        // Remove active from all content panes
+        document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+        
+        // Add active to current
+        btn.classList.add('active');
+        const target = document.getElementById(paneId);
+        if (target) {
+            target.classList.add('active');
+        } else {
+            console.error("Tab pane not found for ID:", paneId);
         }
+    }
 
-        function toggleVideo() {
-            const content = document.getElementById('videoCollapsible');
-            const chevron = document.getElementById('toggleChevron');
-            const iframe = document.getElementById('ytPlayer');
+    // Video Toggle Logic
+    function toggleVideo() {
+        const content = document.getElementById('videoCollapsible');
+        const chevron = document.getElementById('toggleChevron');
+        const iframe = document.getElementById('ytPlayer');
 
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                chevron.innerHTML = '▼';
-                iframe.src = ""; 
-            } else {
-                // window.currentVideoId is set by initSidebar in course-sidebar.js
+        if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            chevron.innerHTML = '▼';
+            iframe.src = ""; 
+        } else {
+            // Check if global ID was set by course-sidebar.js
+            if (window.currentVideoId) {
                 iframe.src = `https://www.youtube.com/embed/${window.currentVideoId}?autoplay=1`;
+                content.classList.add('expanded');
+                chevron.innerHTML = '▲';
+            } else {
+                console.warn("No Video ID found for this day.");
+                // Fallback ID if sidebar script hasn't loaded yet
+                iframe.src = "https://www.youtube.com/embed/5GrhAx-6Tqw?autoplay=1";
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲';
             }
         }
-    </script>
+    }
+</script>
 </body>
 </html>
