@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 - The Vedic Path: Ancient Theory</title>
+    <style>
+        :root { 
+            --primary: #e67e22; 
+            --secondary: #2c3e50; 
+            --sidebar-bg: #1a252f; 
+            --bg: #fdfaf6; 
+            --card-bg: #ffffff;
+            --text-main: #34495e;
+            --accent-soft: #fcf3ea;
+        }
+
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
+
+        /* Sidebar Container - Must match IDs used in your JS */
+        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
+        #dynamic-sidebar { flex-grow: 1; overflow-y: auto; }
+        
+        /* Styles for links injected by JS */
+        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
+        .day-link:hover { background: #2c3e50; color: white; }
+        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
+
+        /* Content Area */
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
+        header { background: white; padding: 30px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        header h1 { margin: 0; font-size: 1.6rem; color: var(--secondary); font-weight: 700; }
+
+        /* Tabs Navigation */
+        .tabs-nav { max-width: 950px; margin: 25px auto 0; display: flex; background: #eee; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); flex-wrap: wrap; width: 90%; }
+        .tab-btn { flex: 1; min-width: 130px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.8rem; transition: 0.2s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+
+        /* Tab Content Panel */
+        .tab-panel { max-width: 950px; margin: 0 auto 50px; background: var(--card-bg); padding: 40px; border-radius: 0 0 8px 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 90%; box-sizing: border-box; }
+        .content-pane { display: none; }
+        .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
+
+        /* Typography */
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 5px; border-radius: 4px; }
+        .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        
+        ul { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 12px; line-height: 1.6; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) { 
+            body { flex-direction: column; } 
+            .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; } 
+            .tab-panel { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">By Shri. Ramabhadran V Guruji</div>
+        <div id="dynamic-sidebar">
+            </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <header><h1>Day 1: The Vedic Path: Ancient Theory</h1></header>
+        
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(this, 'part1')">The Three Guṇas</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part2')">Role of Guru</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part3')">Itihāsas</button>
+        </nav>
+
+        <section class="tab-panel">
+            <article id="part1" class="content-pane active">
+                <h2>The Three Guṇas & Vedic Structure</h2>
+                <p>The discourse explains the three qualities (<span class="sanskrit">guṇas</span>) inherent in everyone:</p>
+                <ul>
+                    <li><strong>Sattvaguṇa:</strong> Peace and happiness.</li>
+                    <li><strong>Rajoguṇa:</strong> Restlessness and action.</li>
+                    <li><strong>Tamoguṇa:</strong> Lethargy and laziness.</li>
+                </ul>
+                <div class="highlight-box">
+                    The Vedas are divided into <span class="sanskrit">Karmakāṇḍa</span> (Performance) and <span class="sanskrit">Jñānakāṇḍa</span> (Knowledge).
+                </div>
+            </article>
+
+            <article id="part2" class="content-pane">
+                <h2>The Necessity of a Guru</h2>
+                <p>The Vedas are indirect and "cryptic." A Guru is required to unlock the meaning of mantras like the <span class="sanskrit">Śānti Mantra</span>.</p>
+                <p>Without guidance, profound statements about the "completeness" of the universe can seem illogical, but the Guru explains how the Divine remains whole even after creation.</p>
+            </article>
+
+            <article id="part3" class="content-pane">
+                <h2>Itihāsas: The Practical Examples</h2>
+                <p>If the Vedas are the "Theory," the <strong>Itihāsas</strong> (Rāmāyaṇa and Mahābhārata) are the "Practical Laboratory."</p>
+                <p>While the Vedas say <em>"Treat your father as God,"</em> Rāmacandra showed us <strong>how</strong> to do it by going to the forest for 14 years.</p>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        // Tab switching logic local to the page
+        function switchTab(btn, paneId) {
+            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(paneId).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
+    
+    <script src="../course-sidebar.js"></script>
+</body>
+</html>
