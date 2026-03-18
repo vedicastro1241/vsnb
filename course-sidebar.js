@@ -1,7 +1,9 @@
 const courseDays = [
     { file: 'index.html', label: 'Day 1' },
     { file: 'Days/Day2.html', label: 'Day 2' },
-    { file: 'Days/Day3.html', label: 'Day 3' }
+    { file: 'Days/Day3.html', label: 'Day 3' },
+    { file: 'Days/Day4.html', label: 'Day 4' },
+    { file: 'Days/Day5.html', label: 'Day 5' }
 ];
 
 async function initSidebar() {
