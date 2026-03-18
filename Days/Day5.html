@@ -3,107 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - The Divine Radiance & Dhyānam</title>
+    <title>Day 5 - The Cosmic Form and Grace of Śrī Kṛṣṇa</title>
     <style>
         :root { 
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
-            --bg: #fdfaf6; --card-bg: #ffffff; --text-main: #34495e; --accent-soft: #fcf3ea;
+            --bg: #fdfaf6; --text-main: #34495e; --accent-soft: #fcf3ea;
         }
-
         body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
-
-        /* Sidebar Styles */
-        .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 15px rgba(0,0,0,0.2); }
-        .sidebar-brand { padding: 30px 20px; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--primary); background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 15px 0; }
-        
-        /* Content Layout */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
-        header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
+        .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; z-index: 200; }
+        #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 10px 0; }
+        .nav-item { display: flex; flex-direction: column; padding: 18px 25px; text-decoration: none; color: #bdc3c7; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-item.active { background: var(--secondary); border-left: 5px solid var(--primary); color: white; }
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; position: relative; height: 100vh; }
+        header { background: white; padding: 0 40px; height: 78px; display: flex; align-items: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
         header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
-
-        /* Video Section */
-        .video-container { width: 92%; max-width: 950px; margin: 25px auto; }
-        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+        .video-container { width: 92%; max-width: 1100px; margin: 25px auto; flex-shrink: 0; }
+        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; }
         .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
-        .video-content.expanded { max-height: 580px; }
+        .video-content.expanded { max-height: 620px; margin-bottom: 10px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        /* Tabs Navigation - Sticky & Fixed Scroll */
-        .tabs-nav { 
-            width: 92%; 
-            max-width: 950px; 
-            margin: 0 auto; 
-            display: flex; 
-            background: #f0f0f0; 
-            border-radius: 8px 8px 0 0; 
-            border-bottom: 3px solid var(--primary); 
-            position: sticky; 
-            top: 78px; 
-            z-index: 9;
-            overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE 10+ */
-        }
-        .tabs-nav::-webkit-scrollbar { display: none; /* Chrome/Safari/Webkit */ }
-
-        .tab-btn { 
-            flex: 1 0 auto; /* Allow buttons to maintain size but scroll if needed */
-            padding: 16px 15px; 
-            border: none; 
-            background: none; 
-            cursor: pointer; 
-            font-weight: 700; 
-            color: var(--secondary); 
-            white-space: nowrap; 
-            font-size: 0.8rem; 
-            transition: all 0.2s ease;
-        }
+        .tabs-nav { width: 92%; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); position: sticky; top: 78px; z-index: 90; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; height: 60px; flex-shrink: 0; }
+        .tab-btn { width: 100%; height: 100%; padding: 5px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); font-size: 0.6rem; text-transform: uppercase; border-right: 1px solid #ddd; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.1; }
         .tab-btn.active { background: var(--primary); color: white; }
-
-        .tab-panel { width: 92%; max-width: 950px; margin: 0 auto 60px; background: white; padding: 45px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; }
+        .tab-panel { width: 92%; max-width: 1100px; margin: 0 auto 60px; background: white; padding: 45px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; min-height: 700px; flex-shrink: 0; }
         .content-pane { display: none; }
-        .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
-
-        /* Typography & Components */
+        .content-pane.active { display: block; animation: fadeIn 0.4s ease; }
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
-        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 30px 0 20px; }
-        h3 { color: var(--secondary); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; }
-        
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
-        th, td { padding: 12px 15px; border: 1px solid #eee; text-align: left; }
-        th { background: var(--accent-soft); color: var(--secondary); }
-
-        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
-        .step-list { counter-reset: step-counter; list-style: none; padding: 0; }
-        .step-list li { margin-bottom: 15px; padding-left: 45px; position: relative; line-height: 1.6; }
-        .step-list li::before { 
-            counter-increment: step-counter; content: counter(step-counter); 
-            position: absolute; left: 0; top: 0; width: 30px; height: 30px; 
-            background: var(--primary); color: white; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 600px) {
-            .tab-btn { padding: 12px 10px; font-size: 0.75rem; }
-            .tab-panel { padding: 25px; }
-        }
+        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 35px 0 20px; }
+        h3 { color: var(--secondary); font-size: 1.15rem; margin-top: 30px; border-bottom: 2px solid var(--accent-soft); padding-bottom: 5px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; text-align: justify; }
+        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; }
+        th, td { padding: 14px; border: 1px solid #eee; text-align: left; }
+        th { background: var(--accent-soft); font-weight: 800; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
+    <nav class="sidebar"><div id="dynamic-links"></div></nav>
+    <main class="content-wrapper" id="mainScroll">
+        <header><h1>Day 5: The Cosmic Form and Grace of Śrī Kṛṣṇa</h1></header>
 
-    <nav class="sidebar">
-        <div class="sidebar-brand">By Shri. Ramabhadran V Guruji</div>
-        <div id="dynamic-links"></div>
-    </nav>
-
-    <main class="content-wrapper">
-        <header><h1 id="main-title">Day 5: The Divine Radiance & Dhyānam</h1></header>
-        
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
                 <span>▶ Watch Day 5 Discourse</span>
@@ -113,111 +54,107 @@
                 <div class="video-box"><iframe id="ytPlayer" allowfullscreen></iframe></div>
             </div>
         </div>
-
+        
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 'cosmic')">Cosmic Form</button>
-            <button class="tab-btn" onclick="switchTab(this, 'dhyanam')">Dhyāna Ślokas</button>
-            <button class="tab-btn" onclick="switchTab(this, 'krishna')">Grace of Kṛṣṇa</button>
-            <button class="tab-btn" onclick="switchTab(this, 'remedies')">Spiritual Remedies</button>
+            <button class="tab-btn active" onclick="switchTab(this, 't1')">Technical framework</button>
+            <button class="tab-btn" onclick="switchTab(this, 't2')">The Cosmic Form</button>
+            <button class="tab-btn" onclick="switchTab(this, 't3')">Śāntākāraṃ Breakdown</button>
+            <button class="tab-btn" onclick="switchTab(this, 't4')">Bhṛgu & Śrīvatsa</button>
+            <button class="tab-btn" onclick="switchTab(this, 't5')">Kṛṣṇa & Pārijāta</button>
+            <button class="tab-btn" onclick="switchTab(this, 't6')">Remedies & Stages</button>
         </nav>
 
         <section class="tab-panel">
-            <article id="cosmic" class="content-pane active">
-                <h2>The Viśvarūpa (Universal Presence)</h2>
-                <p>Mahāviṣṇu is described as the colossal presence encompassing the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>). Every element of nature is a direct manifestation of His form:</p>
-                
+            <article id="t1" class="content-pane active">
+                <h2>Technical Framework & Purpose of Pralaya</h2>
+                <p>The discourse recaps the <span class="sanskrit">pūrvāṅgam</span>. Bhīṣma emphasizes that these names were seen by sages (<span class="sanskrit">ṛṣis</span>) and compiled as a garland. Every mantra requires:</p>
+                <ul>
+                    <li><strong>Ṛṣi:</strong> Vyāsa Bhagavān (the seer).</li>
+                    <li><strong>Chandas:</strong> <span class="sanskrit">Anuṣṭup</span> (4 padas, 8 syllables each).</li>
+                    <li><strong>Devatā:</strong> Śrī Kṛṣṇa (<span class="sanskrit">Devakīnandanaḥ</span>).</li>
+                    <li><strong>Bījam & Śakti:</strong> The Lord's immortality and the strength Kṛṣṇa gave to Bhīṣma.</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>Why Pralaya?</strong> Just as the body needs night for rest, the <span class="sanskrit">jīvātmā</span> needs a period of rest in <span class="sanskrit">pralaya</span> before the next cycle toward liberation. Chanting is done <span class="sanskrit">Mahāviṣṇu-prītyarthe</span>—for His pleasure.
+                </div>
+            </article>
+
+            <article id="t2" class="content-pane">
+                <h2>The Cosmic Form (Viśvarūpa)</h2>
+                <p>Mahāviṣṇu's body encompasses the entire universe. All beings—humans, birds (<span class="sanskrit">khaga</span>), cattle (<span class="sanskrit">go</span>), and snakes (<span class="sanskrit">bhogi</span>)—reside within Him.</p>
                 <table>
-                    <tr><th>Body Part</th><th>Cosmic Equivalent</th></tr>
-                    <tr><td><strong>Feet</strong></td><td>The Earth (<span class="sanskrit">bhūmi</span>).</td></tr>
-                    <tr><td><strong>Head</strong></td><td>The Heavens (<span class="sanskrit">svarloka</span>).</td></tr>
-                    <tr><td><strong>Eyes</strong></td><td>The Sun (Justice/Heat) and Moon (Grace/Coolness).</td></tr>
-                    <tr><td><strong>Breath</strong></td><td>The Wind (<span class="sanskrit">vāyu</span>).</td></tr>
-                    <tr><td><strong>Abdomen</strong></td><td>The Oceans of the universe.</td></tr>
+                    <tr><th>Attribute</th><th>Cosmic Manifestation</th></tr>
+                    <tr><td>Feet</td><td>The Earth (<span class="sanskrit">bhūmi</span>)</td></tr>
+                    <tr><td>Head</td><td>The Heavens (<span class="sanskrit">svarloka</span>)</td></tr>
+                    <tr><td>Navel</td><td>The Sky (<span class="sanskrit">nabhas</span>)</td></tr>
+                    <tr><td>Breath</td><td>The Wind (<span class="sanskrit">anila / vāyu</span>)</td></tr>
+                    <tr><td>Eyes</td><td>Sun (heat/punishment) and Moon (cool/grace)</td></tr>
+                    <tr><td>Mouth</td><td>Fire (<span class="sanskrit">agni</span>) - signifies destruction/speech</td></tr>
                 </table>
+                <h3>Historical Mantras</h3>
+                <p>The discourse highlights the <strong>ṣaḍakṣari</strong> (6 syllables), <strong>aṣṭākṣari</strong> (8 syllables), and <strong>dvādaśākṣarī</strong> (12 syllables). 5-year-old <strong>Dhruva</strong> chanted the 12-syllable mantra in Madhuvan and received <span class="sanskrit">darśana</span> in just 6 months.</p>
+            </article>
+
+            <article id="t3" class="content-pane">
+                <h2>Deep Analysis: "Śāntākāraṃ"</h2>
+                <p>This śloka describes the peaceful form of the Lord on the Milky Ocean (<span class="sanskrit">kṣīrasāgara</span>) with four arms (<span class="sanskrit">caturbhuja</span>):</p>
+                <ul>
+                    <li><span class="sanskrit">Śāntākāraṃ</span>: Form of absolute peace/bliss.</li>
+                    <li><span class="sanskrit">Bhujagaśayanaṃ</span>: Resting on the serpent Ādiśeṣa.</li>
+                    <li><span class="sanskrit">Viśvadhāraṃ</span>: The support of the universe (like gold to jewelry).</li>
+                    <li><span class="sanskrit">Gaganasadṛśaṃ / Meghavarṇaṃ</span>: Vast like the blue sky; dark like a rain cloud full of compassion (<span class="sanskrit">karuṇā</span>).</li>
+                    <li><span class="sanskrit">Kamalanayana</span>: Lotus eyes. Their reddish hue comes from looking at Mahālakṣmī (whose reddish form is reflected) or when fighting in anger.</li>
+                </ul>
                 <div class="highlight-box">
-                    <strong>The Purpose of Pralaya:</strong> Just as our physical bodies require sleep to rejuvenate, the <span class="sanskrit">jīvātma</span> (soul) requires the period of universal dissolution (<span class="sanskrit">pralaya</span>) to rest in the Lord before the next cycle of manifestation.
+                    <strong>Bhavabhayaharam:</strong> The Lord removes the fear of the unknown future (anxieties about health/jobs).
                 </div>
             </article>
 
-            <article id="dhyanam" class="content-pane">
-                <h2>Meditating on the Form</h2>
-                <p>Before the recitation of the names, we engage in <span class="sanskrit">dhyānam</span> to steady the mind. The verse <strong>"Śāntākāraṃ"</strong> offers a complete visual meditation:</p>
-                
-                <h3>Breakdown of Śāntākāraṃ</h3>
-                <ul>
-                    <li><strong>Śāntākāraṃ:</strong> A form that is the embodiment of absolute peace.</li>
-                    <li><strong>Bhujagaśayanaṃ:</strong> Resting on the serpent Ādiśeṣa (symbolizing time/infinity).</li>
-                    <li><strong>Padmanābhaṃ:</strong> The lotus of creation emerging from His navel.</li>
-                    <li><strong>Meghavarṇaṃ:</strong> A dark complexion like rain-bearing clouds, ready to shower mercy.</li>
-                    <li><strong>Viśvadhāraṃ:</strong> The foundation of the universe; the "gold" within the jewelry.</li>
-                </ul>
-
-                <h3>The Śrīvatsa Mark</h3>
-                <p>The Lord carries a mark on His chest called <span class="sanskrit">Śrīvatsa</span>. This is a reminder of His patience when <strong>Bhṛgu Maharṣi</strong> tested Him. By choosing love over anger, He solidified His position as the ultimate refuge for devotees.</p>
+            <article id="t4" class="content-pane">
+                <h2>The Test of Bhṛgu & the Śrīvatsa</h2>
+                <p>The <span class="sanskrit">Śrīvatsa</span> is a mark on the right side of the Lord's chest, signifying the residence of Mahālakṣmī. Its origin lies in <strong>Bhṛgu Maharṣi's</strong> test of the Trinity:</p>
+                <p>Sages sent Bhṛgu to find the most <span class="sanskrit">sāttvika</span> deity. When he reached Vaikuṇṭha and found Viṣṇu in <span class="sanskrit">yoga-nidrā</span>, he kicked the Lord's chest. Viṣṇu, instead of getting angry, apologized and shampooed Bhṛgu's foot. While Mahālakṣmī was offended (leading to the Venkateswara avatar), the mark remained as a sign of the Lord's supreme patience.</p>
             </article>
 
-            <article id="krishna" class="content-pane">
-                <h2>The Lion-Throne and the Mother's Grace</h2>
-                <p>Kṛṣṇa is envisioned on a <span class="sanskrit">Siṃhāsana</span> (Lion-throne) under the divine Pārijāta tree. He is flanked by Śrī (Lakṣmī) on His right and Bhū (Satyabhāmā) on His left.</p>
-                
+            <article id="t5" class="content-pane">
+                <h2>Śrī Kṛṣṇa, Narakāsura & the Pārijāta</h2>
+                <p>Kṛṣṇa sits on a <span class="sanskrit">siṃhāsana</span> (lion-throne, first used by Narasiṃha) under the <strong>Pārijāta Tree</strong>. This tree was brought from Indraloka after the battle with Narakāsura.</p>
                 <div class="highlight-box">
-                    <strong>The Report Card Analogy:</strong> We approach the stern Father (the Lord as Judge) through the compassionate Mother (Lakṣmī). She resides on His chest, whispering for mercy even when our "marks" (karma) are poor.
+                    <strong>Battle Mystery:</strong> Narakāsura could only be killed by his mother. Satyabhāmā was an avatar of <span class="sanskrit">Bhūmidevī</span> (his mother). Kṛṣṇa pretended to swoon so Satyabhāmā would take control and kill the demon.
                 </div>
-                
-                <h3>Specific Attributes</h3>
-                <ul>
-                    <li><strong>Āyatākṣam:</strong> Broad, long eyes that cast a wide glance of protection (<span class="sanskrit">kaṭākṣam</span>).</li>
-                    <li><strong>Ambudaśyāmam:</strong> A complexion that cools the eyes of the beholder, like a dark cloud.</li>
-                </ul>
+                <h3>The Mother's Mediation</h3>
+                <p>Devotees approach Bhagavān through Mahālakṣmī. Like a child with a poor report card approaching the mother to recommend them to a stern father, Lakṣmī pleads for us, reminding the Lord that we are His children and have repented.</p>
             </article>
 
-            <article id="remedies" class="content-pane">
-                <h2>Practical Remedies for Living</h2>
-                <p>The Sahasranāma is not just a prayer; it is a clinical remedy for modern distress. The Guru highlights specific focus areas:</p>
-                
-                <h3>For Financial Stability</h3>
-                <p>To overcome debt and poverty, consistent focus on <strong>Śloka 65</strong> (which invokes the names of Lakṣmī) and the <strong>Rṇavimocana Ślokam</strong> is recommended.</p>
-
-                <h3>The Path of the Mahāmuni</h3>
-                <p>Spiritual success is achieved through three progressive stages:</p>
-                <ol class="step-list">
-                    <li><strong>Śravaṇam:</strong> Attentive listening to the Guru's words.</li>
-                    <li><strong>Mananam:</strong> Constant reflection and "chewing" on the concepts.</li>
-                    <li><strong>Nididhyāsanam:</strong> Meditative absorption and living the truth.</li>
-                </ol>
-                <p><em>With these preparations complete, the thousand names of the Lord begin in the following discourse.</em></p>
+            <article id="t6" class="content-pane">
+                <h2>Spiritual Stages & Practical Remedies</h2>
+                <p>Spiritual growth follows three steps: <strong>Śravaṇam</strong> (listening), <strong>Mananam</strong> (reflecting), and <strong>Nididhyāsanam</strong> (action/contemplation).</p>
+                <h3>Practical Remedies</h3>
+                <ul>
+                    <li><strong>Financial Problems/Debt:</strong> Chant <span class="sanskrit">Śloka 65</span> (Lakṣmī names) 10 times daily, or the <em>Rṇavimocana Ślokam</em>.</li>
+                    <li><strong>Sama Veda Meters:</strong> Three primary sāmas are <span class="sanskrit">Bṛhat, Rathantara, and Vāmadevya</span>.</li>
+                    <li><strong>Sitting Icon:</strong> Found in the Ramaswami Temple in Kumbakonam (Paṭṭābhiṣeka Rāma).</li>
+                </ul>
+                <p><strong>Kaṭākṣam:</strong> The Lord's glance that "burns off" (<span class="sanskrit">akṣam</span>) bad karmas (<span class="sanskrit">kaṭa</span>).</p>
             </article>
         </section>
     </main>
 
     <script src="../course-sidebar.js"></script>
     <script>
-        window.onload = () => {
-            if (typeof initSidebar === "function") {
-                initSidebar("Day 5"); 
-            }
-        };
-
         function switchTab(btn, paneId) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
-            
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(paneId).classList.add('active');
             btn.classList.add('active');
-            const target = document.getElementById(paneId);
-            if (target) {
-                target.classList.add('active');
-                document.querySelector('.tab-panel').scrollIntoView({
-                    behavior: 'smooth', 
-                    block: 'nearest' 
-                });
-            }
+            const mainScroll = document.getElementById('mainScroll');
+            const tabsNav = document.querySelector('.tabs-nav');
+            mainScroll.scrollTo({ top: tabsNav.offsetTop - 78, behavior: 'smooth' });
         }
-
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
             const chevron = document.getElementById('toggleChevron');
             const iframe = document.getElementById('ytPlayer');
-
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼';
