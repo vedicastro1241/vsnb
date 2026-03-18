@@ -3,25 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2 - The Vedic Path to Sahasranāmam</title>
+    <title>Day 2 - The Vedic Path: Full Content</title>
     <style>
         :root { 
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
             --bg: #fdfaf6; --card-bg: #ffffff; --text-main: #34495e; --accent-soft: #fcf3ea;
         }
 
+        /* SIDEBAR LOGIC FROM YOUR CODE */
         body { 
             font-family: 'Segoe UI', Roboto, sans-serif; 
-            margin: 0; display: flex !important; height: 100vh !important; 
-            background: var(--bg); color: var(--text-main); overflow: hidden !important; 
+            margin: 0; 
+            display: flex !important; /* Forces side-by-side */
+            height: 100vh !important; /* Locks height to window */
+            background: var(--bg); 
+            color: var(--text-main); 
+            overflow: hidden !important; /* Prevents whole page from scrolling */
         }
 
-        /* Sidebar */
-        .sidebar { width: 320px !important; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0 !important; box-shadow: 4px 0 15px rgba(0,0,0,0.2); }
-        
-        /* Content Layout */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
-        header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
+        .sidebar { 
+            width: 320px !important; 
+            background: var(--sidebar-bg); 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            flex-shrink: 0 !important; 
+            box-shadow: 4px 0 15px rgba(0,0,0,0.2); 
+            overflow-y: auto; /* Allows sidebar internal scroll if links are long */
+        }
+
+        /* CONTENT WRAPPER LOGIC */
+        .content-wrapper { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column; 
+            scroll-behavior: smooth; 
+        }
+
+        header { 
+            background: white; padding: 25px 40px; 
+            border-bottom: 1px solid #ddd; 
+            position: sticky; top: 0; z-index: 10; 
+        }
         header h1 { margin: 0; font-size: 1.3rem; color: var(--secondary); font-weight: 700; }
 
         /* Video Section */
@@ -58,6 +82,7 @@
         th { background: var(--accent-soft); color: var(--secondary); }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
         @media (max-width: 850px) {
             body { flex-direction: column; overflow-y: auto; height: auto; }
             .sidebar { width: 100%; }
@@ -67,7 +92,11 @@
 </head>
 <body>
 
-    <nav class="sidebar"></nav>
+    <nav class="sidebar">
+        <div style="padding: 25px;">
+            <h3 style="color: white; border: none;">Course Navigation</h3>
+        </div>
+    </nav>
 
     <main class="content-wrapper" id="mainScroll">
         <header><h1>Day 2: The Vedic Path & Supremacy of Sahasranāmam</h1></header>
@@ -101,26 +130,22 @@
                     <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and lack of willingness.</li>
                 </ul>
                 <p>The Vedas provide means for fulfilling desires through the <strong>karmakāṇḍa</strong> (action) and the <strong>jñānakāṇḍa</strong> (knowledge).</p>
-                
                 <h3>The Role of the Guru</h3>
-                <p>A Guru is essential to interpret the mantras. Without guidance, the <em>Śānti Mantra</em> might seem like "blabbering." In reality, it describes how Bhagavān resides both in <span class="sanskrit">Vaikuṇṭha</span> and the 14 <span class="sanskrit">lokas</span>, remaining complete even after creation and annihilation.</p>
-                
-                <h3>The Struggle for the Right Path</h3>
-                <p>As Arjuna asked in Gītā Ch 3, why do we fail to take the right path? The culprits are <span class="sanskrit">kāma</span> (desire) and <span class="sanskrit">krodha</span> (anger). When rajasic and tamasic tendencies are heavy, they exert control over the intellect.</p>
+                <p>A Guru is essential to interpret the mantras. Without guidance, the <em>Śānti Mantra</em> might seem like "blabbering." In reality, it describes how Bhagavān resides both in <span class="sanskrit">Vaikuṇṭha</span> and the 14 <span class="sanskrit">lokas</span>.</p>
             </article>
 
             <article id="history" class="content-pane">
                 <h2>The Itihāsas as Practical Proof</h2>
                 <p>The <span class="sanskrit">ṛṣis</span> composed the <em>Purāṇas</em> and <em>Itihāsas</em> as practical demonstrations of Vedic principles.</p>
                 <ul>
-                    <li><strong>Rāmāyaṇa:</strong> Rāmacandra demonstrated honoring a father's word. Its 24,000 ślokas start with letters of the 24-syllable Gāyatrī.</li>
-                    <li><strong>Mahābhārata:</strong> The <span class="sanskrit">Pañcamo Veda</span> (Fifth Veda). It contains 125,000 ślokas.</li>
+                    <li><strong>Rāmāyaṇa:</strong> Rāmacandra demonstrated honoring a father's word.</li>
+                    <li><strong>Mahābhārata:</strong> The <span class="sanskrit">Pañcamo Veda</span> (Fifth Veda).</li>
                 </ul>
                 <div class="highlight-box">
                     The two "executive summaries" of the Mahābhārata are the <strong>Bhagavad Gītā</strong> and the <strong>Śrī Viṣṇu Sahasranāmam</strong>.
                 </div>
                 <h3>Origin at Kurukṣetra</h3>
-                <p>Yudhiṣṭhira, worried about righteousness after the war, was led by Kṛṣṇa to Bhīṣma on the bed of arrows (<span class="sanskrit">śarapañjara</span>). The Sahasranāmam originates in the 149th chapter of the <em>Anuśāsana Parva</em>.</p>
+                <p>Originates in the 149th chapter of the <em>Anuśāsana Parva</em>. Given by Bhīṣma to Yudhiṣṭhira on the bed of arrows.</p>
             </article>
 
             <article id="greatness" class="content-pane">
@@ -131,43 +156,30 @@
                     <tr><td>Mahābhārata-sāratvāt</td><td>Essence of the Fifth Veda.</td></tr>
                     <tr><td>Ṛṣibhiḥ parigītatvāt</td><td>Chanted by ancient sages.</td></tr>
                     <tr><td>Vedavyāsena grathitatvāt</td><td>Compiled by Vyāsa (Viṣṇu incarnation).</td></tr>
-                    <tr><td>Bhīṣma-parigrahāt</td><td>Delivered by a supreme devotee as his final opinion.</td></tr>
-                    <tr><td>Sarva-parigrahāt</td><td>Accepted by all scholars and even medical texts like Charaka Saṃhitā.</td></tr>
+                    <tr><td>Bhīṣma-parigrahāt</td><td>Delivered by a supreme devotee.</td></tr>
+                    <tr><td>Sarva-parigrahāt</td><td>Accepted by all scholars and Charaka Saṃhitā.</td></tr>
                     <tr><td>Gītā-samvādāt</td><td>Aligns with Kṛṣṇa's "japa-yajño'smi".</td></tr>
                 </table>
-                <p><strong>Anuśāsana vs. Pārāyaṇa:</strong> While the Gītā is an instruction requiring active practice, the Sahasranāmam is a chanting (<span class="sanskrit">pārāyaṇa</span>). Simply chanting it is a sufficient <span class="sanskrit">sādhana</span>.</p>
             </article>
 
             <article id="prelude" class="content-pane">
                 <h2>The Six Preliminary Ślokas</h2>
-                <p>Before the main text, six ślokas cover: removal of obstacles, gratitude to Vyāsa, and meditating on Viṣṇu.</p>
                 <p class="sanskrit" style="text-align:center;">śuklāmbaradharaṃ viṣṇuṃ śaśivarṇaṃ caturbhujam | prasannavadanaṃ dhyāyet sarvavighnopaśāntaye ||</p>
-                
-                <h3>Three Types of Obstacles (Vighnas)</h3>
+                <h3>Three Types of Vighnas (Obstacles)</h3>
                 <table>
                     <tr><th>Type</th><th>Source</th><th>Example</th></tr>
-                    <tr><td><strong>Ādhyātmika</strong></td><td>Internal</td><td>Laziness, lack of focus, sickness.</td></tr>
-                    <tr><td><strong>Ādhidaivika</strong></td><td>Nature</td><td>Rain, technical issues, Wi-Fi failure.</td></tr>
-                    <tr><td><strong>Ādhibhautika</strong></td><td>External</td><td>Noise, distractions from visitors/pets.</td></tr>
+                    <tr><td><strong>Ādhyātmika</strong></td><td>Internal</td><td>Laziness, sickness.</td></tr>
+                    <tr><td><strong>Ādhidaivika</strong></td><td>Nature</td><td>Rain, technical issues.</td></tr>
+                    <tr><td><strong>Ādhibhautika</strong></td><td>External</td><td>Noise, distractions.</td></tr>
                 </table>
-                <p><strong>Viṣṇu or Gaṇeśa?</strong> Both are manifestations of Parabrahman. Since <em>Viṣṇu</em> means "all-pervading," one may worship either deity through this verse.</p>
             </article>
 
             <article id="attributes" class="content-pane">
                 <h2>Divine Attributes & The Lineage</h2>
-                <h3>The Form of the Lord</h3>
-                <ul>
-                    <li><strong>Ambara:</strong> The sky; He is "clothed by the universe."</li>
-                    <li><strong>Śaśivarṇaṃ:</strong> Soothing color of the moon. In <span class="sanskrit">Kṛta Yuga</span>, He appeared as the pure white Hayagrīva.</li>
-                    <li><strong>Caturbhujam:</strong> Holding the <span class="sanskrit">śaṅkha</span>, <span class="sanskrit">cakra</span>, <span class="sanskrit">padma</span>, and <span class="sanskrit">gadā</span>.</li>
-                </ul>
-
                 <h3>Viṣvaksena: The CEO</h3>
-                <p>Bhagavān delegated universe management to Viṣvaksena. He commands an army (<span class="sanskrit">dviradavaktrādyāḥ</span>) that shatters obstacles. Seeking the support of such devotees is a powerful path.</p>
-
+                <p>Bhagavān delegated universe management to Viṣvaksena. He commands an army (<span class="sanskrit">dviradavaktrādyāḥ</span>) that shatters obstacles.</p>
                 <h3>Vyāsa Bhagavān</h3>
-                <p>Born as Kṛṣṇa Dvaipāyana on an island. Vyāsa means one who provides an exposition. <br><strong>Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.</p>
-                <div class="highlight-box">"Vyāsāya Viṣṇu rūpāya" — Vyāsa is a manifestations of Viṣṇu specifically to classify knowledge for society.</div>
+                <p>Born as Kṛṣṇa Dvaipāyana. <br><strong>Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.</p>
             </article>
 
             <article id="karma" class="content-pane">
@@ -177,18 +189,9 @@
                     <li><strong>Sañcita Karma:</strong> Total accumulation of past actions.</li>
                     <li><strong>Prārabdha Karma:</strong> The specific portion meant for this current life.</li>
                 </ul>
-                <p><strong>The Cow & Rope:</strong> While events are predetermined by karma, our <em>reaction</em>—how we choose to respond—is our freedom given through intellect.</p>
-
-                <h3>The Six Internal Enemies (Ṣaḍripu)</h3>
-                <p>Bhagavān is <strong>Jiṣṇu</strong> (Victorious) over these: <span class="sanskrit">Kāma</span> (Desire), <span class="sanskrit">Krodha</span> (Anger), <span class="sanskrit">Lobha</span> (Greed), <span class="sanskrit">Moha</span> (Delusion), <span class="sanskrit">Mada</span> (Pride), and <span class="sanskrit">Mātsarya</span> (Jealousy).</p>
-
-                <h3>Purity and Diet</h3>
-                <p>Food nourishes both body and mind. One should avoid rajasic/tamasic foods. Offer food as <span class="sanskrit">naivedya</span> to neutralize the "thoughts of the cook" and consume it as <span class="sanskrit">prasāda</span>.</p>
-
                 <div class="highlight-box">
-                    <strong>Lunar Eclipse:</strong> Chanting during an eclipse (e.g., 3:00 PM to 6:47 PM) is significantly more potent.
+                    <strong>Lunar Eclipse:</strong> Chanting during an eclipse is significantly more potent.
                 </div>
-                <p><strong>The Final Moment:</strong> Because the thoughts at death (<span class="sanskrit">antyakāla</span>) determine the next birth, constant practice of chanting ensures the thought of Bhagavān comes naturally.</p>
             </article>
         </section>
     </main>
@@ -196,18 +199,14 @@
     <script src="../course-sidebar.js"></script>
     <script>
         function switchTab(btn, paneId) {
-            // Update Tab Buttons
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Update Panels
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
             const target = document.getElementById(paneId);
-            if (target) {
-                target.classList.add('active');
-            }
+            if (target) { target.classList.add('active'); }
 
-            // Prevent tab "vanishing" by scrolling content wrapper to top
+            // This ensures only the content area resets to top
             document.getElementById('mainScroll').scrollTo({ top: 0, behavior: 'smooth' });
         }
 
