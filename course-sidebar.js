@@ -1,4 +1,3 @@
-// Add all your files here in one place!
 const courseDays = [
     { id: 1, file: 'index.html', label: 'Day 1' },
     { id: 2, file: 'Days/Day2.html', label: 'Day 2' },
@@ -9,59 +8,56 @@ async function initSidebar() {
     const sidebar = document.querySelector('.sidebar');
     if (!sidebar) return;
 
-    // 1. Set the Header
     sidebar.innerHTML = `<div class="sidebar-header">By Shri. Ramabhadran V Guruji</div><div id="dynamic-links"></div>`;
     const container = document.getElementById('dynamic-links');
 
-    // 2. Identify where we are (to handle relative paths)
     const isInsideFolder = window.location.pathname.includes('/Days/');
     const currentFileName = window.location.pathname.split("/").pop() || 'index.html';
 
     for (const day of courseDays) {
         const link = document.createElement('a');
-        
-        // Adjust paths: If we are in /Days/Day2.html, index.html is "../index.html"
-        let finalPath = day.file;
-        if (isInsideFolder && !day.file.includes('Days/')) {
-            finalPath = '../' + day.file;
-        } else if (!isInsideFolder && day.file.includes('Days/')) {
-            finalPath = day.file;
-        } else if (isInsideFolder && day.file.includes('Days/')) {
-            finalPath = day.file.split('/').pop();
+        let finalPath = '';
+
+        // FIXING THE PATH LOGIC HERE:
+        if (isInsideFolder) {
+            // If we are already in the Days folder...
+            if (day.file === 'index.html') {
+                finalPath = '../index.html'; // Go up to find home
+            } else {
+                finalPath = day.file.replace('Days/', ''); // Remove "Days/" prefix because we are already in it
+            }
+        } else {
+            // If we are on the index.html (root)
+            finalPath = day.file; // Use path as defined in the array
         }
 
         link.href = finalPath;
         link.className = 'day-link';
         
-        // Highlight active
+        // Highlight active link
         if (day.file.includes(currentFileName)) link.classList.add('active');
 
         link.innerHTML = `<strong>${day.label}</strong>`;
         container.appendChild(link);
 
-        // Optional: Auto-fetch titles from the files
-        fetchTitle(day, link);
+        // Fetch the title using the corrected path
+        fetchTitle(finalPath, day.label, link);
     }
 }
 
-async function fetchTitle(day, linkElement) {
+async function fetchTitle(fetchPath, label, linkElement) {
     try {
-        const isInsideFolder = window.location.pathname.includes('/Days/');
-        let fetchPath = day.file;
-        if (isInsideFolder && !day.file.includes('Days/')) fetchPath = '../' + day.file;
-
         const response = await fetch(fetchPath);
+        if (!response.ok) throw new Error();
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, 'text/html');
         const fullTitle = doc.querySelector('h1')?.innerText || "Module";
-        // Clean up title (remove "Day X:" prefix if it exists)
         const cleanTitle = fullTitle.includes(':') ? fullTitle.split(':').pop().trim() : fullTitle;
         
-        linkElement.innerHTML = `<strong>${day.label}:</strong><br>${cleanTitle}`;
+        linkElement.innerHTML = `<strong>${label}:</strong><br>${cleanTitle}`;
     } catch (e) {
-        linkElement.innerHTML = `<strong>${day.label}</strong>`;
+        linkElement.innerHTML = `<strong>${label}</strong>`;
     }
 }
 
-// Run when page loads
 window.addEventListener('DOMContentLoaded', initSidebar);
