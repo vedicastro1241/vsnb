@@ -20,7 +20,7 @@
         /* Sidebar */
         .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
         .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
-        #dynamic-sidebar { flex-grow: 1; overflow-y: auto; }
+        #dynamic-links { flex-grow: 1; overflow-y: auto; }
         .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
         .day-link:hover { background: #2c3e50; color: white; }
         .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
@@ -75,9 +75,7 @@
 <body>
 
     <nav class="sidebar">
-        <div class="sidebar-header">By Shri. Ramabhadran V Guruji</div>
-        <div id="dynamic-sidebar"></div>
-    </nav>
+        </nav>
 
     <main class="content-wrapper">
         <header><h1>Day 3: Echoes of Kurukṣetra</h1></header>
@@ -197,49 +195,6 @@
     </main>
 
     <script>
-        const courseDays = [
-            { file: 'index.html', label: 'Day 1' },
-            { file: 'Days/Day2.html', label: 'Day 2' },
-            { file: 'Days/Day3.html', label: 'Day 3' }
-        ];
-
-        async function buildSidebar() {
-            const container = document.getElementById('dynamic-sidebar');
-            const isInSubfolder = window.location.pathname.includes('/Days/');
-            const currentFile = window.location.pathname.split("/").pop() || 'index.html';
-
-            for (const day of courseDays) {
-                const link = document.createElement('a');
-                let finalPath = day.file;
-                
-                if (isInSubfolder) {
-                    if (day.file === 'index.html') finalPath = '../index.html';
-                    else finalPath = day.file.replace('Days/', '');
-                }
-
-                link.href = finalPath;
-                link.className = 'day-link';
-                const dayFileName = day.file.split('/').pop();
-                if (dayFileName === currentFile) link.classList.add('active');
-
-                link.innerHTML = `<strong>${day.label}</strong><br><small>Loading...</small>`;
-                container.appendChild(link);
-
-                let fetchPath = day.file;
-                if (isInSubfolder && day.file === 'index.html') fetchPath = '../index.html';
-
-                try {
-                    const response = await fetch(fetchPath);
-                    const text = await response.text();
-                    const doc = new DOMParser().parseFromString(text, 'text/html');
-                    const title = doc.querySelector('h1')?.innerText.split(':').pop() || "Module";
-                    link.innerHTML = `<strong>${day.label}:</strong><br>${title}`;
-                } catch (e) {
-                    link.innerHTML = `<strong>${day.label}</strong><br>View Module`;
-                }
-            }
-        }
-
         function switchTab(btn, paneId) {
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -265,8 +220,8 @@
                 chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
             }
         }
-
-        buildSidebar();
     </script>
+
+    <script src="../course-sidebar.js"></script>
 </body>
 </html>
