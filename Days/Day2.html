@@ -43,7 +43,7 @@
 
         /* Tabs Navigation */
         .tabs-nav { max-width: 950px; margin: 0 auto; display: flex; background: #eee; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); flex-wrap: wrap; width: 90%; }
-        .tab-btn { flex: 1; min-width: 120px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.85rem; }
+        .tab-btn { flex: 1; min-width: 130px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.8rem; transition: 0.2s; }
         .tab-btn.active { background: var(--primary); color: white; }
 
         /* Tab Content Panel */
@@ -51,15 +51,15 @@
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
-        /* Readable Typography */
-        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; }
-        h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px lazy #eee; }
-        p { line-height: 1.8; font-size: 1.05rem; }
+        /* Readable Elements */
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+        h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; font-family: 'Georgia', serif; background: var(--accent-soft); padding: 2px 5px; border-radius: 4px; }
-        
         .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        ul, ol { padding-left: 20px; }
-        li { margin-bottom: 10px; line-height: 1.6; }
+        
+        ul, ol { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 12px; line-height: 1.6; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -67,6 +67,7 @@
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; } 
             .tab-panel { padding: 20px; }
+            .tab-btn { min-width: 100px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -94,92 +95,107 @@
         </div>
 
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 'part1')">Vedic Structure</button>
+            <button class="tab-btn active" onclick="switchTab(this, 'part1')">Vedic Theory</button>
             <button class="tab-btn" onclick="switchTab(this, 'part2')">The Stotra's Birth</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part3')">Six Reasons</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part4')">Divine Form</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part5')">Internal Conquest</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part6')">Karma & Purity</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part3')">Greatness & Form</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part4')">Divine Lineage</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part5')">Internal Victory</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part6')">Path & Purity</button>
         </nav>
 
         <section class="tab-panel">
             <article id="part1" class="content-pane active">
-                <h2>The Three Guṇas & Vedic Foundation</h2>
-                <p>The discourse begins with the three <span class="sanskrit">guṇas</span> (qualities) inherent in every individual:</p>
+                <h2>The Three Guṇas & Structure of the Vedas</h2>
+                <p>The discourse begins by explaining the three types of <span class="sanskrit">guṇas</span> (qualities) residing in every individual:</p>
                 <ul>
                     <li><strong>Sattvaguṇa:</strong> A calm, peaceful, and happy mind.</li>
-                    <li><strong>Rajoguṇa:</strong> Restlessness and an unending drive for action.</li>
-                    <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and lack of will.</li>
+                    <li><strong>Rajoguṇa:</strong> Restlessness and an unending desire for action.</li>
+                    <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and a lack of willingness to perform.</li>
                 </ul>
+                <p>The Vedas provide means for fulfilling desires arising from these qualities. They are classified into <span class="sanskrit">saṃhitā, brāhmaṇas, āraṇyakas, and upaniṣads</span>, divided into <strong>Karmakāṇḍa</strong> (action) and <strong>Jñānakāṇḍa</strong> (contemplation).</p>
+                
                 <div class="highlight-box">
-                    <strong>Vedic Classification:</strong> The Vedas (<span class="sanskrit">saṃhitā, brāhmaṇas, āraṇyakas, upaniṣads</span>) are divided into <strong>karmakāṇḍa</strong> (action) and <strong>jñānakāṇḍa</strong> (contemplation). They are indirect, making a <strong>Guru</strong> essential to prevent literal "blabbering" translations.
+                    <strong>The Role of the Guru:</strong> The Vedas are indirect. A Guru is essential to interpret mantras like the <span class="sanskrit">Śānti Mantra</span>, which describes how Bhagavān resides both in Vaikuṇṭha and throughout the 14 <span class="sanskrit">lokas</span>.
                 </div>
-                <h3>Practical Proof: The Itihāsas</h3>
-                <p>Since the Vedas are theoretical, the <span class="sanskrit">ṛṣis</span> gave us <strong>Purāṇas and Itihāsas</strong> as "practical demonstrations." For instance, <strong>Rāmacandra</strong> demonstrated the Vedic command to worship one's father as a god by entering the forest for 14 years.</p>
+
+                <h3>Itihāsas: Practical Proof</h3>
+                <p>Common people may not understand Vedic "theorems." Thus, <span class="sanskrit">ṛṣis</span> composed the <strong>Purāṇas and Itihāsas</strong> as practical demonstrations.</p>
+                <ul>
+                    <li><strong>Example of Rāmacandra:</strong> Practically demonstrated worshipping one's father as a god by entering the forest for 14 years.</li>
+                    <li><strong>Rāmāyaṇa & Gāyatrī:</strong> The 24,000 ślokas are structured around the 24-syllable Gāyatrī mantra.</li>
+                </ul>
             </article>
 
             <article id="part2" class="content-pane">
-                <h2>Conflict of Dharma & The Stotra's Origin</h2>
-                <p>The <strong>Mahābhārata</strong> is the <span class="sanskrit">Pañcamo Veda</span> (Fifth Veda). Due to its massive size (125,000 ślokas), it provides two "executive summaries": the <strong>Bhagavad Gītā</strong> and the <strong>Śrī Viṣṇu Sahasranāmam</strong>.</p>
+                <h2>The Mahābhārata & The Birth of the Sahasranāmam</h2>
+                <p>The Mahābhārata is the <span class="sanskrit">Pañcamo Veda</span> (Fifth Veda). It contains 125,000 ślokas—too massive for Kaliyuga. Thus, we have two "executive summaries": the <strong>Bhagavad Gītā</strong> and the <strong>Śrī Viṣṇu Sahasranāmam</strong>.</p>
+                
                 <div class="highlight-box">
-                    <strong>The Context:</strong> After the war, Yudhiṣṭhira sought peace for his troubled mind. Kṛṣṇa led him to <strong>Bhīṣma</strong> on his bed of arrows (<span class="sanskrit">śarapañjara</span>). This dialogue in the <em>Anuśāsana Parva</em> (Chapter 149) became the Sahasranāmam.
+                    <strong>Origin:</strong> Found in the 149th chapter of the <span class="sanskrit">Anuśāsana Parva</span>. After the war, Yudhiṣṭhira was led by Kṛṣṇa to <strong>Bhīṣma</strong>, who was lying on the bed of arrows (<span class="sanskrit">śarapañjara</span>). Bhīṣma delivered the names in the direct presence of Śrī Kṛṣṇa.
                 </div>
-                <p>Crucially, the Sahasranāmam was given by a devotee (Bhīṣma) to a seeker (Yudhiṣṭhira) in the direct presence of <strong>Śrī Kṛṣṇa</strong>, who endorsed every name.</p>
+
+                <h3>Gītā vs. Sahasranāmam</h3>
+                <ul>
+                    <li><strong>Anuśāsana (Instruction):</strong> The Gītā requires the follower to actively practice complex paths.</li>
+                    <li><strong>Pārāyaṇa (Chanting):</strong> The Sahasranāmam is a "shade better" for common practitioners; simply chanting it regularly is a sufficient <span class="sanskrit">sādhana</span>.</li>
+                </ul>
             </article>
 
             <article id="part3" class="content-pane">
-                <h2>Why the Sahasranāmam is Supreme</h2>
-                <p>The speaker notes it is a "shade better" for common practitioners than the Gītā. While the Gītā is <span class="sanskrit">anuśāsana</span> (instruction requiring complex practice), the Sahasranāmam is <span class="sanskrit">pārāyaṇa</span> (chanting), which is a sufficient <span class="sanskrit">sādhana</span> in itself.</p>
-                <h3>Six Reasons (by Ādi Śaṅkarācārya)</h3>
+                <h2>Six Reasons for Greatness & The Lord's Form</h2>
+                <p>Ādi Śaṅkarācārya cites six reasons for the text's supremacy:</p>
                 <ol>
                     <li><strong>Mahābhārata-sāratvāt:</strong> Essence of the Fifth Veda.</li>
-                    <li><strong>Ṛṣibhiḥ parigītatvāt:</strong> Chanted by ancient sages across ages.</li>
-                    <li><strong>Vedavyāsena grathitatvāt:</strong> Compiled by Vyāsa (a Viṣṇu incarnation).</li>
-                    <li><strong>Bhīṣma-parigrahāt:</strong> The "ultimate opinion" of a supreme devotee.</li>
-                    <li><strong>Sarva-parigrahāt:</strong> Accepted by all schools and even the <em>Charaka Saṃhitā</em>.</li>
-                    <li><strong>Gītā-samvādāt:</strong> Harmonious with Kṛṣṇa’s "Japa-yajña."</li>
+                    <li><strong>Ṛṣibhiḥ parigītatvāt:</strong> Chanted by ancient sages.</li>
+                    <li><strong>Vedavyāsena grathitatvāt:</strong> Compiled by Vyāsa (Viṣṇu incarnation).</li>
+                    <li><strong>Bhīṣma-parigrahāt:</strong> Final "ultimate opinion" of a supreme devotee.</li>
+                    <li><strong>Sarva-parigrahāt:</strong> Accepted by all schools of thought.</li>
+                    <li><strong>Gītā-samvādāt:</strong> Harmony with Kṛṣṇa's words.</li>
                 </ol>
+
+                <div class="highlight-box">
+                    <strong>The First Śloka Analysis:</strong> One meditates on Viṣṇu ("The All-Pervading") wearing white (<span class="sanskrit">śuklāmbara</span>), moon-colored (<span class="sanskrit">śaśivarṇaṃ</span>), with four arms and a smiling face to pacify <strong>Vighnas</strong> (Internal, Natural, and External obstacles).
+                </div>
             </article>
 
             <article id="part4" class="content-pane">
-                <h2>Meditation on the Divine Form</h2>
-                <p>Analysis of the first śloka: <span class="sanskrit">śuklāmbaradharaṃ viṣṇuṃ śaśivarṇaṃ caturbhujam...</span></p>
-                <ul>
-                    <li><strong>Viṣṇu:</strong> The All-Pervading.</li>
-                    <li><strong>Śuklāmbaradharaṃ:</strong> Clothed in white, or "clothed by the sky" (universe).</li>
-                    <li><strong>Śaśivarṇaṃ:</strong> The soothing color of the moon.</li>
-                    <li><strong>Prasannavadanaṃ:</strong> A smiling face that removes internal distress.</li>
-                </ul>
+                <h2>Viṣvaksena, Vyāsa, and the Lineage</h2>
+                <h3>Viṣvaksena: The "CEO"</h3>
+                <p>Bhagavān delegated universe management to <strong>Viṣvaksena</strong>. Praying to this supreme devotee (<span class="sanskrit">bhāgavata</span>) is a powerful way to shatter obstacles, as Bhagavān considers His devotees even greater than Himself.</p>
+
+                <h3>Vyāsa Bhagavān</h3>
+                <p>Born as <strong>Kṛṣṇa Dvaipāyana</strong> on an island (<span class="sanskrit">dvīpa</span>) to Satyavatī and Parāśara. He is an incarnation of Viṣṇu manifesting in Dvāpara Yuga to classify the Vedas.</p>
                 <div class="highlight-box">
-                    <strong>Removing Obstacles (Vighnas):</strong> Chanting pacifies three types: 
-                    <strong>Ādhyātmika</strong> (internal laziness), <strong>Ādhidaivika</strong> (nature/tech failures), and <strong>Ādhibhautika</strong> (distractions from others).
+                    <strong>The Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.
                 </div>
-                <h3>The Roles of Viṣvaksena & Vyāsa</h3>
-                <p><strong>Viṣvaksena</strong> is the "CEO" managing the universe. <strong>Vyāsa</strong> (Kṛṣṇa Dvaipāyana) is the pure compiler from an illustrious lineage (Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka).</p>
             </article>
 
             <article id="part5" class="content-pane">
-                <h2>The Ṣaḍripu and the Nature of Bliss</h2>
-                <p>Bhagavān is <span class="sanskrit">Jiṣṇu</span> (The Victorious), having conquered the six internal enemies:</p>
+                <h2>Conquering the Ṣaḍripu</h2>
+                <p>Bhagavān is <span class="sanskrit">Jiṣṇu</span> (The Victorious), having conquered the six internal enemies, which are more dangerous than external demons:</p>
+                <ul>
+                    <li><strong>Kāma</strong> (Desire), <strong>Krodha</strong> (Anger), <strong>Lobha</strong> (Greed), <strong>Moha</strong> (Delusion), <strong>Mada</strong> (Pride), and <strong>Mātsarya</strong> (Jealousy).</li>
+                </ul>
+
                 <div class="highlight-box">
-                    <strong>The Ṣaḍripu:</strong> 1. Kāma (Desire), 2. Krodha (Anger), 3. Lobha (Greed), 4. Moha (Delusion), 5. Mada (Pride), 6. Mātsarya (Jealousy).
+                    <strong>The Nature of Bliss:</strong> The <span class="sanskrit">Ātmā</span> is inherently <strong>ānanda</strong> (blissful). Happiness is not in external objects; those objects merely temporarily remove the "clouds" of desire covering the sun-like bliss of the soul.
                 </div>
-                <h3>Ātmā vs. Body</h3>
-                <p>The body undergoes <span class="sanskrit">Vikāra</span> (change), but the <strong>Ātmā</strong> is pure <strong>Ānanda</strong> (bliss). Desires are like clouds covering the sun; remove the desire, and the natural bliss of the soul shines through.</p>
-                <p><strong>Practice:</strong> To remember Bhagavān at the <span class="sanskrit">Antyakāla</span> (final moment), one must practice constant remembrance throughout life.</p>
+
+                <h3>The Final Moment (Antyakāla)</h3>
+                <p>The thoughts one has at the time of leaving the body determine the next birth. Constant practice of chanting ensures Bhagavān is remembered naturally at the end.</p>
             </article>
 
             <article id="part6" class="content-pane">
-                <h2>Karma, Dharma, and Sāttvika Living</h2>
-                <p><strong>Karma:</strong> We face <span class="sanskrit">Prārabdha Karma</span> (a subset of our total <span class="sanskrit">Sañcita</span> store). While events are predetermined (like a cow on a rope), our <strong>reaction</strong> is our free choice.</p>
-                <h3>Purity through Food & Practice</h3>
-                <ul>
-                    <li><strong>Subtle Influence:</strong> Food affects the mind. Chanting while cooking and offering <span class="sanskrit">naivedya</span> turns food into <span class="sanskrit">prasāda</span>.</li>
-                    <li><strong>Eclipse Potency:</strong> Chanting during a Lunar Eclipse (e.g., 3:00 PM to 6:47 PM) is exponentially more effective for purification.</li>
-                </ul>
+                <h2>Karma, Free Will, and Purity</h2>
+                <p><strong>Karma Types:</strong> <span class="sanskrit">Sañcita</span> (total accumulation) and <span class="sanskrit">Prārabdha</span> (current subset to be exhausted). While events are predetermined, <strong>how we react</strong> is our free will.</p>
+
+                <h3>The Influence of Food</h3>
+                <p>Spiritual progress begins with food control. The subtle part of food affects the mind. One should prefer a <strong>Sāttvika diet</strong>, chant while cooking, and offer food as <span class="sanskrit">naivedya</span> to turn it into <span class="sanskrit">prasāda</span>.</p>
+
                 <div class="highlight-box">
-                    <strong>Conclusion:</strong> In Kaliyuga, we cannot change the "road" (environment), but we can wear "shoes" (chanting) to insulate ourselves from suffering.
+                    <strong>Chanting during Lunar Eclipse:</strong> Significantly more potent. During the eclipse (3:00 PM to 6:47 PM), continuous chanting acts as "insulation" against the <span class="sanskrit">Tamasic</span> influences of the world.
                 </div>
+                <p><em>The group will soon perform a physical chanting at the Wagah Border and continue from Kurukṣetra.</em></p>
             </article>
         </section>
     </main>
@@ -190,7 +206,9 @@
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(paneId).classList.add('active');
             btn.classList.add('active');
-            if(window.innerWidth < 768) { document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth'}); }
+            if(window.innerWidth < 768) {
+                document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth'});
+            }
         }
 
         function toggleVideo() {
@@ -203,7 +221,9 @@
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼';
                 playIcon.innerHTML = '▶';
-                const src = iframe.src; iframe.src = ''; iframe.src = src;
+                const src = iframe.src;
+                iframe.src = '';
+                iframe.src = src;
             } else {
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲';
