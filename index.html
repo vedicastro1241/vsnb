@@ -15,45 +15,142 @@
             --accent-soft: #fcf3ea;
         }
 
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
+        /* Essential Layout Fix: Prevent body from collapsing */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            display: flex; 
+            height: 100vh; 
+            width: 100vw;
+            background: var(--bg); 
+            color: var(--text-main); 
+            overflow: hidden; 
+        }
 
         /* Sidebar Container */
-        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
-        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
+        .sidebar { 
+            width: 320px; 
+            background: var(--sidebar-bg); 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            flex-shrink: 0; 
+            box-shadow: 4px 0 15px rgba(0,0,0,0.2); 
+            z-index: 20;
+        }
+
+        .sidebar-header { 
+            padding: 30px 20px; 
+            background: #111; 
+            text-align: center; 
+            font-weight: 800; 
+            border-bottom: 1px solid #333; 
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
         
-        /* This ID must match your JS document.getElementById() call */
-        #dynamic-links { flex-grow: 1; overflow-y: auto; }
+        #dynamic-links { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
         
-        /* Styles for links injected by JS */
-        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
-        .day-link:hover { background: #2c3e50; color: white; }
-        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
+        /* Sidebar Link Styling (Ensuring consistency with Day pages) */
+        .nav-item { 
+            display: block; 
+            padding: 18px 25px; 
+            color: rgba(255,255,255,0.6); 
+            text-decoration: none; 
+            border-left: 4px solid transparent; 
+            transition: all 0.3s ease; 
+            border-bottom: 1px solid rgba(255,255,255,0.03); 
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-item.active { background: rgba(230, 126, 34, 0.15); color: var(--primary); border-left-color: var(--primary); }
 
         /* Content Area */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
-        header { background: white; padding: 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
-        header h1 { margin: 0; font-size: 1.8rem; color: var(--secondary); font-weight: 700; }
+        .content-wrapper { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column; 
+            position: relative;
+        }
 
-        .main-card { max-width: 950px; margin: 40px auto; background: var(--card-bg); padding: 50px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); width: 90%; }
+        header { 
+            background: white; 
+            padding: 25px 40px; 
+            border-bottom: 1px solid #ddd; 
+            position: sticky; 
+            top: 0; 
+            z-index: 10; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        header h1 { margin: 0; font-size: 1.5rem; color: var(--secondary); font-weight: 700; }
+
+        .main-card { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            background: var(--card-bg); 
+            padding: 50px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+            width: 90%; 
+            box-sizing: border-box;
+        }
         
-        h2 { color: var(--primary); margin-top: 0; }
-        p { line-height: 1.8; font-size: 1.1rem; }
+        h2 { color: var(--primary); margin-top: 0; font-size: 1.8rem; border-bottom: 2px solid var(--accent-soft); padding-bottom: 15px; margin-bottom: 25px; }
+        p { line-height: 1.8; font-size: 1.1rem; color: var(--text-main); }
         
-        /* Welcome Image Placeholder */
-        .welcome-img { 
+        /* Image Section */
+        .welcome-hero { 
             width: 100%; 
-            height: 350px; 
-            background: #eee url('https://via.placeholder.com/800x400?text=Vishnu+Sahasranamam') no-repeat center; 
-            background-size: cover;
+            height: 300px; 
+            background: var(--secondary); 
             border-radius: 8px; 
-            margin-bottom: 30px; 
+            margin-bottom: 35px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            font-style: italic;
+            position: relative;
+        }
+        
+        /* Optional overlay effect for the image placeholder */
+        .welcome-hero::after {
+            content: "Vishnu Sahasranama Discourse";
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0.3;
+        }
+
+        .info-box {
+            background: var(--accent-soft); 
+            padding: 30px; 
+            border-radius: 8px; 
+            border-left: 5px solid var(--primary); 
+            margin-top: 35px;
+        }
+        .info-box strong { color: var(--secondary); font-size: 1.2rem; display: block; margin-bottom: 10px; }
+
+        /* Responsive Fixes */
+        @media (max-width: 900px) {
+            .sidebar { width: 260px; }
+            .main-card { padding: 30px; }
         }
 
         @media (max-width: 768px) { 
-            body { flex-direction: column; } 
-            .sidebar { width: 100%; height: auto; } 
-            #dynamic-links { display: flex; overflow-x: auto; }
-            .day-link { white-space: nowrap; padding: 15px 20px; }
+            body { flex-direction: column; overflow-y: auto; height: auto; } 
+            .sidebar { width: 100%; height: auto; position: relative; box-shadow: none; } 
+            .content-wrapper { height: auto; overflow: visible; }
+            header { position: relative; top: 0; padding: 20px; text-align: center; }
+            #dynamic-links { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .nav-item { white-space: nowrap; padding: 15px 20px; border-bottom: none; border-left: none; border-top: 3px solid transparent; }
+            .nav-item.active { border-top-color: var(--primary); border-left-color: transparent; }
         }
     </style>
 </head>
@@ -61,27 +158,37 @@
 
     <nav class="sidebar">
         <div class="sidebar-header">VISVAS PORTAL</div>
-        <div id="dynamic-links"></div>
+        <div id="dynamic-links">
+            </div>
     </nav>
 
     <main class="content-wrapper">
         <header>
-            <h1>Welcome to the Vishnu Sahasranama Discourse</h1>
+            <h1>Portal Dashboard</h1>
         </header>
         
         <section class="main-card">
-            <div class="welcome-img"></div>
+            <div class="welcome-hero">
+                </div>
             
             <h2>The Spiritual Journey</h2>
-            <p>Welcome to the digital archive of the <strong>Vishnu Sahasranama</strong> discourse by Shri. Ramabhadran V Guruji. This portal is designed to help you navigate through the daily sessions, exploring the deep technical, spiritual, and philosophical frameworks of the thousand names.</p>
+            <p>Welcome to the digital archive of the <strong>Vishnu Sahasranama</strong> discourse by Shri. Ramabhadran V Guruji. This portal is designed to provide a structured path through the daily sessions, exploring the linguistic precision, spiritual depth, and philosophical frameworks of the Thousand Names.</p>
             
-            <div style="background: var(--accent-soft); padding: 25px; border-radius: 8px; border-left: 5px solid var(--primary); margin-top: 30px;">
-                <strong style="color: var(--secondary); font-size: 1.2rem;">How to use this portal:</strong>
-                <p style="margin-top: 10px; margin-bottom: 0;">Use the sidebar on the left to select a specific day. Each page contains the video discourse, structured notes, and specific verse references covered in that session.</p>
+            <div class="info-box">
+                <strong>How to navigate:</strong>
+                <p style="margin: 0;">Use the sidebar to the left (or the top slider on mobile) to select a discourse day. Each page is equipped with the video session, segmented notes, and technical references for the ślokas covered.</p>
             </div>
         </section>
     </main>
 
     <script src="./course-sidebar.js"></script>
+    <script>
+        // Optional: If the landing page needs to highlight "Home" or clear active states
+        window.onload = () => {
+            if (typeof initSidebar === "function") {
+                initSidebar("Home"); 
+            }
+        };
+    </script>
 </body>
 </html>
