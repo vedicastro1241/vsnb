@@ -19,11 +19,7 @@
 
         /* Sidebar */
         .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
-        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; }
-        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
-        .day-link:hover { background: #2c3e50; color: white; }
-        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
 
         /* Content Area */
         .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
@@ -75,7 +71,8 @@
 <body>
 
     <nav class="sidebar">
-        </nav>
+        <div id="dynamic-links"></div>
+    </nav>
 
     <main class="content-wrapper">
         <header><h1>Day 2: The Vedic Path to the Sahasranāmam</h1></header>
@@ -87,7 +84,7 @@
             </button>
             <div id="videoCollapsible" class="video-content">
                 <div class="video-box">
-                    <iframe id="ytPlayer" src="https://www.youtube.com/embed/5GrhAx-6Tqw" allowfullscreen></iframe>
+                    <iframe id="ytPlayer" src="" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -110,18 +107,11 @@
                     <li><strong>Rajoguṇa:</strong> Restlessness and an unending desire for action.</li>
                     <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and a lack of willingness to perform.</li>
                 </ul>
-                <p>The Vedas provide means for fulfilling desires arising from these qualities. They are classified into <span class="sanskrit">saṃhitā, brāhmaṇas, āraṇyakas, and upaniṣads</span>, divided into <strong>Karmakāṇḍa</strong> (action) and <strong>Jñānakāṇḍa</strong> (contemplation).</p>
+                <p>The Vedas provide means for fulfilling desires arising from these qualities. They are classified into <span class="sanskrit">saṃhitā, brāhmaṇas, āraṇyakas, and upaniṣads</span>, divided into <strong>Karmakāṇḍa</strong> (action) and <strong>Jñānakāṇḍa</strong> (contemplation). </p>
                 
                 <div class="highlight-box">
                     <strong>The Role of the Guru:</strong> The Vedas are indirect. A Guru is essential to interpret mantras like the <span class="sanskrit">Śānti Mantra</span>, which describes how Bhagavān resides both in Vaikuṇṭha and throughout the 14 <span class="sanskrit">lokas</span>.
                 </div>
-
-                <h3>Itihāsas: Practical Proof</h3>
-                <p>Common people may not understand Vedic "theorems." Thus, <span class="sanskrit">ṛṣis</span> composed the <strong>Purāṇas and Itihāsas</strong> as practical demonstrations.</p>
-                <ul>
-                    <li><strong>Example of Rāmacandra:</strong> Practically demonstrated worshipping one's father as a god by entering the forest for 14 years.</li>
-                    <li><strong>Rāmāyaṇa & Gāyatrī:</strong> The 24,000 ślokas are structured around the 24-syllable Gāyatrī mantra.</li>
-                </ul>
             </article>
 
             <article id="part2" class="content-pane">
@@ -131,12 +121,6 @@
                 <div class="highlight-box">
                     <strong>Origin:</strong> Found in the 149th chapter of the <span class="sanskrit">Anuśāsana Parva</span>. After the war, Yudhiṣṭhira was led by Kṛṣṇa to <strong>Bhīṣma</strong>, who was lying on the bed of arrows (<span class="sanskrit">śarapañjara</span>). Bhīṣma delivered the names in the direct presence of Śrī Kṛṣṇa.
                 </div>
-
-                <h3>Gītā vs. Sahasranāmam</h3>
-                <ul>
-                    <li><strong>Anuśāsana (Instruction):</strong> The Gītā requires the follower to actively practice complex paths.</li>
-                    <li><strong>Pārāyaṇa (Chanting):</strong> The Sahasranāmam is a "shade better" for common practitioners; simply chanting it regularly is a sufficient <span class="sanskrit">sādhana</span>.</li>
-                </ul>
             </article>
 
             <article id="part3" class="content-pane">
@@ -150,51 +134,28 @@
                     <li><strong>Sarva-parigrahāt:</strong> Accepted by all schools of thought.</li>
                     <li><strong>Gītā-samvādāt:</strong> Harmony with Kṛṣṇa's words.</li>
                 </ol>
-
-                <div class="highlight-box">
-                    <strong>The First Śloka Analysis:</strong> One meditates on Viṣṇu ("The All-Pervading") wearing white (<span class="sanskrit">śuklāmbara</span>), moon-colored (<span class="sanskrit">śaśivarṇaṃ</span>), with four arms and a smiling face to pacify <strong>Vighnas</strong>.
-                </div>
             </article>
 
             <article id="part4" class="content-pane">
                 <h2>Viṣvaksena, Vyāsa, and the Lineage</h2>
-                <h3>Viṣvaksena: The "CEO"</h3>
-                <p>Bhagavān delegated universe management to <strong>Viṣvaksena</strong>. Praying to this supreme devotee (<span class="sanskrit">bhāgavata</span>) is a powerful way to shatter obstacles.</p>
-
-                <h3>Vyāsa Bhagavān</h3>
-                <p>Born as <strong>Kṛṣṇa Dvaipāyana</strong>. He is an incarnation of Viṣṇu manifesting in Dvāpara Yuga to classify the Vedas.</p>
-                <div class="highlight-box">
-                    <strong>The Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.
-                </div>
+                <p><strong>The Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka. </p>
             </article>
 
             <article id="part5" class="content-pane">
                 <h2>Conquering the Ṣaḍripu</h2>
-                <p>Bhagavān is <span class="sanskrit">Jiṣṇu</span> (The Victorious), having conquered the six internal enemies:</p>
-                <ul>
-                    <li><strong>Kāma</strong> (Desire), <strong>Krodha</strong> (Anger), <strong>Lobha</strong> (Greed), <strong>Moha</strong> (Delusion), <strong>Mada</strong> (Pride), and <strong>Mātsarya</strong> (Jealousy).</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <strong>The Nature of Bliss:</strong> The <span class="sanskrit">Ātmā</span> is inherently <strong>ānanda</strong> (blissful). Objects merely temporarily remove the "clouds" of desire covering the soul.
-                </div>
+                <p>Bhagavān is <span class="sanskrit">Jiṣṇu</span> (The Victorious), having conquered the six internal enemies: <strong>Kāma, Krodha, Lobha, Moha, Mada, and Mātsarya.</strong></p>
             </article>
 
             <article id="part6" class="content-pane">
                 <h2>Karma, Free Will, and Purity</h2>
-                <p><strong>Karma Types:</strong> <span class="sanskrit">Sañcita</span> (accumulation) and <span class="sanskrit">Prārabdha</span> (exhaustion). How we react is our free will.</p>
-
-                <h3>The Influence of Food</h3>
-                <p>Spiritual progress begins with food control. Subtle parts of food affect the mind. Prefer a <strong>Sāttvika diet</strong> and offer food as <span class="sanskrit">naivedya</span>.</p>
-
-                <div class="highlight-box">
-                    <strong>Chanting during Lunar Eclipse:</strong> Significantly more potent. continuous chanting acts as "insulation" against <span class="sanskrit">Tamasic</span> influences.
-                </div>
+                <p><strong>Karma Types:</strong> <span class="sanskrit">Sañcita</span> (accumulation) and <span class="sanskrit">Prārabdha</span> (exhaustion). </p>
+                <p>Spiritual progress begins with food control. Prefer a <strong>Sāttvika diet</strong> and offer food as <span class="sanskrit">naivedya</span>.</p>
             </article>
         </section>
     </main>
 
     <script>
+        // TAB LOGIC
         function switchTab(btn, paneId) {
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -205,6 +166,7 @@
             }
         }
 
+        // VIDEO TOGGLE LOGIC (DYNAMICS)
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
             const chevron = document.getElementById('toggleChevron');
@@ -214,8 +176,14 @@
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼'; playIcon.innerHTML = '▶';
-                const src = iframe.src; iframe.src = ''; iframe.src = src;
+                // Stop the video when closing
+                iframe.src = ""; 
             } else {
+                // Fetch the ID from the global variable defined in course-sidebar.js
+                // or just let the sidebar script handle it during load.
+                if (typeof currentVideoId !== 'undefined') {
+                    iframe.src = `https://www.youtube.com/embed/${currentVideoId}`;
+                }
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
             }
