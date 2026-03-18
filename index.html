@@ -20,7 +20,9 @@
         /* Sidebar Container */
         .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
         .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
-        #dynamic-sidebar { flex-grow: 1; overflow-y: auto; }
+        
+        /* This ID must match your JS document.getElementById() call */
+        #dynamic-links { flex-grow: 1; overflow-y: auto; }
         
         /* Styles for links injected by JS */
         .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
@@ -36,11 +38,22 @@
         
         h2 { color: var(--primary); margin-top: 0; }
         p { line-height: 1.8; font-size: 1.1rem; }
-        .welcome-img { width: 100%; height: 300px; background: #eee; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; color: #999; }
+        
+        /* Welcome Image Placeholder */
+        .welcome-img { 
+            width: 100%; 
+            height: 350px; 
+            background: #eee url('https://via.placeholder.com/800x400?text=Vishnu+Sahasranamam') no-repeat center; 
+            background-size: cover;
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+        }
 
         @media (max-width: 768px) { 
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; } 
+            #dynamic-links { display: flex; overflow-x: auto; }
+            .day-link { white-space: nowrap; padding: 15px 20px; }
         }
     </style>
 </head>
@@ -48,8 +61,7 @@
 
     <nav class="sidebar">
         <div class="sidebar-header">VISVAS PORTAL</div>
-        <div id="dynamic-sidebar">
-            </div>
+        <div id="dynamic-links"></div>
     </nav>
 
     <main class="content-wrapper">
@@ -58,15 +70,14 @@
         </header>
         
         <section class="main-card">
-            <div class="welcome-img">
-                
-            </div>
-            <h2>Discourse Journey</h2>
+            <div class="welcome-img"></div>
+            
+            <h2>The Spiritual Journey</h2>
             <p>Welcome to the digital archive of the <strong>Vishnu Sahasranama</strong> discourse by Shri. Ramabhadran V Guruji. This portal is designed to help you navigate through the daily sessions, exploring the deep technical, spiritual, and philosophical frameworks of the thousand names.</p>
             
-            <div style="background: var(--accent-soft); padding: 25px; border-radius: 8px; border-left: 5px solid var(--primary);">
-                <strong>How to use this portal:</strong>
-                <p style="margin-bottom: 0;">Select a "Day" from the sidebar on the left to view the video discourse, detailed notes, and spiritual remedies associated with that session.</p>
+            <div style="background: var(--accent-soft); padding: 25px; border-radius: 8px; border-left: 5px solid var(--primary); margin-top: 30px;">
+                <strong style="color: var(--secondary); font-size: 1.2rem;">How to use this portal:</strong>
+                <p style="margin-top: 10px; margin-bottom: 0;">Use the sidebar on the left to select a specific day. Each page contains the video discourse, structured notes, and specific verse references covered in that session.</p>
             </div>
         </section>
     </main>
