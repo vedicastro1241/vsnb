@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - The Divine Vision</title>
+    <title>Day 5 - The Divine Architecture of the Vishnu Sahasranama</title>
     <style>
         :root { 
             --primary: #e67e22; 
@@ -15,57 +15,80 @@
             --accent-soft: #fcf3ea;
         }
 
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
 
-        /* Sidebar Fix */
-        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); z-index: 1000; }
-        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; }
+        /* Sidebar - Exact match to Day 4 */
+        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; }
+        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
+        .day-link:hover { background: #2c3e50; color: white; }
+        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
 
         /* Content Area */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
-        header { background: white; padding: 30px 40px; border-bottom: 1px solid #ddd; }
-        
-        /* Video */
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
+        header { background: white; padding: 30px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        header h1 { margin: 0; font-size: 1.6rem; color: var(--secondary); font-weight: 700; }
+
+        /* Video Section */
         .video-container { width: 90%; max-width: 950px; margin: 25px auto; }
-        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; }
-        .video-content { max-height: 0; overflow: hidden; transition: 0.5s; background: #000; }
-        .video-content.expanded { max-height: 600px; }
+        .video-toggle-btn {
+            width: 100%; background: var(--secondary); color: white; padding: 15px 25px; border: none; border-radius: 8px;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; transition: 0.3s;
+        }
+        .video-toggle-btn:hover { background: #34495e; }
+        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: #000; border-radius: 0 0 12px 12px; }
+        .video-content.expanded { max-height: 600px; margin-top: -5px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Tabs */
-        .tabs-nav { max-width: 950px; margin: 0 auto; display: flex; background: #eee; border-radius: 8px 8px 0 0; width: 90%; }
-        .tab-btn { flex: 1; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; border-bottom: 3px solid transparent; }
-        .tab-btn.active { background: var(--primary); color: white; border-bottom: 3px solid var(--primary); }
+        /* Tabs Navigation */
+        .tabs-nav { max-width: 950px; margin: 0 auto; display: flex; background: #eee; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); flex-wrap: wrap; width: 90%; }
+        .tab-btn { flex: 1; min-width: 130px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.8rem; transition: 0.2s; }
+        .tab-btn.active { background: var(--primary); color: white; }
 
-        .tab-panel { max-width: 950px; margin: 0 auto 50px; background: var(--card-bg); padding: 40px; width: 90%; box-sizing: border-box; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        /* Tab Content Panel */
+        .tab-panel { max-width: 950px; margin: 0 auto 50px; background: var(--card-bg); padding: 40px; border-radius: 0 0 8px 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 90%; box-sizing: border-box; }
         .content-pane { display: none; }
-        .content-pane.active { display: block; }
+        .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
-        .sanskrit { color: #d35400; font-style: italic; background: var(--accent-soft); padding: 2px 5px; }
-        .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th { background: var(--secondary); color: white; padding: 10px; }
-        td { border: 1px solid #eee; padding: 10px; }
+        /* Typography & Elements */
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+        h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .sanskrit { color: #d35400; font-style: italic; font-weight: 600; font-family: 'Georgia', serif; background: var(--accent-soft); padding: 2px 5px; border-radius: 4px; }
+        .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+        th { background-color: var(--secondary); color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border: 1px solid #eee; line-height: 1.5; }
+        
+        ul, ol { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 12px; line-height: 1.6; }
 
-        @media (max-width: 768px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) { 
+            body { flex-direction: column; } 
+            .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; } 
+            .tab-panel { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
-        <div class="sidebar-header">By Shri. Ramabhadran V Guruji</div>
-        <div id="dynamic-links">
-            </div>
+        <div class="sidebar-header">COURSE PORTAL</div>
+        <div id="dynamic-links"></div>
     </nav>
 
     <main class="content-wrapper">
-        <header><h1>Day 5: The Divine Vision (Dhyānam)</h1></header>
+        <header><h1>Day 5: The Divine Architecture</h1></header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
-                <span>▶ Watch Discourse</span> <span id="toggleChevron">▼</span>
+                <span><span id="btnPlayIcon">▶</span> Watch Discourse Video</span>
+                <span id="toggleChevron">▼</span>
             </button>
             <div id="videoCollapsible" class="video-content">
                 <div class="video-box">
@@ -75,67 +98,138 @@
         </div>
 
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(event, 'cosmic')">Cosmic Form</button>
-            <button class="tab-btn" onclick="switchTab(event, 'shantakaram')">Śāntākāraṃ</button>
-            <button class="tab-btn" onclick="switchTab(event, 'srivatasa')">Śrīvatsa</button>
-            <button class="tab-btn" onclick="switchTab(event, 'krishna')">Kṛṣṇa</button>
-            <button class="tab-btn" onclick="switchTab(event, 'remedies')">Remedies</button>
+            <button class="tab-btn active" onclick="switchTab(this, 'part1')">Framework</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part2')">Cosmic Form</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part3')">Shantakaram</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part4')">Stories & Mantras</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part5')">Grace of Krishna</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part6')">Remedies</button>
         </nav>
 
         <section class="tab-panel">
-            <div id="cosmic" class="content-pane active">
-                <h2>The Universe as Mahāviṣṇu</h2>
-                <p>His feet are the earth, His eyes are the sun and moon. All beings reside within Him.</p>
-                
-            </div>
-
-            <div id="shantakaram" class="content-pane">
-                <h2>Śāntākāraṃ Analysis</h2>
+            <article id="part1" class="content-pane active">
+                <h2>The Technical Framework</h2>
+                <p>Bhīṣma clarifies that he did not invent these names; they were given by various <span class="sanskrit">ṛṣis</span> and <span class="sanskrit">mahatmas</span> across the yugas, compiled as a garland for Kṛṣṇa Paramātmā.</p>
+                <ul>
+                    <li><strong>Ṛṣi:</strong> Vyāsa Bhagavān, who visualized the mantra in meditation.</li>
+                    <li><strong>Chandas:</strong> Anuṣṭup (4 lines of 8 syllables).</li>
+                    <li><strong>Devatā:</strong> Śrī Kṛṣṇa, the son of Devakī.</li>
+                    <li><strong>Bījam & Śakti:</strong> The "seed" is the Lord's immortality; the "strength" is the power Kṛṣṇa gave Bhīṣma while on the bed of arrows.</li>
+                </ul>
+                <h3>The Purpose of Creation</h3>
+                <p>Bhagavān mixed the inert and sentient universe to help beings achieve liberation from the <span class="sanskrit">saṃsāra cakra</span>. <span class="sanskrit">Pralaya</span> (annihilation) is simply a period of rest for the <span class="sanskrit">jīvātmā</span>, much like sleep follows a day of work.</p>
                 <div class="highlight-box">
-                    <p><strong>Meghavarṇaṃ:</strong> Dark like clouds, full of compassion.</p>
+                    <strong>Nyāsam:</strong> The ritual installation of the Divine into the body (Vedas on the mouth, Lord in the heart) transforms the body into a temple protected by the Lord's weapons, <span class="sanskrit">Śārṅga</span> (Bow) and <span class="sanskrit">Gadā</span> (Mace).
                 </div>
-            </div>
+            </article>
 
-            <div id="srivatasa" class="content-pane">
-                <h2>The Śrīvatsa Mark</h2>
-                <p>The mark on the chest from Bhṛgu Maharṣi’s kick—symbolizing the Lord's infinite patience.</p>
-            </div>
+            <article id="part2" class="content-pane">
+                <h2>Viśvarūpa: The Cosmic Manifestation</h2>
+                <p>Mahāviṣṇu is a colossal presence whose body encompasses the entire universe across the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>).</p>
+                
+                <table>
+                    <tr><th>Body Part</th><th>Universe Equivalent</th></tr>
+                    <tr><td>Feet</td><td>The Earth (<span class="sanskrit">bhūmi</span>)</td></tr>
+                    <tr><td>Head</td><td>The Heavens (<span class="sanskrit">svarloka</span>)</td></tr>
+                    <tr><td>Navel</td><td>The Sky (<span class="sanskrit">nabhas</span>)</td></tr>
+                    <tr><td>Breath</td><td>The Wind (<span class="sanskrit">anila/vāyu</span>)</td></tr>
+                    <tr><td>Eyes</td><td>Sun (fierce heat) and Moon (cool grace)</td></tr>
+                    <tr><td>Mouth</td><td>Fire (<span class="sanskrit">agni/dahana</span>)</td></tr>
+                    <tr><td>Ears</td><td>The eight directions</td></tr>
+                </table>
+                <p>All living beings—humans, birds (<span class="sanskrit">khaga</span>), cattle (<span class="sanskrit">go</span>), and snakes (<span class="sanskrit">bhogi</span>)—reside and enjoy life within Him.</p>
+            </article>
 
-            <div id="krishna" class="content-pane">
-                <h2>Kṛṣṇa & Satyabhāmā</h2>
-                <p>Mediation through the Mother (Lakṣmī) ensures the devotee is accepted despite sins.</p>
-            </div>
+            <article id="part3" class="content-pane">
+                <h2>Analysis: "Śāntākāraṃ"</h2>
+                <p>This dhyāna śloka provides a specific visualization to engage the mind before chanting:</p>
+                <ul>
+                    <li><strong>Śāntākāraṃ:</strong> Perfectly peaceful form, full of bliss (<span class="sanskrit">ānanda</span>).</li>
+                    <li><strong>Bhujagaśayanaṃ:</strong> Resting on the serpent Ādiśeṣa.</li>
+                    <li><strong>Padmanābhaṃ:</strong> The lotus emerging from the navel, the source of creation.</li>
+                    <li><strong>Viśvadhāraṃ:</strong> The material cause of the universe (like gold to jewelry).</li>
+                    <li><strong>Meghavarṇaṃ:</strong> Dark like rain clouds, ready to shower compassion (<span class="sanskrit">karuṇā</span>).</li>
+                    <li><strong>Śubhāṅgaṃ:</strong> Limbs so beautiful and auspicious that one cannot look away.</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>Lotus Eyes (Kamalanayana):</strong> His eyes are reddish like a lotus when fighting or when happy. They reflect the reddish form of Mahālakṣmī, who is eternally gazing at Him.
+                </div>
+            </article>
 
-            <div id="remedies" class="content-pane">
-                <h2>Remedies</h2>
-                <p>Chant Śloka 65 for financial debt and liberation from the cycle of saṃsāra.</p>
+            <article id="part4" class="content-pane">
+                <h2>Sacred Stories & Mantras</h2>
+                <h3>Historical Mantras</h3>
+                <p>The tradition highlights the Six-syllable (<span class="sanskrit">ṣaḍakṣari</span>), Eight-syllable (<span class="sanskrit">aṣṭākṣari</span>), and Twelve-syllable (<span class="sanskrit">dvādaśākṣarī</span>) mantras.</p>
+                <ul>
+                    <li><strong>Dhruva:</strong> Initiated by Nārada into the 12-syllable mantra, the 5-year-old attained a vision of the Lord in just six months.</li>
+                    <li><strong>Aditi:</strong> Performed the <span class="sanskrit">payovrata</span> (milk-only fast) for 7 days. The Lord was born as Vāmana to help her son Indra.</li>
+                </ul>
+                <h3>The Śrīvatsa Mark</h3>
+                <p>The mole on the right side of the Lord's chest is the residence of Mahālakṣmī. It also marks where <strong>Bhṛgu Maharṣi</strong> kicked the Lord to test His patience. Viṣṇu’s calm response—massaging the sage’s foot—established Him as the most <span class="sanskrit">sāttvika</span> deity.</p>
+            </article>
+
+            <article id="part5" class="content-pane">
+                <h2>The Grace of Śrī Kṛṣṇa</h2>
+                <p>Kṛṣṇa is described sitting on a golden <span class="sanskrit">siṃhāsana</span> (lion-throne) under the celestial <span class="sanskrit">pārijāta</span> tree, which was brought to earth after the defeat of Narakāsura.</p>
+                <div class="highlight-box">
+                    <strong>The Report Card Analogy:</strong> Just as a child approaches their mother to recommend them to a stern father, we approach Bhagavān through <strong>Mahālakṣmī</strong>. She pleads for the devotee, ensuring the Lord accepts us despite our mistakes.
+                </div>
+                <h3>Attributes of Kṛṣṇa</h3>
+                <ul>
+                    <li><strong>Ambudaśyāmam:</strong> Complexion like a water-bearing cloud.</li>
+                    <li><strong>Āyatākṣam:</strong> Broad eyes extending toward the ears, providing a graceful glance (<span class="sanskrit">kaṭākṣam</span>) to many at once.</li>
+                    <li><strong>Candrānanam:</strong> A face as radiant as the moon despite a dark complexion.</li>
+                </ul>
+                
+            </article>
+
+            <article id="part6" class="content-pane">
+                <h2>Knowledge & Remedies</h2>
+                <h3>The 3 Stages of Spiritual Growth</h3>
+                <ol>
+                    <li><strong>Śravaṇam:</strong> Listening to the teachings.</li>
+                    <li><strong>Mananam:</strong> Reflecting deeply on them.</li>
+                    <li><strong>Nididhyāsanam:</strong> Contemplation and action.</li>
+                </ol>
+                <h3>Remedies for Difficulties</h3>
+                <ul>
+                    <li><strong>Financial Debt:</strong> Chant <strong>Śloka 65</strong> (names of Lakṣmī) ten times daily or the <strong>Rṇavimocana Ślokam</strong>.</li>
+                    <li><strong>Fear of Future:</strong> Meditate on <span class="sanskrit">Bhavabhayaharam</span>, the one who removes anxieties of the unknown.</li>
+                </ul>
+                <p><strong>Sama Veda Meters:</strong> The heart of the mantra utilizes the meters <span class="sanskrit">Bṛhat, Rathantara,</span> and <span class="sanskrit">Vāmadevya</span>.</p>
             </article>
         </section>
     </main>
 
     <script>
-        // TAB LOGIC
-        function switchTab(event, paneId) {
-            // Hide all panes
-            const panes = document.querySelectorAll('.content-pane');
-            panes.forEach(pane => pane.style.display = 'none');
-            
-            // Remove active class from buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Show current pane and set button active
-            document.getElementById(paneId).style.display = 'block';
-            event.currentTarget.classList.add('active');
+        // Exact Tab Logic from Day 4
+        function switchTab(btn, paneId) {
+            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(paneId).classList.add('active');
+            btn.classList.add('active');
+            if(window.innerWidth < 768) {
+                document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth'});
+            }
         }
 
-        // VIDEO LOGIC
+        // Exact Video Logic from Day 4
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
-            content.classList.toggle('expanded');
+            const chevron = document.getElementById('toggleChevron');
+            const playIcon = document.getElementById('btnPlayIcon');
+            const iframe = document.getElementById('ytPlayer');
+
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                chevron.innerHTML = '▼'; playIcon.innerHTML = '▶';
+                const src = iframe.src; iframe.src = ''; iframe.src = src;
+            } else {
+                content.classList.add('expanded');
+                chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
+            }
         }
     </script>
-    
     <script src="../course-sidebar.js"></script>
 </body>
 </html>
