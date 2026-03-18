@@ -9,59 +9,26 @@
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
             --bg: #fdfaf6; --text-main: #34495e; --accent-soft: #fcf3ea;
         }
-
         body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
-
-        /* SIDEBAR */
         .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; z-index: 200; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 10px 0; }
         .nav-item { display: flex; flex-direction: column; padding: 18px 25px; text-decoration: none; color: #bdc3c7; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .nav-item.active { background: var(--secondary); border-left: 5px solid var(--primary); color: white; }
-        .day-num { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--primary); margin-bottom: 4px; }
-
-        /* MAIN LAYOUT */
         .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; position: relative; height: 100vh; }
-        
-        header { 
-            background: white; padding: 0 40px; height: 78px; display: flex; align-items: center; 
-            border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; flex-shrink: 0;
-        }
+        header { background: white; padding: 0 40px; height: 78px; display: flex; align-items: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
         header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
-
-        /* VIDEO */
         .video-container { width: 92%; max-width: 1100px; margin: 25px auto; flex-shrink: 0; }
         .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; }
         .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
         .video-content.expanded { max-height: 620px; margin-bottom: 10px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        /* TABS NAVIGATION */
-        .tabs-nav { 
-            width: 92%; max-width: 1100px; margin: 0 auto; 
-            display: grid; grid-template-columns: repeat(6, 1fr); 
-            background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); 
-            position: sticky; top: 78px; z-index: 90; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden; height: 60px; flex-shrink: 0;
-        }
-        .tabs-nav::-webkit-scrollbar { display: none; }
-        .tabs-nav { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .tab-btn { 
-            width: 100%; height: 100%; padding: 5px; border: none; background: none; cursor: pointer; 
-            font-weight: 700; color: var(--secondary); white-space: normal; font-size: 0.62rem; 
-            text-transform: uppercase; border-right: 1px solid #ddd; display: flex;
-            align-items: center; justify-content: center; text-align: center; line-height: 1.1; box-sizing: border-box;
-        }
-        .tab-btn:last-child { border-right: none; }
-        .tab-btn.active { background: var(--primary); color: white; border-right-color: var(--primary); }
-
-        /* PANELS */
+        .tabs-nav { width: 92%; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); position: sticky; top: 78px; z-index: 90; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; height: 60px; flex-shrink: 0; }
+        .tab-btn { width: 100%; height: 100%; padding: 5px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); font-size: 0.6rem; text-transform: uppercase; border-right: 1px solid #ddd; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.1; }
+        .tab-btn.active { background: var(--primary); color: white; }
         .tab-panel { width: 92%; max-width: 1100px; margin: 0 auto 60px; background: white; padding: 45px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; min-height: 700px; flex-shrink: 0; }
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.4s ease; }
-
-        /* ELEMENTS */
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
         h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 35px 0 20px; }
         h3 { color: var(--secondary); font-size: 1.15rem; margin-top: 30px; border-bottom: 2px solid var(--accent-soft); padding-bottom: 5px; }
@@ -74,13 +41,9 @@
     </style>
 </head>
 <body>
-
-    <nav class="sidebar">
-        <div id="dynamic-links"></div>
-    </nav>
-
+    <nav class="sidebar"><div id="dynamic-links"></div></nav>
     <main class="content-wrapper" id="mainScroll">
-        <header><h1 id="main-title">Day 3: Echoes of Kurukṣetra</h1></header>
+        <header><h1>Day 3: Echoes of Kurukṣetra: The Genesis</h1></header>
 
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
@@ -93,63 +56,95 @@
         </div>
         
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 't1')">Lineage & Vyāsa</button>
-            <button class="tab-btn" onclick="switchTab(this, 't2')">Birth of Parīkṣit</button>
-            <button class="tab-btn" onclick="switchTab(this, 't3')">Kali & Curse</button>
-            <button class="tab-btn" onclick="switchTab(this, 't4')">Scribe & Process</button>
-            <button class="tab-btn" onclick="switchTab(this, 't5')">6 Questions</button>
-            <button class="tab-btn" onclick="switchTab(this, 't6')">Bhiṣma’s Wisdom</button>
+            <button class="tab-btn active" onclick="switchTab(this, 't1')">Prelude & Lineage</button>
+            <button class="tab-btn" onclick="switchTab(this, 't2')">Parīkṣit & Kali</button>
+            <button class="tab-btn" onclick="switchTab(this, 't3')">Scribe & Cave</button>
+            <button class="tab-btn" onclick="switchTab(this, 't4')">The 6 Questions</button>
+            <button class="tab-btn" onclick="switchTab(this, 't5')">Bhisma's Silence</button>
+            <button class="tab-btn" onclick="switchTab(this, 't6')">Supreme Answers</button>
         </nav>
 
         <section class="tab-panel">
             <article id="t1" class="content-pane active">
-                <h2>The Prelude and Lineage of Vyāsa</h2>
-                <p>The discourse begins with the recognition of <span class="sanskrit">Vyāsa Bhagavān</span>. His lineage is a divine chain of wisdom:</p>
+                <h2>The Prelude: Removing Obstacles</h2>
+                <p>The discourse begins at Kurukṣetra, where Bhīṣma lay on the <span class="sanskrit">śarapañjara</span> (bed of arrows). Before the stotra, we meditate on Mahāviṣṇu as <span class="sanskrit">śuklāmbaradharaṃ</span> (wearing white), <span class="sanskrit">śaśivarṇaṃ</span> (moon-colored), with four hands and a <span class="sanskrit">prasannavadanaṃ</span> (clear, smiling face).</p>
+                
+                <h3>The Lineage of Vyāsa</h3>
+                <p>Gratitude is offered to Vyāsa Bhagavān, identifying him as <span class="sanskrit">vyāsāya viṣṇu rūpāya</span> (a manifestation of Viṣṇu). His lineage is detailed as:</p>
+                <ul>
+                    <li>Great-grandson of <strong>Vasiṣṭha</strong></li>
+                    <li>Grandson of <strong>Śakti</strong></li>
+                    <li>Son of <strong>Parāśara</strong></li>
+                    <li>Father of <strong>Śuka</strong> (notably mentioned as "father of brahma")</li>
+                </ul>
                 <div class="highlight-box">
-                    <strong>Lineage:</strong> Great-grandson of Vasiṣṭha → Grandson of Śakti → Son of Parāśara → Father of Śuka.
+                    <strong>Context:</strong> The Sahasranāmam is found in the 149th chapter of the Mahābhārata, revealed after the Pāṇḍavas' victory.
                 </div>
-                <p>Vyāsa is identified as <span class="sanskrit">vyāsāya viṣṇu rūpāya</span>—a manifestation of Viṣṇu Himself. He divided the single Veda into four and composed the Purāṇas to make Vedic knowledge accessible.</p>
-                <h3>Removal of Obstacles</h3>
-                <p>Before any sacred work, one meditates on <span class="sanskrit">śuklāmbaradharaṃ</span> (the one clad in white) with a <span class="sanskrit">prasannavadanaṃ</span> (benign smile) to remove all <span class="sanskrit">vighnas</span> (obstacles).</p>
             </article>
 
             <article id="t2" class="content-pane">
-                <h2>The Survival of the Lineage</h2>
-                <p>After the Kurukṣetra war, Kṛṣṇa saved the child in Uttarā's womb from the <span class="sanskrit">Brahmāstra</span>. This child was named <span class="sanskrit">Viṣṇurāta</span>, but became known as <strong>Parīkṣit</strong> because he "examined" (parīkṣā) every face he met, looking for the divine form he saw in the womb.</p>
+                <h2>Birth of Parīkṣit and the Arrival of Kali</h2>
+                <p>After Aśvatthāmā directed a Brahmāstra toward Uttarā's womb, Kṛṣṇa entered to neutralize it. The child, having "examined" (<span class="sanskrit">parīkṣā</span>) everyone to find that divine form, was named Parīkṣit.</p>
+                
+                <h3>The Five Abodes of Kali</h3>
+                <p>As Kaliyuga began, Parīkṣit encountered Kali tormenting a bull (Dharma) standing on one leg (<span class="sanskrit">Satya/Dāna</span>). Parīkṣit granted Kali five places:</p>
+                <ol>
+                    <li><span class="sanskrit">Dyūtaṃ</span>: Gambling</li>
+                    <li><span class="sanskrit">Pānaṃ</span>: Alcohol</li>
+                    <li><span class="sanskrit">Striyaḥ</span>: Licentiousness</li>
+                    <li><span class="sanskrit">Sūnā</span>: Animal butchery</li>
+                    <li><span class="sanskrit">Suvarṇa</span>: Excessive attachment to gold</li>
+                </ol>
+                <p>Due to the gold in his crown, Kali influenced the King to place a dead snake on Śamīka Maharṣi, leading to a curse by Śṛṅgī to die in 7 days via the snake Takṣaka.</p>
             </article>
 
             <article id="t3" class="content-pane">
-                <h2>The Arrival of Kaliyuga</h2>
-                <p>Parīkṣit encountered Kali tormenting a bull (Dharma) standing on only one leg. Parīkṣit permitted Kali to reside in five abodes: gambling, alcohol, licentiousness, animal butchery, and excessive gold.</p>
-                <p>Kali influenced the King's mind through his golden crown, leading to a curse by Śṛṅgī. Parīkṣit was destined to die from the bite of <span class="sanskrit">Takṣaka</span> within seven days, turning his focus toward ultimate liberation.</p>
+                <h2>The Scribe and the Underground River</h2>
+                <p>Vyāsa sought Gaṇeśa as a scribe for the Mahābhārata. A mutual condition was set: Vyāsa must not stop dictating, and Gaṇeśa must understand every verse before writing.</p>
+                <div class="highlight-box">
+                    <strong>The Strategy:</strong> Vyāsa dictated complex philosophical ślokas to gain "free time" to compose new ones while Gaṇeśa reflected. This occurred in the <strong>Vyāsa Guhā</strong> near Badrināth. The <strong>Sarasvatī</strong> river was requested to go underground (<span class="sanskrit">antah-salilā</span>) as her noise disrupted the work.
+                </div>
+                <p>In the aftermath of the curse, Śukadeva narrated the 12 skandhas of the <strong>Śrīmad Bhāgavatam</strong> to Parīkṣit, leading to his liberation. Later, Janamejaya’s snake sacrifice was stopped by Vaiśampāyana, who then narrated the Mahābhārata.</p>
             </article>
 
             <article id="t4" class="content-pane">
-                <h2>The Writing of the Mahābhārata</h2>
-                <p>Vyāsa sought <strong>Lord Gaṇeśa</strong> as his scribe. The contract: Vyāsa must never stop dictating, and Gaṇeśa must understand every verse before writing it.</p>
-                <p>To gain time to compose, Vyāsa inserted complex <span class="sanskrit">ślokas</span> that forced Gaṇeśa to reflect. This took place near Badrināth, where the Sarasvatī river went underground (<span class="sanskrit">antah-salilā</span>) to ensure silence for the dictation.</p>
-            </article>
-
-            <article id="t5" class="content-pane">
-                <h2>The Six Questions of Yudhiṣṭhira</h2>
-                <p>Within the <span class="sanskrit">Anuśāsana Parva</span>, Yudhiṣṭhira asks Bhīṣma six fundamental questions that prompt the Sahasranāmam:</p>
+                <h2>Yudhiṣṭhira’s Six Sacred Questions</h2>
+                <p>Filled with grief in the <span class="sanskrit">Śānti Parva</span>, Yudhiṣṭhira approaches Bhīṣma, the "epitome of dharma," with six inquiries:</p>
                 <table>
-                    <tr><th>Question</th><th>Meaning</th></tr>
-                    <tr><td>Kim ekaṃ daivataṃ?</td><td>Who is the one supreme deity?</td></tr>
-                    <tr><td>Kiṃ vāpyekaṃ parāyaṇaṃ?</td><td>Who is the ultimate refuge?</td></tr>
-                    <tr><td>Stuvantaḥ kaṃ?</td><td>Who should be praised?</td></tr>
-                    <tr><td>Kam arcantaḥ?</td><td>Who should be worshipped?</td></tr>
-                    <tr><td>Ko dharmaḥ paramo?</td><td>Which is the supreme dharma?</td></tr>
-                    <tr><td>Kiṃ japan mucyate?</td><td>Chanting whose name brings liberation?</td></tr>
+                    <tr><th>Question #</th><th>Sanskrit Inquiry</th><th>Meaning</th></tr>
+                    <tr><td>1</td><td><span class="sanskrit">kimekaṃ daivataṃ loke</span></td><td>Who is the one supreme deity?</td></tr>
+                    <tr><td>2</td><td><span class="sanskrit">kiṃ vāpyekaṃ parāyaṇaṃ</span></td><td>Who is the ultimate refuge/destination?</td></tr>
+                    <tr><td>3</td><td><span class="sanskrit">stuvantaḥ kaṃ</span></td><td>Who should be praised through hymns?</td></tr>
+                    <tr><td>4</td><td><span class="sanskrit">kamarcantaḥ</span></td><td>Who should be worshipped through rituals?</td></tr>
+                    <tr><td>5</td><td><span class="sanskrit">ko dharmaḥ paramo mataḥ</span></td><td>Which is the supreme dharma among all?</td></tr>
+                    <tr><td>6</td><td><span class="sanskrit">kiṃ japan mucyate</span></td><td>Chanting whose name brings liberation?</td></tr>
                 </table>
             </article>
 
-            <article id="t6" class="content-pane">
-                <h2>Bhīṣma’s Final Teachings</h2>
-                <p>On the bed of arrows, Bhīṣma explained that his mind was finally pure after Duryodhana's <span class="sanskrit">adharmic</span> blood had drained from him. He identifies Viṣṇu as <strong>Anantam</strong> (Limitless) across Time, Space, and Objects.</p>
+            <article id="t5" class="content-pane">
+                <h2>The Influence of Food & Dharma</h2>
+                <p>Draupadī questioned Bhīṣma's silence during her humiliation. Bhīṣma explained that because he consumed food from an adharmic source (Duryodhana), his mind was clouded. However, as "bad blood" drained on the bed of arrows, he returned to a dharmic position to teach.</p>
+                
+                <h3>Attributes of the Supreme</h3>
+                <ul>
+                    <li><strong>Anantam (Limitless):</strong> Not limited by Time (<span class="sanskrit">anādi/anidhanam</span>), Space (all-pervading fire analogy), or Objects (resides in all).</li>
+                    <li><strong>Jagatprabhu:</strong> Lord of the universe that is born, exists, and dissolves.</li>
+                </ul>
                 <div class="highlight-box">
-                    <strong>The Lesson of Vidura:</strong> Bhagavān accepts even banana skins if offered with pure love. Devotion (<span class="sanskrit">bhakti</span>) is the only requirement for worship.
+                    <strong>Simple Worship:</strong> Referencing the Gītā, He accepts a leaf (<span class="sanskrit">patraṃ</span>), flower (<span class="sanskrit">puṣpaṃ</span>), fruit (<span class="sanskrit">phalaṃ</span>), or water (<span class="sanskrit">toyaṃ</span>).
                 </div>
+            </article>
+
+            <article id="t6" class="content-pane">
+                <h2>The Supreme Refuge and Purity</h2>
+                <p>Bhīṣma establishes Mahāviṣṇu as the <span class="sanskrit">mahad bhūtam</span> (great element) from which all jīvātmās originate. He is the greatest performer of <strong>Tapas</strong> (as Nara-Nārāyaṇa in the Himalayas).</p>
+                
+                <h3>Why Lotus Eyes? (<span class="sanskrit">Puṇḍarīkākṣa</span>)</h3>
+                <p>Two reasons: 1. Happiness when looking at devotees/anger at enemies. 2. Constant reflection of the reddish <strong>Mahālakṣmī</strong> (a forest of lotuses) in His eyes.</p>
+                
+                <h3>The Source of Purity</h3>
+                <p>During the Vāmana-Trivikrama avatar, the water from Brahmā's <span class="sanskrit">abhiṣeka</span> on the Lord’s toe became the <strong>Gaṅgā</strong>. He is the source of all <span class="sanskrit">maṅgalaṃ</span> (auspiciousness) and the father of all beings.</p>
+                <p><strong>Result:</strong> By chanting the 1000 names, a soul crosses all sorrows (<span class="sanskrit">duḥkhātigo bhavet</span>) and is liberated from saṃsāra.</p>
             </article>
         </section>
     </main>
@@ -161,17 +156,14 @@
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(paneId).classList.add('active');
             btn.classList.add('active');
-            
             const mainScroll = document.getElementById('mainScroll');
             const tabsNav = document.querySelector('.tabs-nav');
             mainScroll.scrollTo({ top: tabsNav.offsetTop - 78, behavior: 'smooth' });
         }
-
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
             const chevron = document.getElementById('toggleChevron');
             const iframe = document.getElementById('ytPlayer');
-
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼';
