@@ -10,7 +10,6 @@ async function initSidebar() {
     const sidebar = document.querySelector('.sidebar');
     if (!sidebar) return;
 
-    // Maintain your specific header
     sidebar.innerHTML = `
         <div class="sidebar-brand">By Shri. Ramabhadran V Guruji</div>
         <div id="dynamic-links"></div>
@@ -19,34 +18,29 @@ async function initSidebar() {
     const container = document.getElementById('dynamic-links');
     const isInSubfolder = window.location.pathname.includes('/Days/');
 
+    // Get the current file name to identify active day
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
     courseDays.forEach(day => {
         const link = document.createElement('a');
-        
-        // Path logic: adjust link based on where the user currently is
         let finalPath = day.file;
         if (isInSubfolder) {
             finalPath = (day.file === 'index.html') ? '../index.html' : day.file.replace('Days/', '');
         }
 
         link.href = finalPath;
-        link.className = 'nav-item'; // Matches your CSS
+        link.className = 'nav-item';
         
-        // Active state check based on filename
-        const currentFileName = window.location.pathname.split('/').pop() || 'index.html';
         const targetFileName = day.file.split('/').pop();
         
-        if (currentFileName === targetFileName) {
+        if (currentPath === targetFileName) {
             link.classList.add('active');
-            // Store the ID globally so the toggle function can find it later
-            window.currentVideoId = day.youtubeId; 
-            
-            // Auto-update the Header title while we are here
+            window.currentVideoId = day.youtubeId; // Crucial for video toggle
             const mainTitle = document.getElementById('main-title');
             if (mainTitle) mainTitle.innerText = `${day.label}: ${day.title}`;
         }
 
-        // Clean formatting for the sidebar text
-        const verseLabel = day.verses ? `<span class="day-num">[${day.verses}]</span>` : "";
+        const verseLabel = day.verses ? `<span class="day-num" style="color:var(--primary); opacity:1;">[${day.verses}]</span>` : "";
         
         link.innerHTML = `
             <span class="day-num">${day.label}</span>
@@ -58,5 +52,6 @@ async function initSidebar() {
     });
 }
 
-// Global initialization
+// Make it globally accessible
+window.initSidebar = initSidebar;
 window.addEventListener('DOMContentLoaded', initSidebar);
