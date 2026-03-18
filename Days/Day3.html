@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - Echoes of Kurukṣetra: The Genesis of the Sahasranāmam</title>
+    <style>
+        :root { 
+            --primary: #e67e22; 
+            --secondary: #2c3e50; 
+            --sidebar-bg: #1a252f; 
+            --bg: #fdfaf6; 
+            --card-bg: #ffffff;
+            --text-main: #34495e;
+            --accent-soft: #fcf3ea;
+        }
+
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
+
+        /* Sidebar */
+        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
+        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
+        .day-link:hover { background: #2c3e50; color: white; }
+        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
+
+        /* Content Area */
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
+        header { background: white; padding: 30px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        header h1 { margin: 0; font-size: 1.6rem; color: var(--secondary); font-weight: 700; }
+
+        /* Collapsible Video Section */
+        .video-container { width: 90%; max-width: 950px; margin: 25px auto; }
+        .video-toggle-btn {
+            width: 100%; background: var(--secondary); color: white; padding: 15px 25px; border: none; border-radius: 8px;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; transition: 0.3s;
+        }
+        .video-toggle-btn:hover { background: #34495e; }
+        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: #000; border-radius: 0 0 12px 12px; }
+        .video-content.expanded { max-height: 600px; margin-top: -5px; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Tabs Navigation */
+        .tabs-nav { max-width: 950px; margin: 0 auto; display: flex; background: #eee; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); flex-wrap: wrap; width: 90%; }
+        .tab-btn { flex: 1; min-width: 130px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.8rem; transition: 0.2s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+
+        /* Tab Content Panel */
+        .tab-panel { max-width: 950px; margin: 0 auto 50px; background: var(--card-bg); padding: 40px; border-radius: 0 0 8px 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 90%; box-sizing: border-box; }
+        .content-pane { display: none; }
+        .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
+
+        /* Readable Elements */
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+        h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .sanskrit { color: #d35400; font-style: italic; font-weight: 600; font-family: 'Georgia', serif; background: var(--accent-soft); padding: 2px 5px; border-radius: 4px; }
+        .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        
+        ul, ol { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 12px; line-height: 1.6; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) { 
+            body { flex-direction: column; } 
+            .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; } 
+            .tab-panel { padding: 20px; }
+            .tab-btn { min-width: 100px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">By Shri. Ramabhadran V Guruji</div>
+        <a href="../index.html" class="day-link"><strong>Day 1:</strong><br>The Vedic Path</a>
+        <a href="Day2.html" class="day-link"><strong>Day 2:</strong><br>The Supremacy of Viṣṇu</a>
+        <a href="Day3.html" class="day-link active"><strong>Day 3:</strong><br>Echoes of Kurukṣetra</a>
+    </nav>
+
+    <main class="content-wrapper">
+        <header><h1>Day 3: Echoes of Kurukṣetra</h1></header>
+        
+        <div class="video-container">
+            <button class="video-toggle-btn" onclick="toggleVideo()">
+                <span><span id="btnPlayIcon">▶</span> Watch Discourse Video</span>
+                <span id="toggleChevron">▼</span>
+            </button>
+            <div id="videoCollapsible" class="video-content">
+                <div class="video-box">
+                    <iframe id="ytPlayer" src="https://www.youtube.com/embed/S2pX9jHwFz0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(this, 'part1')">Genesis & Lineage</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part2')">Kaliyuga & Curse</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part3')">The Six Questions</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part4')">Bhīṣma's Wisdom</button>
+            <button class="tab-btn" onclick="switchTab(this, 'part5')">The Supreme Goal</button>
+        </nav>
+
+        <section class="tab-panel">
+            <article id="part1" class="content-pane active">
+                <h2>The Birthplace: Kurukṣetra</h2>
+                <p>The journey brings us to Kurukṣetra, the exact location where <strong>Bhīṣma</strong> lay on the <span class="sanskrit">śarapañjara</span> (bed of arrows). Here, the genesis of the <span class="sanskrit">Viṣṇu Sahasranāmam</span> took place in the 149th chapter of the Mahābhārata.</p>
+                
+                <h3>Prelude & Gratitude</h3>
+                <p>The prelude consists of six ślokas:</p>
+                <ul>
+                    <li><strong>Removal of Obstacles:</strong> Meditating on Viṣṇu as <span class="sanskrit">śuklāmbaradharaṃ</span> (wearing white) with a <span class="sanskrit">prasannavadanaṃ</span> (benign smile).</li>
+                    <li><strong>Lineage of Vyāsa:</strong> Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka. Vyāsa is revered as a manifestation of Viṣṇu (<span class="sanskrit">vyāsāya viṣṇu rūpāya</span>).</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>The Protector of the Womb:</strong> Kṛṣṇa saved the lineage by protecting <strong>Parīkṣit</strong> (Viṣṇurāta) in Uttarā's womb from Aśvatthāmā's Brahmāstra.
+                </div>
+            </article>
+
+            <article id="part2" class="content-pane">
+                <h2>The Arrival of Kaliyuga</h2>
+                <p>As Kṛṣṇa left the earth, Kaliyuga began. King Parīkṣit encountered Kali tormenting a bull (Dharma) standing on one leg (representing Truth/Charity in this age). Kali was granted five places: <strong>Gambling, Alcohol, Licentiousness, Butchery, and Gold.</strong></p>
+                
+                <h3>The Curse & The Bhāgavatam</h3>
+                <p>Influenced by gold, Parīkṣit insulted Sage Śamīka and was cursed by the son, Śṛṅgī, to die by the snake <strong>Takṣaka</strong> in seven days. This led the King to the banks of the Gaṅgā, where <strong>Śuka Parabrahmā</strong> narrated the <span class="sanskrit">Śrīmad Bhāgavatam</span>.</p>
+                
+                <div class="highlight-box">
+                    <strong>Legacy:</strong> To hear his ancestors' history, Parīkṣit's son, Janamejaya, prompted the narration of the entire Mahābhārata by Sage Vaiśampāyana.
+                </div>
+            </article>
+
+            <article id="part3" class="content-pane">
+                <h2>The Heart of the Sahasranāmam</h2>
+                <p>Within the <span class="sanskrit">Śānti Parva</span>, Yudhiṣṭhira, filled with grief, asks Bhīṣma six profound questions:</p>
+                <ol>
+                    <li><strong>Kim ekaṃ daivataṃ loke:</strong> Who is the one supreme deity?</li>
+                    <li><strong>Kiṃ vāpyekaṃ parāyaṇaṃ:</strong> Who is the ultimate refuge?</li>
+                    <li><strong>Stuvantaḥ kaṃ:</strong> Who should be praised?</li>
+                    <li><strong>Kam arcantaḥ:</strong> Who should be worshipped?</li>
+                    <li><strong>Ko dharmaḥ paramo mataḥ:</strong> What is the supreme dharma?</li>
+                    <li><strong>Kiṃ japan mucyate:</strong> Chanting whose name brings liberation?</li>
+                </ol>
+            </article>
+
+            <article id="part4" class="content-pane">
+                <h2>Dharma & The Influence of Food</h2>
+                <p>Bhīṣma explains his previous silence during Draupadī's humiliation: he was fed by Duryodhana, and adharmic food clouded his mind. Now, lying on arrows, that "bad blood" had drained, leaving him pure to teach.</p>
+
+                <h3>Attributes of the Lord</h3>
+                <ul>
+                    <li><strong>Anidhanam:</strong> Without end.</li>
+                    <li><strong>Anantam:</strong> Limitless in Time, Space, and Objects.</li>
+                    <li><strong>Lokādhyakṣaṃ:</strong> The supreme witness of the 14 worlds.</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>Simple Worship:</strong> Bhagavān accepts a leaf, flower, fruit, or water (<span class="sanskrit">patraṃ, puṣpaṃ, phalaṃ, toyaṃ</span>) if offered with pure love, as demonstrated by Kṛṣṇa eating banana skins at Vidura's home.
+                </div>
+            </article>
+
+            <article id="part5" class="content-pane">
+                <h2>Viṣṇu: The Source of Purity</h2>
+                <p>Bhīṣma concludes by identifying Mahāviṣṇu as the source of all auspiciousness (<span class="sanskrit">maṅgalaṃ</span>). He is the creator of the Vedas (<span class="sanskrit">brahman</span>) and the manifestation of Dharma itself.</p>
+
+                <h3>The Lotus-Eyed Lord</h3>
+                <p>He is called <span class="sanskrit">Puṇḍarīkākṣa</span>. His eyes are red like lotuses because:</p>
+                <ul>
+                    <li>They reflect his joy for devotees or anger toward enemies.</li>
+                    <li>They reflect the image of <strong>Mahālakṣmī</strong>, who resides in a forest of lotuses.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>The Final Answer:</strong> The supreme deity, the ultimate refuge, and the father of all is Mahāviṣṇu. Worshiping Him is the "best dharma" and the path to crossing the cycle of birth and death.
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(btn, paneId) {
+            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(paneId).classList.add('active');
+            btn.classList.add('active');
+            if(window.innerWidth < 768) {
+                document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth'});
+            }
+        }
+
+        function toggleVideo() {
+            const content = document.getElementById('videoCollapsible');
+            const chevron = document.getElementById('toggleChevron');
+            const playIcon = document.getElementById('btnPlayIcon');
+            const iframe = document.getElementById('ytPlayer');
+
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                chevron.innerHTML = '▼';
+                playIcon.innerHTML = '▶';
+                const src = iframe.src;
+                iframe.src = '';
+                iframe.src = src;
+            } else {
+                content.classList.add('expanded');
+                chevron.innerHTML = '▲';
+                playIcon.innerHTML = '✖';
+            }
+        }
+    </script>
+</body>
+</html>
