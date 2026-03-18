@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2 - The Vedic Path: Full Content</title>
+    <title>Day 2 - The Vedic Path</title>
     <style>
         :root { 
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
             --bg: #fdfaf6; --card-bg: #ffffff; --text-main: #34495e; --accent-soft: #fcf3ea;
         }
 
-        /* SIDEBAR LOGIC FROM YOUR CODE */
+        /* 1. THE CAGE: This stops the jumping and restarting */
         body { 
             font-family: 'Segoe UI', Roboto, sans-serif; 
             margin: 0; 
-            display: flex !important; /* Forces side-by-side */
-            height: 100vh !important; /* Locks height to window */
+            display: flex !important; 
+            height: 100vh !important; /* Locks to window height */
+            width: 100vw !important;
             background: var(--bg); 
-            color: var(--text-main); 
-            overflow: hidden !important; /* Prevents whole page from scrolling */
+            overflow: hidden !important; /* Body NEVER scrolls */
         }
 
+        /* 2. SIDEBAR: Fixed width, independent scroll */
         .sidebar { 
             width: 320px !important; 
             background: var(--sidebar-bg); 
@@ -28,64 +29,80 @@
             display: flex; 
             flex-direction: column; 
             flex-shrink: 0 !important; 
+            height: 100% !important;
+            overflow-y: auto; 
             box-shadow: 4px 0 15px rgba(0,0,0,0.2); 
-            overflow-y: auto; /* Allows sidebar internal scroll if links are long */
+            border-right: 1px solid #2c3e50;
         }
+        
+        /* Padding for sidebar content */
+        .sidebar-inner { padding: 30px 20px; }
 
-        /* CONTENT WRAPPER LOGIC */
+        /* 3. CONTENT WRAPPER: This is the ONLY part that scrolls */
         .content-wrapper { 
-            flex-grow: 1; 
+            flex: 1; 
+            height: 100%;
             overflow-y: auto; 
             display: flex; 
             flex-direction: column; 
-            scroll-behavior: smooth; 
+            position: relative;
         }
 
         header { 
             background: white; padding: 25px 40px; 
             border-bottom: 1px solid #ddd; 
-            position: sticky; top: 0; z-index: 10; 
+            position: sticky; top: 0; z-index: 100; 
         }
-        header h1 { margin: 0; font-size: 1.3rem; color: var(--secondary); font-weight: 700; }
+        header h1 { margin: 0; font-size: 1.3rem; color: var(--secondary); }
 
         /* Video Section */
         .video-container { width: 92%; max-width: 950px; margin: 25px auto; }
-        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
-        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
+        .video-toggle-btn { 
+            width: 100%; background: var(--secondary); color: white; padding: 16px 20px; 
+            border: none; border-radius: 8px; cursor: pointer; display: flex; 
+            justify-content: space-between; align-items: center; font-weight: 700; 
+        }
+        .video-content { 
+            max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; 
+            background: #000; border-radius: 0 0 8px 8px; 
+        }
         .video-content.expanded { max-height: 580px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Sticky Tabs */
+        /* Sticky Tabs - Stays at the top of the SCROLLING content area */
         .tabs-nav { 
             width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; 
             border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); 
-            overflow-x: auto; position: sticky; top: 0; z-index: 9; scrollbar-width: none;
+            position: sticky; top: 0; z-index: 90; scrollbar-width: none;
         }
-        .tab-btn { flex: 1 0 auto; padding: 16px 15px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.8rem; }
+        .tab-btn { 
+            flex: 1; padding: 16px; border: none; background: none; 
+            cursor: pointer; font-weight: 700; color: var(--secondary); 
+            white-space: nowrap; font-size: 0.85rem;
+        }
         .tab-btn.active { background: var(--primary); color: white; }
 
         /* Tab Panels */
-        .tab-panel { width: 92%; max-width: 950px; margin: 0 auto 60px; background: white; padding: 40px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; }
+        .tab-panel { 
+            width: 92%; max-width: 950px; margin: 0 auto 60px; background: white; 
+            padding: 45px; border-radius: 0 0 8px 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; 
+            min-height: 70vh; /* Keeps footer/bottom from jumping */
+        }
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.4s ease; }
 
         /* Typography */
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
-        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 15px; font-size: 1.3rem; margin: 30px 0 15px; }
-        h3 { color: var(--secondary); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        p { line-height: 1.7; font-size: 1rem; margin-bottom: 15px; }
-        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 15px; border-radius: 0 8px 8px 0; margin: 20px 0; font-style: italic; }
-        
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
-        th, td { padding: 10px; border: 1px solid #eee; text-align: left; }
-        th { background: var(--accent-soft); color: var(--secondary); }
+        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 15px; font-size: 1.4rem; margin: 30px 0 15px; }
+        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0; font-style: italic; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             body { flex-direction: column; overflow-y: auto; height: auto; }
-            .sidebar { width: 100%; }
+            .sidebar { width: 100%; height: auto; position: relative; }
             .tabs-nav { position: static; }
         }
     </style>
@@ -93,17 +110,17 @@
 <body>
 
     <nav class="sidebar">
-        <div style="padding: 25px;">
-            <h3 style="color: white; border: none;">Course Navigation</h3>
-        </div>
+        <div class="sidebar-inner">
+            <h3 style="color:white; border-bottom: 1px solid #34495e; padding-bottom: 10px;">Navigation</h3>
+            </div>
     </nav>
 
     <main class="content-wrapper" id="mainScroll">
-        <header><h1>Day 2: The Vedic Path & Supremacy of Sahasranāmam</h1></header>
+        <header><h1>Day 2: The Vedic Path & Sahasranāmam</h1></header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
-                <span>▶ Watch Day 2 Discourse</span>
+                <span>▶ Watch Discourse</span>
                 <span id="toggleChevron">▼</span>
             </button>
             <div id="videoCollapsible" class="video-content">
@@ -112,86 +129,26 @@
         </div>
 
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 'theory')">Vedic Theory</button>
-            <button class="tab-btn" onclick="switchTab(this, 'history')">History & Origin</button>
-            <button class="tab-btn" onclick="switchTab(this, 'greatness')">Greatness</button>
-            <button class="tab-btn" onclick="switchTab(this, 'prelude')">Prelude & Ślokas</button>
-            <button class="tab-btn" onclick="switchTab(this, 'attributes')">Attributes</button>
-            <button class="tab-btn" onclick="switchTab(this, 'karma')">Karma & Practice</button>
+            <button class="tab-btn active" onclick="switchTab(this, 'theory')">Theory</button>
+            <button class="tab-btn" onclick="switchTab(this, 'origin')">Origin</button>
+            <button class="tab-btn" onclick="switchTab(this, 'practice')">Practice</button>
         </nav>
 
         <section class="tab-panel">
             <article id="theory" class="content-pane active">
-                <h2>The Three Guṇas & Vedic Structure</h2>
-                <p>Human nature is governed by three <span class="sanskrit">guṇas</span> (qualities):</p>
-                <ul>
-                    <li><strong>Sattvaguṇa:</strong> Calm, peaceful, and happy mind.</li>
-                    <li><strong>Rajoguṇa:</strong> Restlessness and an unending desire for action.</li>
-                    <li><strong>Tamoguṇa:</strong> Lethargy, laziness, and lack of willingness.</li>
-                </ul>
-                <p>The Vedas provide means for fulfilling desires through the <strong>karmakāṇḍa</strong> (action) and the <strong>jñānakāṇḍa</strong> (knowledge).</p>
-                <h3>The Role of the Guru</h3>
-                <p>A Guru is essential to interpret the mantras. Without guidance, the <em>Śānti Mantra</em> might seem like "blabbering." In reality, it describes how Bhagavān resides both in <span class="sanskrit">Vaikuṇṭha</span> and the 14 <span class="sanskrit">lokas</span>.</p>
+                <h2>The Three Guṇas</h2>
+                <p>Human nature is governed by <span class="sanskrit">Sattva</span>, <span class="sanskrit">Rajas</span>, and <span class="sanskrit">Tamas</span>.</p>
+                <div class="highlight-box">The Vedas provide the path to balance these through Karma and Jñāna.</div>
             </article>
 
-            <article id="history" class="content-pane">
-                <h2>The Itihāsas as Practical Proof</h2>
-                <p>The <span class="sanskrit">ṛṣis</span> composed the <em>Purāṇas</em> and <em>Itihāsas</em> as practical demonstrations of Vedic principles.</p>
-                <ul>
-                    <li><strong>Rāmāyaṇa:</strong> Rāmacandra demonstrated honoring a father's word.</li>
-                    <li><strong>Mahābhārata:</strong> The <span class="sanskrit">Pañcamo Veda</span> (Fifth Veda).</li>
-                </ul>
-                <div class="highlight-box">
-                    The two "executive summaries" of the Mahābhārata are the <strong>Bhagavad Gītā</strong> and the <strong>Śrī Viṣṇu Sahasranāmam</strong>.
-                </div>
-                <h3>Origin at Kurukṣetra</h3>
-                <p>Originates in the 149th chapter of the <em>Anuśāsana Parva</em>. Given by Bhīṣma to Yudhiṣṭhira on the bed of arrows.</p>
+            <article id="origin" class="content-pane">
+                <h2>Kurukṣetra Origin</h2>
+                <p>Delivered by Bhīṣma to Yudhiṣṭhira on the bed of arrows.</p>
             </article>
 
-            <article id="greatness" class="content-pane">
-                <h2>Six Reasons for Greatness</h2>
-                <p>Ādi Śaṅkarācārya cites six reasons for the supremacy of this text:</p>
-                <table>
-                    <tr><th>Reason</th><th>Description</th></tr>
-                    <tr><td>Mahābhārata-sāratvāt</td><td>Essence of the Fifth Veda.</td></tr>
-                    <tr><td>Ṛṣibhiḥ parigītatvāt</td><td>Chanted by ancient sages.</td></tr>
-                    <tr><td>Vedavyāsena grathitatvāt</td><td>Compiled by Vyāsa (Viṣṇu incarnation).</td></tr>
-                    <tr><td>Bhīṣma-parigrahāt</td><td>Delivered by a supreme devotee.</td></tr>
-                    <tr><td>Sarva-parigrahāt</td><td>Accepted by all scholars and Charaka Saṃhitā.</td></tr>
-                    <tr><td>Gītā-samvādāt</td><td>Aligns with Kṛṣṇa's "japa-yajño'smi".</td></tr>
-                </table>
-            </article>
-
-            <article id="prelude" class="content-pane">
-                <h2>The Six Preliminary Ślokas</h2>
-                <p class="sanskrit" style="text-align:center;">śuklāmbaradharaṃ viṣṇuṃ śaśivarṇaṃ caturbhujam | prasannavadanaṃ dhyāyet sarvavighnopaśāntaye ||</p>
-                <h3>Three Types of Vighnas (Obstacles)</h3>
-                <table>
-                    <tr><th>Type</th><th>Source</th><th>Example</th></tr>
-                    <tr><td><strong>Ādhyātmika</strong></td><td>Internal</td><td>Laziness, sickness.</td></tr>
-                    <tr><td><strong>Ādhidaivika</strong></td><td>Nature</td><td>Rain, technical issues.</td></tr>
-                    <tr><td><strong>Ādhibhautika</strong></td><td>External</td><td>Noise, distractions.</td></tr>
-                </table>
-            </article>
-
-            <article id="attributes" class="content-pane">
-                <h2>Divine Attributes & The Lineage</h2>
-                <h3>Viṣvaksena: The CEO</h3>
-                <p>Bhagavān delegated universe management to Viṣvaksena. He commands an army (<span class="sanskrit">dviradavaktrādyāḥ</span>) that shatters obstacles.</p>
-                <h3>Vyāsa Bhagavān</h3>
-                <p>Born as Kṛṣṇa Dvaipāyana. <br><strong>Lineage:</strong> Nārāyaṇa → Brahmā → Vasiṣṭha → Śakti → Parāśara → Vyāsa → Śuka.</p>
-            </article>
-
-            <article id="karma" class="content-pane">
-                <h2>Karma and Daily Practice</h2>
-                <h3>The Types of Karma</h3>
-                <ul>
-                    <li><strong>Sañcita Karma:</strong> Total accumulation of past actions.</li>
-                    <li><strong>Prārabdha Karma:</strong> The specific portion meant for this current life.</li>
-                </ul>
-                <div class="highlight-box">
-                    <strong>Lunar Eclipse:</strong> Chanting during an eclipse is significantly more potent.
-                </div>
+            <article id="practice" class="content-pane">
+                <h2>Daily Sādhana</h2>
+                <p>Chanting during an eclipse is significantly more potent.</p>
             </article>
         </section>
     </main>
@@ -200,13 +157,11 @@
     <script>
         function switchTab(btn, paneId) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById(paneId);
-            if (target) { target.classList.add('active'); }
-
-            // This ensures only the content area resets to top
+            btn.classList.add('active');
+            document.getElementById(paneId).classList.add('active');
+            
+            // This is key: Only scroll the main container, the sidebar stays still
             document.getElementById('mainScroll').scrollTo({ top: 0, behavior: 'smooth' });
         }
 
