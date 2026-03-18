@@ -1,30 +1,57 @@
 const courseDays = [
-    { file: 'index.html', label: 'Day 1' },
-    { file: 'Days/Day2.html', label: 'Day 2' },
-    { file: 'Days/Day3.html', label: 'Day 3' },
-    { file: 'Days/Day4.html', label: 'Day 4' },
-    { file: 'Days/Day5.html', label: 'Day 5' }
+    { 
+        file: 'index.html', 
+        label: 'Day 1', 
+        title: 'The Vedic Path', 
+        verses: '', 
+        youtubeId: '' 
+    },
+    { 
+        file: 'Days/Day2.html', 
+        label: 'Day 2', 
+        title: 'Vedic Structure', 
+        verses: '', 
+        youtubeId: '' 
+    },
+    { 
+        file: 'Days/Day3.html', 
+        label: 'Day 3', 
+        title: 'The Purpose', 
+        verses: '', 
+        youtubeId: '' 
+    },
+    { 
+        file: 'Days/Day4.html', 
+        label: 'Day 4', 
+        title: 'Questions of Yudhiṣṭhira', 
+        verses: 'Poorvangam 1-5', 
+        youtubeId: 'YOUR_VIDEO_ID_HERE' 
+    },
+    { 
+        file: 'Days/Day5.html', 
+        label: 'Day 5', 
+        title: 'The Divine Architecture', 
+        verses: 'Dhyaanam 1-8', 
+        youtubeId: 'S2pX9jHwFz0' 
+    }
 ];
 
 async function initSidebar() {
     const sidebar = document.querySelector('.sidebar');
     if (!sidebar) return;
 
+    // Use your existing header style
     sidebar.innerHTML = `<div class="sidebar-header">By Shri. Ramabhadran V Guruji</div><div id="dynamic-links"></div>`;
     const container = document.getElementById('dynamic-links');
 
-    // Get the base URL (the folder where vsnb lives)
-    // If you're in /vsnb/Days/Day2.html, the base is /vsnb/
+    // Path Logic (Root handling)
     const pathParts = window.location.pathname.split('/');
-    pathParts.pop(); // remove current file
-    if (pathParts[pathParts.length - 1] === 'Days') pathParts.pop(); // remove Days folder if we are in it
+    pathParts.pop(); 
+    if (pathParts[pathParts.length - 1] === 'Days') pathParts.pop(); 
     const rootPath = pathParts.join('/') + '/';
 
-    for (const day of courseDays) {
+    courseDays.forEach(day => {
         const link = document.createElement('a');
-        
-        // Construct an ABSOLUTE path relative to the site root
-        // This stops the Days/Days error forever
         const finalPath = window.location.origin + rootPath + day.file;
 
         link.href = finalPath;
@@ -33,26 +60,26 @@ async function initSidebar() {
         // Active state check
         if (window.location.href === new URL(finalPath).href) {
             link.classList.add('active');
+            // Update the Video Player if an ID exists for the current page
+            if (day.youtubeId) updateVideoPlayer(day.youtubeId);
         }
 
-        link.innerHTML = `<strong>${day.label}</strong><br><small>Loading...</small>`;
-        container.appendChild(link);
+        // Verse Label Logic
+        const verseBadge = day.verses 
+            ? `<br><span style="color:var(--primary); font-size:0.75rem; font-weight:bold;">[${day.verses}]</span>` 
+            : "";
 
-        fetchTitle(finalPath, day.label, link);
-    }
+        // Construct the Link HTML using the data from the array
+        link.innerHTML = `<strong>${day.label}:</strong><br>${day.title}${verseBadge}`;
+        container.appendChild(link);
+    });
 }
 
-async function fetchTitle(fetchPath, label, linkElement) {
-    try {
-        const response = await fetch(fetchPath);
-        if (!response.ok) throw new Error();
-        const text = await response.text();
-        const doc = new DOMParser().parseFromString(text, 'text/html');
-        const h1 = doc.querySelector('h1')?.innerText || "Module";
-        const title = h1.includes(':') ? h1.split(':').pop().trim() : h1;
-        linkElement.innerHTML = `<strong>${label}:</strong><br>${title}`;
-    } catch (e) {
-        linkElement.innerHTML = `<strong>${label}</strong><br>View Module`;
+// Function to handle the YouTube Embed
+function updateVideoPlayer(videoId) {
+    const iframe = document.getElementById('ytPlayer');
+    if (iframe && videoId) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
     }
 }
 
