@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - The Divine Architecture of the Vishnu Sahasranama</title>
+    <title id="page-title">Course Portal - Day 5</title>
     <style>
         :root { 
             --primary: #e67e22; 
@@ -17,13 +17,9 @@
 
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
 
-        /* Sidebar - Exact match to Day 4 */
+        /* Sidebar */
         .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
-        .sidebar-header { padding: 25px; background: #111; text-align: center; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; }
-        .day-link { padding: 20px; cursor: pointer; border-bottom: 1px solid #2c3e50; transition: 0.3s; color: #bdc3c7; text-decoration: none; display: block; line-height: 1.4; }
-        .day-link:hover { background: #2c3e50; color: white; }
-        .day-link.active { background: var(--primary); color: white; border-left: 6px solid #fff; }
 
         /* Content Area */
         .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
@@ -52,7 +48,7 @@
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
-        /* Typography & Elements */
+        /* Readable Elements */
         h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
         h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
@@ -78,12 +74,13 @@
 <body>
 
     <nav class="sidebar">
-        <div class="sidebar-header">COURSE PORTAL</div>
         <div id="dynamic-links"></div>
     </nav>
 
     <main class="content-wrapper">
-        <header><h1>Day 5: The Divine Architecture</h1></header>
+        <header>
+            <h1 id="main-title"></h1>
+        </header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
@@ -92,7 +89,7 @@
             </button>
             <div id="videoCollapsible" class="video-content">
                 <div class="video-box">
-                    <iframe id="ytPlayer" src="https://www.youtube.com/embed/S2pX9jHwFz0" allowfullscreen></iframe>
+                    <iframe id="ytPlayer" src="" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -109,100 +106,78 @@
         <section class="tab-panel">
             <article id="part1" class="content-pane active">
                 <h2>The Technical Framework</h2>
-                <p>Bhīṣma clarifies that he did not invent these names; they were given by various <span class="sanskrit">ṛṣis</span> and <span class="sanskrit">mahatmas</span> across the yugas, compiled as a garland for Kṛṣṇa Paramātmā.</p>
+                <p>Compiled by various <span class="sanskrit">ṛṣis</span> across yugas, these names form a garland for Kṛṣṇa Paramātmā.</p>
                 <ul>
-                    <li><strong>Ṛṣi:</strong> Vyāsa Bhagavān, who visualized the mantra in meditation.</li>
+                    <li><strong>Ṛṣi:</strong> Vyāsa Bhagavān.</li>
                     <li><strong>Chandas:</strong> Anuṣṭup (4 lines of 8 syllables).</li>
-                    <li><strong>Devatā:</strong> Śrī Kṛṣṇa, the son of Devakī.</li>
-                    <li><strong>Bījam & Śakti:</strong> The "seed" is the Lord's immortality; the "strength" is the power Kṛṣṇa gave Bhīṣma while on the bed of arrows.</li>
+                    <li><strong>Devatā:</strong> Śrī Kṛṣṇa.</li>
                 </ul>
-                <h3>The Purpose of Creation</h3>
-                <p>Bhagavān mixed the inert and sentient universe to help beings achieve liberation from the <span class="sanskrit">saṃsāra cakra</span>. <span class="sanskrit">Pralaya</span> (annihilation) is simply a period of rest for the <span class="sanskrit">jīvātmā</span>, much like sleep follows a day of work.</p>
                 <div class="highlight-box">
-                    <strong>Nyāsam:</strong> The ritual installation of the Divine into the body (Vedas on the mouth, Lord in the heart) transforms the body into a temple protected by the Lord's weapons, <span class="sanskrit">Śārṅga</span> (Bow) and <span class="sanskrit">Gadā</span> (Mace).
+                    <strong>The Purpose of Creation:</strong> <span class="sanskrit">Pralaya</span> (annihilation) is a period of rest for the <span class="sanskrit">jīvātmā</span>, much like sleep follows a day of work.
                 </div>
             </article>
 
             <article id="part2" class="content-pane">
                 <h2>Viśvarūpa: The Cosmic Manifestation</h2>
-                <p>Mahāviṣṇu is a colossal presence whose body encompasses the entire universe across the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>).</p>
+                <p>Mahāviṣṇu is a colossal presence whose body encompasses the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>).</p>
                 
+                
+
                 <table>
                     <tr><th>Body Part</th><th>Universe Equivalent</th></tr>
                     <tr><td>Feet</td><td>The Earth (<span class="sanskrit">bhūmi</span>)</td></tr>
                     <tr><td>Head</td><td>The Heavens (<span class="sanskrit">svarloka</span>)</td></tr>
                     <tr><td>Navel</td><td>The Sky (<span class="sanskrit">nabhas</span>)</td></tr>
-                    <tr><td>Breath</td><td>The Wind (<span class="sanskrit">anila/vāyu</span>)</td></tr>
-                    <tr><td>Eyes</td><td>Sun (fierce heat) and Moon (cool grace)</td></tr>
-                    <tr><td>Mouth</td><td>Fire (<span class="sanskrit">agni/dahana</span>)</td></tr>
-                    <tr><td>Ears</td><td>The eight directions</td></tr>
+                    <tr><td>Eyes</td><td>Sun and Moon</td></tr>
                 </table>
-                <p>All living beings—humans, birds (<span class="sanskrit">khaga</span>), cattle (<span class="sanskrit">go</span>), and snakes (<span class="sanskrit">bhogi</span>)—reside and enjoy life within Him.</p>
             </article>
 
             <article id="part3" class="content-pane">
                 <h2>Analysis: "Śāntākāraṃ"</h2>
-                <p>This dhyāna śloka provides a specific visualization to engage the mind before chanting:</p>
+                <p>This dhyāna śloka provides a specific visualization to engage the mind:</p>
+                
+                
+
                 <ul>
-                    <li><strong>Śāntākāraṃ:</strong> Perfectly peaceful form, full of bliss (<span class="sanskrit">ānanda</span>).</li>
+                    <li><strong>Śāntākāraṃ:</strong> Perfectly peaceful form.</li>
                     <li><strong>Bhujagaśayanaṃ:</strong> Resting on the serpent Ādiśeṣa.</li>
-                    <li><strong>Padmanābhaṃ:</strong> The lotus emerging from the navel, the source of creation.</li>
-                    <li><strong>Viśvadhāraṃ:</strong> The material cause of the universe (like gold to jewelry).</li>
-                    <li><strong>Meghavarṇaṃ:</strong> Dark like rain clouds, ready to shower compassion (<span class="sanskrit">karuṇā</span>).</li>
-                    <li><strong>Śubhāṅgaṃ:</strong> Limbs so beautiful and auspicious that one cannot look away.</li>
+                    <li><strong>Meghavarṇaṃ:</strong> Dark like rain clouds, showering compassion.</li>
                 </ul>
                 <div class="highlight-box">
-                    <strong>Lotus Eyes (Kamalanayana):</strong> His eyes are reddish like a lotus when fighting or when happy. They reflect the reddish form of Mahālakṣmī, who is eternally gazing at Him.
+                    <strong>Lotus Eyes:</strong> His eyes reflect the form of Mahālakṣmī, who is eternally gazing at Him.
                 </div>
             </article>
 
             <article id="part4" class="content-pane">
                 <h2>Sacred Stories & Mantras</h2>
-                <h3>Historical Mantras</h3>
-                <p>The tradition highlights the Six-syllable (<span class="sanskrit">ṣaḍakṣari</span>), Eight-syllable (<span class="sanskrit">aṣṭākṣari</span>), and Twelve-syllable (<span class="sanskrit">dvādaśākṣarī</span>) mantras.</p>
+                <p>Initiation and the power of dedicated practice through historical examples.</p>
                 <ul>
-                    <li><strong>Dhruva:</strong> Initiated by Nārada into the 12-syllable mantra, the 5-year-old attained a vision of the Lord in just six months.</li>
-                    <li><strong>Aditi:</strong> Performed the <span class="sanskrit">payovrata</span> (milk-only fast) for 7 days. The Lord was born as Vāmana to help her son Indra.</li>
+                    <li><strong>Dhruva:</strong> Attained a vision of the Lord in six months via the 12-syllable mantra.</li>
+                    <li><strong>The Śrīvatsa Mark:</strong> The residence of Mahālakṣmī on the Lord's chest, marking His patience with Sage Bhṛgu.</li>
                 </ul>
-                <h3>The Śrīvatsa Mark</h3>
-                <p>The mole on the right side of the Lord's chest is the residence of Mahālakṣmī. It also marks where <strong>Bhṛgu Maharṣi</strong> kicked the Lord to test His patience. Viṣṇu’s calm response—massaging the sage’s foot—established Him as the most <span class="sanskrit">sāttvika</span> deity.</p>
             </article>
 
             <article id="part5" class="content-pane">
                 <h2>The Grace of Śrī Kṛṣṇa</h2>
-                <p>Kṛṣṇa is described sitting on a golden <span class="sanskrit">siṃhāsana</span> (lion-throne) under the celestial <span class="sanskrit">pārijāta</span> tree, which was brought to earth after the defeat of Narakāsura.</p>
+                <p>Kṛṣṇa sits on a golden <span class="sanskrit">siṃhāsana</span> under the celestial <span class="sanskrit">pārijāta</span> tree.</p>
                 <div class="highlight-box">
-                    <strong>The Report Card Analogy:</strong> Just as a child approaches their mother to recommend them to a stern father, we approach Bhagavān through <strong>Mahālakṣmī</strong>. She pleads for the devotee, ensuring the Lord accepts us despite our mistakes.
+                    <strong>The Report Card Analogy:</strong> We approach Bhagavān through <strong>Mahālakṣmī</strong>. She pleads for the devotee, ensuring the Lord accepts us.
                 </div>
-                <h3>Attributes of Kṛṣṇa</h3>
-                <ul>
-                    <li><strong>Ambudaśyāmam:</strong> Complexion like a water-bearing cloud.</li>
-                    <li><strong>Āyatākṣam:</strong> Broad eyes extending toward the ears, providing a graceful glance (<span class="sanskrit">kaṭākṣam</span>) to many at once.</li>
-                    <li><strong>Candrānanam:</strong> A face as radiant as the moon despite a dark complexion.</li>
-                </ul>
-                
             </article>
 
             <article id="part6" class="content-pane">
                 <h2>Knowledge & Remedies</h2>
-                <h3>The 3 Stages of Spiritual Growth</h3>
-                <ol>
-                    <li><strong>Śravaṇam:</strong> Listening to the teachings.</li>
-                    <li><strong>Mananam:</strong> Reflecting deeply on them.</li>
-                    <li><strong>Nididhyāsanam:</strong> Contemplation and action.</li>
-                </ol>
                 <h3>Remedies for Difficulties</h3>
                 <ul>
-                    <li><strong>Financial Debt:</strong> Chant <strong>Śloka 65</strong> (names of Lakṣmī) ten times daily or the <strong>Rṇavimocana Ślokam</strong>.</li>
-                    <li><strong>Fear of Future:</strong> Meditate on <span class="sanskrit">Bhavabhayaharam</span>, the one who removes anxieties of the unknown.</li>
+                    <li><strong>Financial Debt:</strong> Chant <strong>Śloka 65</strong> or the <strong>Rṇavimocana Ślokam</strong>.</li>
+                    <li><strong>Fear of Future:</strong> Meditate on <span class="sanskrit">Bhavabhayaharam</span>.</li>
                 </ul>
-                <p><strong>Sama Veda Meters:</strong> The heart of the mantra utilizes the meters <span class="sanskrit">Bṛhat, Rathantara,</span> and <span class="sanskrit">Vāmadevya</span>.</p>
+                <p>The three stages of growth are <strong>Śravaṇam</strong> (listening), <strong>Mananam</strong> (reflecting), and <strong>Nididhyāsanam</strong> (contemplation).</p>
             </article>
         </section>
     </main>
 
     <script>
-        // Exact Tab Logic from Day 4
         function switchTab(btn, paneId) {
             document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -213,7 +188,6 @@
             }
         }
 
-        // Exact Video Logic from Day 4
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
             const chevron = document.getElementById('toggleChevron');
@@ -223,8 +197,11 @@
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
                 chevron.innerHTML = '▼'; playIcon.innerHTML = '▶';
-                const src = iframe.src; iframe.src = ''; iframe.src = src;
+                iframe.src = ""; 
             } else {
+                if (typeof currentVideoId !== 'undefined') {
+                    iframe.src = `https://www.youtube.com/embed/${currentVideoId}`;
+                }
                 content.classList.add('expanded');
                 chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
             }
