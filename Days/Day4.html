@@ -3,198 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Course Leaf - Day 4</title>
+    <title>Day 4 - Nyāsam: The Body as a Temple</title>
     <style>
         :root { 
-            --primary: #e67e22; 
-            --secondary: #2c3e50; 
-            --sidebar-bg: #1a252f; 
-            --bg: #fdfaf6; 
-            --card-bg: #ffffff;
-            --text-main: #34495e;
-            --accent-soft: #fcf3ea;
+            --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
+            --bg: #fdfaf6; --card-bg: #ffffff; --text-main: #34495e; --accent-soft: #fcf3ea;
         }
 
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text-main); overflow: hidden; }
 
-        /* Sidebar */
-        .sidebar { width: 300px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
-        #dynamic-links { flex-grow: 1; overflow-y: auto; }
+        /* Sidebar Styles */
+        .sidebar { width: 320px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; box-shadow: 4px 0 15px rgba(0,0,0,0.2); }
+        .sidebar-brand { padding: 30px 20px; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--primary); background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 15px 0; }
+        
+        .nav-item { display: block; padding: 18px 25px; color: rgba(255,255,255,0.5); text-decoration: none; border-left: 4px solid transparent; transition: all 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-item.active { background: rgba(230, 126, 34, 0.12); color: var(--primary); border-left-color: var(--primary); }
+        .day-num { font-size: 0.7rem; display: block; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; opacity: 0.8; }
+        .day-name { font-size: 0.95rem; display: block; line-height: 1.4; }
 
-        /* Content Area */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
-        header { background: white; padding: 30px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
-        header h1 { margin: 0; font-size: 1.6rem; color: var(--secondary); font-weight: 700; }
+        /* Content Layout */
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
+        header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
+        header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
 
         /* Video Section */
-        .video-container { width: 90%; max-width: 950px; margin: 25px auto; }
-        .video-toggle-btn {
-            width: 100%; background: var(--secondary); color: white; padding: 15px 25px; border: none; border-radius: 8px;
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; transition: 0.3s;
-        }
-        .video-toggle-btn:hover { background: #34495e; }
-        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: #000; border-radius: 0 0 12px 12px; }
-        .video-content.expanded { max-height: 600px; margin-top: -5px; }
+        .video-container { width: 92%; max-width: 950px; margin: 25px auto; }
+        .video-toggle-btn { width: 100%; background: var(--secondary); color: white; padding: 16px 20px; border: none; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+        .video-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #000; border-radius: 0 0 8px 8px; }
+        .video-content.expanded { max-height: 580px; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Tabs Navigation */
-        .tabs-nav { max-width: 950px; margin: 0 auto; display: flex; background: #eee; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); flex-wrap: wrap; width: 90%; }
-        .tab-btn { flex: 1; min-width: 130px; padding: 15px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--secondary); font-size: 0.8rem; transition: 0.2s; }
+        /* Tabs */
+        .tabs-nav { width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; }
+        .tab-btn { flex: 1; padding: 16px 20px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.8rem; }
         .tab-btn.active { background: var(--primary); color: white; }
 
-        /* Tab Content Panel */
-        .tab-panel { max-width: 950px; margin: 0 auto 50px; background: var(--card-bg); padding: 40px; border-radius: 0 0 8px 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 90%; box-sizing: border-box; }
+        .tab-panel { width: 92%; max-width: 950px; margin: 0 auto 60px; background: white; padding: 45px; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); box-sizing: border-box; }
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
-        /* Readable Elements */
-        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
-        h3 { color: var(--secondary); margin-top: 30px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
-        .sanskrit { color: #d35400; font-style: italic; font-weight: 600; font-family: 'Georgia', serif; background: var(--accent-soft); padding: 2px 5px; border-radius: 4px; }
-        .highlight-box { background: var(--accent-soft); border-left: 5px solid var(--primary); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        /* Typography */
+        .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
+        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 30px 0 20px; }
+        h3 { color: var(--secondary); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; }
+        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
         
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
-        th { background-color: var(--secondary); color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border: 1px solid #eee; line-height: 1.5; }
-        
-        ul, ol { padding-left: 20px; margin-bottom: 20px; }
-        li { margin-bottom: 12px; line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { background: #f9f9f9; color: var(--primary); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 768px) { 
-            body { flex-direction: column; } 
-            .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; } 
-            .tab-panel { padding: 20px; }
-            .tab-btn { min-width: 100px; font-size: 0.75rem; }
-        }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
+        <div class="sidebar-brand">By Shri. Ramabhadran V Guruji</div>
         <div id="dynamic-links"></div>
     </nav>
 
     <main class="content-wrapper">
-        <header>
-            <h1 id="main-title"></h1>
-        </header>
+        <header><h1 id="main-title">Day 4: Nyāsam & Sacred Architecture</h1></header>
         
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
-                <span><span id="btnPlayIcon">▶</span> Watch Discourse Video</span>
+                <span>▶ Watch Day 4 Discourse</span>
                 <span id="toggleChevron">▼</span>
             </button>
             <div id="videoCollapsible" class="video-content">
-                <div class="video-box">
-                    <iframe id="ytPlayer" src="" allowfullscreen></iframe>
-                </div>
+                <div class="video-box"><iframe id="ytPlayer" allowfullscreen></iframe></div>
             </div>
         </div>
 
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 'part1')">The Purpose</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part2')">The 6 Components</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part3')">Body as Temple</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part4')">Self-Control</button>
-            <button class="tab-btn" onclick="switchTab(this, 'part5')">Chanting Guidelines</button>
+            <button class="tab-btn active" onclick="switchTab(this, 'philosophy')">Vedic Philosophy</button>
+            <button class="tab-btn" onclick="switchTab(this, 'structure')">Mantra Structure</button>
+            <button class="tab-btn" onclick="switchTab(this, 'nyasam')">Nyāsam Ritual</button>
+            <button class="tab-btn" onclick="switchTab(this, 'armor')">Divine Armor</button>
+            <button class="tab-btn" onclick="switchTab(this, 'practice')">Daily Practice</button>
         </nav>
 
         <section class="tab-panel">
-            <article id="part1" class="content-pane active">
-                <h2>Genesis, Dissolution & Fear</h2>
-                <p>Establishing Bhagavān as the source of all. All <span class="sanskrit">jīvātmās</span> emerge from Him and return during <span class="sanskrit">pralaya</span> (dissolution).</p>
-                
+            <article id="philosophy" class="content-pane active">
+                <h2>The Cycle of Existence</h2>
+                <p>Bhīṣma identifies Mahāviṣṇu as the <span class="sanskrit">bhūtapṛthakbhāvaḥ</span>—the source and destination of all beings. Creation is a cycle of manifestation and return to the original ātmic stage.</p>
                 <div class="highlight-box">
-                    <strong>The Return:</strong> Dissolution is not destruction; it is a return to an original form. Like a mud pot returning to mud, we return to the Lord.
+                    <strong>The Mud Pot Analogy:</strong> Just as a broken pot returns to being mud, the <span class="sanskrit">jīvātmā</span> returns to Bhagavān during <span class="sanskrit">pralaya</span> (dissolution). This is not destruction, but a homecoming.
                 </div>
+                <h3>Removing the Fear of Sin</h3>
+                <p>Yudhiṣṭhira was plagued by anxiety (<span class="sanskrit">bhaya</span>) over the war. Bhīṣma presents the thousand names as a remedy to dissolve sins accumulated over millions of births. It was Kṛṣṇa's <span class="sanskrit">saṅkalpa</span> (divine will) to leave this treasure for humanity before the onset of Kaliyuga.</p>
             </article>
 
-            <article id="part2" class="content-pane">
-                <h2>Technical Components of the Mantra</h2>
-                <p>The <span class="sanskrit">Viṣṇu Sahasranāmam</span> is a structured mantra with specific spiritual "gears":</p>
-                
+            <article id="structure" class="content-pane">
+                <h2>The Architecture of the Stotra</h2>
+                <p>Every major mantra is supported by specific pillars. For the Viṣṇu Sahasranāmam, these are:</p>
                 <table>
                     <tr><th>Component</th><th>Significance</th></tr>
-                    <tr><td><strong>Ṛṣi (The Seer)</strong></td><td><strong>Veda Vyāsa</strong>. The visualizer.</td></tr>
-                    <tr><td><strong>Chandas (Meter)</strong></td><td><strong>Anuṣṭup Chandas</strong>. 32 syllables total.</td></tr>
-                    <tr><td><strong>Devatā (Deity)</strong></td><td><strong>Kṛṣṇa Paramātmā</strong>.</td></tr>
-                    <tr><td><strong>Bījam (Seed)</strong></td><td><strong>Amṛtāṃśūdbhavaḥ</strong>.</td></tr>
-                    <tr><td><strong>Śakti (Strength)</strong></td><td><strong>Devakīnandanaḥ</strong>.</td></tr>
-                    <tr><td><strong>Hṛdayam (Heart)</strong></td><td>The <strong>Sāma Veda</strong>.</td></tr>
+                    <tr><td><strong>Ṛṣi (Seer)</strong></td><td><span class="sanskrit">Veda Vyāsa</span> — The visionary who "saw" the mantra.</td></tr>
+                    <tr><td><strong>Chandas (Meter)</strong></td><td><span class="sanskrit">Anuṣṭup</span> — 32 syllables (4 lines of 8).</td></tr>
+                    <tr><td><strong>Devatā (Deity)</strong></td><td><span class="sanskrit">Kṛṣṇa Paramātmā</span> — The manifestation of Viṣṇu.</td></tr>
+                    <tr><td><strong>Bījam (Seed)</strong></td><td><span class="sanskrit">Amṛtāṃśūdbhavaḥ</span> — The Lord's immortality.</td></tr>
+                    <tr><td><strong>Śakti (Strength)</strong></td><td><span class="sanskrit">Devakīnandanaḥ</span> — The power that sustained Bhīṣma.</td></tr>
+                    <tr><td><strong>Hṛdayam (Heart)</strong></td><td><span class="sanskrit">Sama Veda</span> — The musical essence of the Vedas.</td></tr>
                 </table>
             </article>
 
-            <article id="part3" class="content-pane">
-                <h2>Nyāsam: Installing the Divine</h2>
-                <p><strong>Nyāsam</strong> involves depositing divine power into the physical body. By invoking these aspects, we acknowledge that the body is a <strong>Temple</strong>.</p>
+            <article id="nyasam" class="content-pane">
+                <h2>Installing the Divine Within</h2>
+                <p><span class="sanskrit">Nyāsam</span> means "depositing" or "installing." Since the Lord resides in the spiritual heart (the right side of the chest), we treat the body as a temple.</p>
                 
-                <h3>The Holy Right Ear</h3>
-                <p>The right ear is considered a universal purifier containing the holy Gaṅgā, released the river through <strong>Jahnu Maharṣi's</strong> ear.</p>
+                <h3>Purification and the Right Ear</h3>
+                <p>During the ritual, we touch the right ear. Why? According to the legend of <strong>Jāhnavī</strong>, Jahnu Maharṣi consumed the river Gaṅgā and released her through his right ear. Thus, the right ear is a universal purifier containing the holy waters of the Gaṅgā.</p>
+                
+                <h3>The Three Equipments</h3>
+                <p>We "nail down" (<span class="sanskrit">Kīlakam</span>) the focus of our three tools:</p>
+                <ul>
+                    <li><strong>Śaṅkha (Conch):</strong> Dedicated to speech (chanting).</li>
+                    <li><strong>Nandaka/Sword:</strong> Dedicated to physical service (<span class="sanskrit">Karma Yoga</span>).</li>
+                    <li><strong>Cakra (Discus):</strong> Dedicated to the rotating mind (focus on Divine).</li>
+                </ul>
             </article>
 
-            <article id="part4" class="content-pane">
+            <article id="armor" class="content-pane">
                 <h2>The Chariot of Self-Control</h2>
-                <p>To protect the "Temple of the Body," we invoke the Lord's weapons. The <strong>Śārṅga</strong> (Bow) represents the control of the senses.</p>
-                
-                
-                
+                <p>The sense organs are like wild horses running toward sense objects. The mind is the reins, and the **Intellect (Kṛṣṇa)** is the charioteer. Through Nyāsam, we invoke the Lord's weapons to guard this temple:</p>
                 <ul>
-                    <li><strong>The Horses:</strong> The 5 Senses.</li>
-                    <li><strong>The Reins:</strong> The Mind.</li>
-                    <li><strong>The Charioteer:</strong> The Intellect (Buddhi).</li>
+                    <li><strong>Śārṅga (Bow):</strong> Controls the five sense organs.</li>
+                    <li><strong>Gadā (Mace):</strong> Strengthens the intellect.</li>
+                    <li><strong>Sudarśana Chakra:</strong> Blocks obstacles from all directions.</li>
                 </ul>
-                <p>When the Intellect (Kṛṣṇa) holds the mind in check, the practitioner reaches the destination safely.</p>
+                <div class="highlight-box">
+                    <strong>Armor (Kavacam):</strong> By crossing hands over the shoulders, we wrap ourselves in the vibrations of the Sāma Veda, shielding the body from external interference and jealousy.
+                </div>
             </article>
 
-            <article id="part5" class="content-pane">
-                <h2>Sincerity in Daily Motion</h2>
-                <p>Is it okay to chant while working or driving? The story of <strong>Nārada and the Farmer</strong> provides the answer.</p>
-                <div class="highlight-box">
-                    <strong>The Lesson:</strong> A farmer who remembers God briefly while tending his duties is as dear to the Lord as a sage who chants 24/7.
-                </div>
-                <h3>Chanting Tips:</h3>
-                <ul>
-                    <li><strong>Location:</strong> Any place—car, kitchen, or office.</li>
-                    <li><strong>State:</strong> Sincerity and <span class="sanskrit">bhakti</span> are the primary requirements.</li>
-                </ul>
+            <article id="practice" class="content-pane">
+                <h2>Sincerity Over Strictness</h2>
+                <p>Because Viṣṇu is a <span class="sanskrit">sāttvika</span> deity, the rules for chanting are flexible. It can be done in a car, office, or kitchen, with or without a bath.</p>
+                
+                <h3>The Story of Nārada and the Farmer</h3>
+                <p>Nārada, who chanted 24/7, was humbled by a farmer whom the Lord called His "greatest devotee." The farmer chanted only 25 minutes a day but did so with pure devotion while fulfilling his duties. To teach Nārada, the Lord had him carry a full lamp of oil without spilling a drop. Nārada succeeded but forgot to chant once because he was "too busy" focusing on the task.</p>
+                <p><strong>The Lesson:</strong> The Lord values those who remember Him despite the heavy burdens and distractions of worldly life.</p>
+                
+                <h3>Final Meditation</h3>
+                <p>We meditate on the <span class="sanskrit">aṅguṣṭhamātra puruṣa</span>—the thumb-sized divine form within the spiritual heart on the right side of the chest. Everything we do is <span class="sanskrit">Mahāviṣṇu-prītyarthe</span>—for the pleasure of the Lord.</p>
             </article>
         </section>
     </main>
 
+    <script src="../course-sidebar.js"></script>
     <script>
-        function switchTab(btn, paneId) {
-            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(paneId).classList.add('active');
-            btn.classList.add('active');
-            if(window.innerWidth < 768) {
-                document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth'});
+        window.onload = () => {
+            if (typeof initSidebar === "function") {
+                initSidebar("Day 4"); 
             }
+        };
+
+        function switchTab(btn, paneId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(paneId).classList.add('active');
+            document.querySelector('.tab-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
         }
 
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
             const chevron = document.getElementById('toggleChevron');
-            const playIcon = document.getElementById('btnPlayIcon');
             const iframe = document.getElementById('ytPlayer');
 
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
-                chevron.innerHTML = '▼'; playIcon.innerHTML = '▶';
+                chevron.innerHTML = '▼';
                 iframe.src = ""; 
             } else {
-                if (typeof currentVideoId !== 'undefined') {
-                    iframe.src = `https://www.youtube.com/embed/${currentVideoId}`;
+                if (window.currentVideoId) {
+                    iframe.src = `https://www.youtube.com/embed/${window.currentVideoId}?autoplay=1`;
+                    content.classList.add('expanded');
+                    chevron.innerHTML = '▲';
                 }
-                content.classList.add('expanded');
-                chevron.innerHTML = '▲'; playIcon.innerHTML = '✖';
             }
         }
     </script>
-    <script src="../course-sidebar.js"></script>
 </body>
 </html>
