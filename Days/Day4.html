@@ -36,7 +36,7 @@
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* TABS */
+        /* TABS NAVIGATION */
         .tabs-nav { 
             width: 92%; max-width: 1100px; margin: 0 auto; 
             display: grid; grid-template-columns: repeat(6, 1fr); 
@@ -46,7 +46,7 @@
         }
         .tab-btn { 
             width: 100%; height: 100%; padding: 5px; border: none; background: none; cursor: pointer; 
-            font-weight: 700; color: var(--secondary); font-size: 0.62rem; 
+            font-weight: 700; color: var(--secondary); font-size: 0.6rem; 
             text-transform: uppercase; border-right: 1px solid #ddd; display: flex;
             align-items: center; justify-content: center; text-align: center; line-height: 1.1;
         }
@@ -80,7 +80,7 @@
 
         <div class="video-container">
             <button class="video-toggle-btn" onclick="toggleVideo()">
-                <span>▶ Watch Day 4 Discourse</span>
+                <span>▶ Watch Day 4 Discourse (Part 1-5)</span>
                 <span id="toggleChevron">▼</span>
             </button>
             <div id="videoCollapsible" class="video-content">
@@ -89,86 +89,104 @@
         </div>
         
         <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this, 't1')">Questions & Creation</button>
-            <button class="tab-btn" onclick="switchTab(this, 't2')">Sins & Saṅkalpa</button>
-            <button class="tab-btn" onclick="switchTab(this, 't3')">Sacred Architecture</button>
-            <button class="tab-btn" onclick="switchTab(this, 't4')">Nyāsam & Purification</button>
-            <button class="tab-btn" onclick="switchTab(this, 't5')">Body temple & Yoga</button>
-            <button class="tab-btn" onclick="switchTab(this, 't6')">Sincerity & Obstacles</button>
+            <button class="tab-btn active" onclick="switchTab(this, 't1')">6 Questions & Creation</button>
+            <button class="tab-btn" onclick="switchTab(this, 't2')">Fear, Sins & Kaliyuga</button>
+            <button class="tab-btn" onclick="switchTab(this, 't3')">Architecture & Manana</button>
+            <button class="tab-btn" onclick="switchTab(this, 't4')">Nyāsam & The Right Ear</button>
+            <button class="tab-btn" onclick="switchTab(this, 't5')">Body Temple & Chariot</button>
+            <button class="tab-btn" onclick="switchTab(this, 't6')">Nārada & Guidelines</button>
         </nav>
 
         <section class="tab-panel">
             <article id="t1" class="content-pane active">
-                <h2>Recap of the Six Questions</h2>
-                <p>Bhīṣma establishes Lord Nārāyaṇa as the refuge of all by answering Yudhiṣṭhira’s six questions in a specific order (6, 4, 3, 5, 2, 1). Chanting His thousand names is established as the highest dharma.</p>
+                <h2>Recap of Yudhiṣṭhira’s 6 Questions</h2>
+                <p>Bhīṣma established Lord Nārāyaṇa as the supreme destination by answering the fundamental questions in order (6, 4, 3, 5, 2, 1): 1. Who is the supreme deity? 2. Who is the ultimate refuge? 3. Who should be praised? 4. Who should be worshipped? 5. What is the best dharma? 6. Chanting whose name brings liberation?</p>
                 
-                <h3>Bhagavān as Creator and Sustainer (Śloka 17)</h3>
-                <p>All <span class="sanskrit">jīvātmās</span>—humans, birds, animals—emerge from Him and return to Him during <span class="sanskrit">pralaya</span>. Annihilation is not destruction, but a return to an original ātmic form, much like a mud pot returning to its state as mud. This is supported by the <span class="sanskrit">Taittirīya Upaniṣad</span>, defining Brahman as that from which everything comes, lives, and returns.</p>
+                <h3>Bhagavān as Creator, Sustainer, and Annihilator</h3>
+                <p>Śloka 17 describes the Lord as the source of all beings. All <span class="sanskrit">jīvātmās</span>—humans, birds, animals, and cattle—emerge from Him at creation and return to Him during <span class="sanskrit">pralaya</span> (dissolution).</p>
+                <div class="highlight-box">
+                    <strong>The Nature of Pralaya:</strong> Annihilation is not destruction but a return to original form. Like a mud pot returning to mud when broken, jīvātmās return to an ātmic stage where they do not manifest in physical bodies.
+                </div>
+                <p>This follows the Taittirīya Upaniṣad, where Bhṛgu asks Varuṇa to define Brahman: that from which everything comes, by which everything lives, and into which everything returns.</p>
             </article>
 
             <article id="t2" class="content-pane">
                 <h2>Removal of the Fear of Sins</h2>
-                <p>Addressing Yudhiṣṭhira as <span class="sanskrit">bhūpate</span>, Bhīṣma offers the thousand names to remove the fear of <span class="sanskrit">pāpa</span> (sins) committed across millions of births. Yudhiṣṭhira was specifically plagued by the anxiety of killing his guru and cousins.</p>
+                <p>Bhīṣma invites Yudhiṣṭhira (<span class="sanskrit">bhūpate</span>) to listen to the 1000 names to remove the fear of <span class="sanskrit">pāpa</span>. All people worry about sins committed across millions of births. Yudhiṣṭhira specifically feared the sin of killing his gurus and cousins.</p>
                 
-                <h3>Kṛṣṇa’s Saṅkalpa for Kaliyuga</h3>
-                <p>This reveal was the <span class="sanskrit">saṅkalpa</span> (divine intention) of Śrī Kṛṣṇa. Knowing Kaliyuga was approaching, He intended the Sahasranāmam to be a "Garland of Names" (<span class="sanskrit">guṇas</span>) provided through Bhīṣma as the easiest path to welfare. </p>
-                
-                <div class="highlight-box">
-                    <strong>Sauśīlyam (Approachability):</strong> Rāma befriended Guha (hunter), Sugrīva (monkey), and Vibhīṣaṇa (rākṣasa). Similarly, Gajendra and Jaṭāyu could approach Him. Innocence and <span class="sanskrit">bhakti</span> are the only requirements.
-                </div>
+                <h3>Kṛṣṇa’s Saṅkalpa and Sauśīlyam</h3>
+                <p>The Sahasranāmam was the <span class="sanskrit">saṅkalpa</span> (divine intention) of Śrī Kṛṣṇa. He knew Kaliyuga was coming—an age of vice—and intended this as the easiest way to achieve welfare.</p>
+                <p>Bhīṣma did not "create" these names; they are qualities (<span class="sanskrit">guṇas</span>) given by sages across three yugas. One primary quality is <strong>Sauśīlyam</strong> (Easy Approachability). Examples include:</p>
+                <ul>
+                    <li><strong>Guha:</strong> A hunter befriended by Rāma.</li>
+                    <li><strong>Sugrīva:</strong> A monkey.</li>
+                    <li><strong>Vibhīṣaṇa:</strong> A rākṣasa.</li>
+                    <li><strong>Gajendra:</strong> An elephant.</li>
+                    <li><strong>Jaṭāyu:</strong> A bird.</li>
+                </ul>
             </article>
 
             <article id="t3" class="content-pane">
-                <h2>Sacred Architecture of the Mantra</h2>
-                <p>Spiritual progress involves <strong>listening, reflection (Manana), and action.</strong> One who reflects deeply on Vedic knowledge is a <span class="sanskrit">Mahāmuni</span>.</p>
+                <h2>Technical Architecture of the Mantra</h2>
+                <p>Spiritual progress involves: Listening, Reflection (<span class="sanskrit">Manana</span>), and Action. Manana is like a cow chewing its cud; deep reflection makes one a <span class="sanskrit">Mahāmuni</span>.</p>
                 <table>
-                    <tr><th>Component</th><th>Significance</th></tr>
-                    <tr><td>Ṛṣi (Seer)</td><td><strong>Veda Vyāsa</strong> — The mantra-draṣṭā (seer) who visualized the names.</td></tr>
-                    <tr><td>Chandas (Meter)</td><td><strong>Anuṣṭup</strong> — 4 padas of 8 aksharas each (32 total).</td></tr>
-                    <tr><td>Devatā (Deity)</td><td><strong>Krishna Paramātmā</strong> — Manifestation of Mahāviṣṇu.</td></tr>
-                    <tr><td>Bījam (Seed)</td><td><strong>Amṛtāṃśūdbhavaḥ</strong> — Representing the Lord's immortality.</td></tr>
-                    <tr><td>Śakti (Strength)</td><td><strong>Devakīnandanaḥ</strong> — The strength Kṛṣṇa gave to Bhīṣma.</td></tr>
-                    <tr><td>Hṛdayam (Heart)</td><td>The <strong>Sama Veda</strong> (Bṛhat, Rathantara, and Vāmadevya).</td></tr>
+                    <tr><th>Technical Part</th><th>Detail</th></tr>
+                    <tr><td><strong>Ṛṣi (Seer)</strong></td><td>Veda Vyāsa (<span class="sanskrit">mantra-draṣṭā</span>). Touching the head symbolizes where the mantra was revealed.</td></tr>
+                    <tr><td><strong>Chandas (Meter)</strong></td><td><span class="sanskrit">Anuṣṭup</span> — 4 padas of 8 syllables (32 total). Note: Gāyatrī has 3 padas/24 syllables.</td></tr>
+                    <tr><td><strong>Devatā (Deity)</strong></td><td>Bhagavān Krishna Paramātmā (Mahāviṣṇu).</td></tr>
+                    <tr><td><strong>Bījam (Seed)</strong></td><td><span class="sanskrit">Amṛtāṃśūdbhavaḥ</span> — Immortal aspect of the Lord.</td></tr>
+                    <tr><td><strong>Śakti (Strength)</strong></td><td><span class="sanskrit">Devakīnandanaḥ</span> (Kṛṣṇa) — Radiated strength into Bhīṣma on the bed of arrows.</td></tr>
+                    <tr><td><strong>Hṛdayam (Heart)</strong></td><td>The 3 Samas of Sama Veda: <span class="sanskrit">Bṛhat, Rathantara, and Vāmadevya</span>.</td></tr>
                 </table>
-                <p>Salutations are offered to the <span class="sanskrit">Purāṇa Puruṣa</span>—Viṣṇu (all-pervading), Jiṣṇu (ever-victorious), and the Supreme Commander.</p>
+                <p>Salutations to the <strong>Purāṇa Puruṣa</strong>: Viṣṇu (all-pervading), Jiṣṇu (victorious over external and internal enemies like desire and pride), and the Supreme Commander.</p>
             </article>
 
             <article id="t4" class="content-pane">
-                <h2>Nyāsam and the Purification of the Body</h2>
-                <p><span class="sanskrit">Nyāsam</span> involves installing the Divine into the body. Since Bhagavān resides in the spiritual heart (right side of the chest), the body is a temple that must be purified.</p>
+                <h2>Nyāsam: Body as a Temple</h2>
+                <p>Nyāsam means "giving up" or "installing." We install the Divine into the head, mouth, and spiritual heart (right side of the chest, shaped like a downward-drooping lotus). This purifies and "charges" the body-vessel.</p>
                 
-                <h3>The Holiness of the Right Ear</h3>
-                <p>Touching the lips is unhygienic, so we purify via the right ear. This is rooted in the story of <strong>Gaṅgā</strong>: From Viṣṇu's toe to Brahmā's kamaṇḍalu, then caught in Śiva's locks. When Sage Jahnu consumed her in anger, he released her through his <strong>right ear</strong> at Bhagīratha's request. Thus, the right ear contains the Gaṅgā.</p>
-                
-                <h3>Installing the Seed and Strength</h3>
-                <p>The <span class="sanskrit">Bījam</span> is installed on the navel (<span class="sanskrit">nābhi</span>), the source of nourishment. The <span class="sanskrit">Śakti</span> (Kṛṣṇa) strengthens the names to lead us beyond the <span class="sanskrit">saṃsāra cakra</span>.</p>
+                <h3>Mythology of the Right Ear</h3>
+                <p>Touching the lips is unhygienic, so a purification ritual is required before touching the chest. The <strong>right ear</strong> is a universal purifier containing the Gaṅgā:</p>
+                <div class="highlight-box">
+                    <strong>The Descent:</strong> Viṣṇu's toe (Trivikrama) reached Satyaloka → Brahmā washed it with kamaṇḍalu water (Gaṅgā) → Lord Śiva caught her in matted locks → Bhagīratha penance → Sage Jahnu consumed her after she washed away his hermitage → Released her through his <strong>right ear</strong>. Thus she is called Jāhnavī.
+                </div>
+                <p><strong>Bījam:</strong> Installed on the navel (<span class="sanskrit">nābhi</span>), representing our source and life from the womb. Purpose: To lead us beyond the <span class="sanskrit">saṃsāra cakra</span>.</p>
             </article>
 
             <article id="t5" class="content-pane">
-                <h2>The Body as a Tool for Karma Yoga</h2>
-                <p>The Lord mixes the inert physical body with the sentient <span class="sanskrit">jīvātmā</span> to provide a tool for action. The body is intended for <strong>Karma Yoga</strong>—performing service and offering it to God—rather than mental enjoyment.</p>
+                <h2>Tools for Karma Yoga</h2>
+                <p>Bhagavān "mixes" the inert physical body with the sentient <span class="sanskrit">jīvātmā</span>. The body is not for enjoyment (mental level) but for Karma Yoga (offering service). Once the Divine is invoked, the practitioner concludes by touching their feet in worship.</p>
                 
-                <div class="highlight-box">
-                    <strong>Kīlakam (The Three Equipments):</strong>
-                    <ul>
-                        <li><strong>Śaṅkha (Conch):</strong> The mouth/speech used for chanting.</li>
-                        <li><strong>Nandaka/Cakri:</strong> The body used for pūjā and service.</li>
-                        <li><strong>Cakra (Discus):</strong> The mind, always rotating, focused on the Divine.</li>
-                    </ul>
-                </div>
+                <h3>Kīlakam: The Three Equipments</h3>
+                <ul>
+                    <li><strong>Śaṅkha (Conch):</strong> The mouth/speech for chanting names.</li>
+                    <li><strong>Nandaka/Cakri:</strong> The body/sword for pūjā and service.</li>
+                    <li><strong>Cakra (Discus):</strong> The mind, rotating and focused on the Divine.</li>
+                </ul>
                 
-                <h3>The Chariot Analogy</h3>
-                <p>The senses are <strong>Horses</strong> running toward sensory roads. The mind is the <strong>Reins</strong>. The intellect is the <strong>Charioteer</strong> (Kṛṣṇa). Only when the intellect holds the mind steady (<span class="sanskrit">acala</span>) can the practitioner reach the spiritual destination.</p>
+                <h3>Upanishadic Chariot Analogy</h3>
+                <p><strong>Horses:</strong> 5 Sense organs (<span class="sanskrit">pañcendriyas</span>) running toward sense objects. <br>
+                <strong>Reins:</strong> The Mind. <br>
+                <strong>Charioteer:</strong> The Intellect (Kṛṣṇa). <br>
+                <strong>The Goal:</strong> The intellect must hold the mind (reins). Example: A diabetic tempted by sweets (mind) must listen to the intellect (knowledge of health) to reach the destination.</p>
             </article>
 
             <article id="t6" class="content-pane">
-                <h2>Sincerity and the Philosophy of Obstacles</h2>
-                <p>Bhagavān resides in the heart as the <span class="sanskrit">aṅguṣṭhamātra puruṣa</span> (thumb-sized form). While tasks like the <span class="sanskrit">Aśvamedha Yajña</span> face hurdles, the lesson is to fight through them. <span class="sanskrit">Bhūta</span> refers to both the five elements (<span class="sanskrit">Pañcabhūtas</span>) and all living beings.</p>
+                <h2>Sincerity and Meditation</h2>
+                <p>Meditation should proceed from the known (the universe) to the unknown. Chanting is for the pleasure of Mahāviṣṇu (<span class="sanskrit">Mahāviṣṇu-prītyarthe</span>). When the Lord is pleased, He acts as a happy father, rewarding the devotee without being asked.</p>
                 
-                <h3>The Story of Nārada and the Farmer</h3>
-                <p>Nārada, who chanted 24/7, was humbled by a farmer who only chanted 25 minutes a day but remembered God despite worldly burdens. The Lord taught Nārada using an oil lamp: Sincerity (<span class="sanskrit">bhakti</span>) matters more than the quantity or strict rules (<span class="sanskrit">niyamas</span>).</p>
+                <h3>The Farmer and the Oil Lamp</h3>
+                <p>Nārada once felt superior for chanting 24/7. To teach him, the Lord pointed to a farmer who chanted only 25 minutes a day. He then asked Nārada to carry a full oil lamp around the world without spilling a drop. Nārada succeeded but forgot to chant once because he was focused. The Lord explained the farmer was superior for remembering God despite his heavy worldly burdens.</p>
                 
-                <p>Chanting can be done anywhere—car, office, or kitchen. The purpose of <span class="sanskrit">Nyāsam</span> and <span class="sanskrit">Kavacam</span> (Vedic armor) is to install positive energy, leading to <span class="sanskrit">Mukti</span> (liberation).</p>
+                <div class="highlight-box">
+                    <strong>Key Q&A Facts:</strong>
+                    <ul>
+                        <li><strong>Ladies:</strong> May perform Nyāsam (except 3-day monthly period).</li>
+                        <li><strong>Rules:</strong> No strict <span class="sanskrit">niyamas</span>. Chant in car, office, or kitchen. Morning, noon, or night.</li>
+                        <li><strong>Bhūta:</strong> Means both the 5 elements and the Jīvātmās.</li>
+                        <li><strong>Obstacles:</strong> Even Rāma and the Pāṇḍavas faced them; the lesson is to fight through them.</li>
+                    </ul>
+                </div>
             </article>
         </section>
     </main>
