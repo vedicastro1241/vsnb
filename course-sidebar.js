@@ -2,37 +2,37 @@ const courseDays = [
     { 
         file: 'index.html', 
         label: 'Day 1', 
-        title: 'The Vedic Path', 
-        verses: '', 
-        youtubeId: '' 
+        title: 'Pūrvabhāga: The Vedic Foundation', 
+        verses: 'Introductory Theory', 
+        youtubeId: '' // No ID provided for Day 1
     },
     { 
         file: 'Days/Day2.html', 
         label: 'Day 2', 
-        title: 'Vedic Structure', 
-        verses: '', 
-        youtubeId: '' 
+        title: 'Pūrvāṅgam: Vighna-Nivāraṇa', 
+        verses: 'Prelude Ślokas 1-2', 
+        youtubeId: '5GrhAx-6Tqw' 
     },
     { 
         file: 'Days/Day3.html', 
         label: 'Day 3', 
-        title: 'The Purpose', 
-        verses: '', 
-        youtubeId: '' 
+        title: 'Pūrvāṅgam: Vyāsa-Vandanā', 
+        verses: 'Prelude Ślokas 3-4', 
+        youtubeId: 'thTeLSb62Zw' 
     },
     { 
         file: 'Days/Day4.html', 
         label: 'Day 4', 
-        title: 'Questions of Yudhiṣṭhira', 
-        verses: 'Poorvangam 1-5', 
-        youtubeId: 'YOUR_VIDEO_ID_HERE' 
+        title: 'Nyāsam: The Body as a Temple', 
+        verses: 'Prelude 5-6 & Nyāsam', 
+        youtubeId: 'QwxGvk5PqBA' 
     },
     { 
         file: 'Days/Day5.html', 
         label: 'Day 5', 
-        title: 'The Divine Architecture', 
-        verses: 'Dhyaanam 1-8', 
-        youtubeId: 'S2pX9jHwFz0' 
+        title: 'Dhyānam & Prathama-Nāma', 
+        verses: 'Stotra 1-8 (The Questions)', 
+        youtubeId: 'jdLfG_p3fag' 
     }
 ];
 
