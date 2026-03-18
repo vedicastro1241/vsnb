@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - The Divine Architecture & Dhyānam</title>
+    <title>Day 5 - The Divine Radiance & Dhyānam</title>
     <style>
         :root { 
             --primary: #e67e22; --secondary: #2c3e50; --sidebar-bg: #1a252f; 
@@ -17,14 +17,8 @@
         .sidebar-brand { padding: 30px 20px; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--primary); background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
         #dynamic-links { flex-grow: 1; overflow-y: auto; padding: 15px 0; }
         
-        .nav-item { display: block; padding: 18px 25px; color: rgba(255,255,255,0.5); text-decoration: none; border-left: 4px solid transparent; transition: all 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
-        .nav-item.active { background: rgba(230, 126, 34, 0.12); color: var(--primary); border-left-color: var(--primary); }
-        .day-num { font-size: 0.7rem; display: block; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; opacity: 0.8; }
-        .day-name { font-size: 0.95rem; display: block; line-height: 1.4; }
-
         /* Content Layout */
-        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
+        .content-wrapper { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; scroll-behavior: smooth; }
         header { background: white; padding: 25px 40px; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
         header h1 { margin: 0; font-size: 1.4rem; color: var(--secondary); font-weight: 700; }
 
@@ -36,8 +30,8 @@
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Tabs */
-        .tabs-nav { width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; }
+        /* Tabs Navigation - Sticky */
+        .tabs-nav { width: 92%; max-width: 950px; margin: 0 auto; display: flex; background: #f0f0f0; border-radius: 8px 8px 0 0; border-bottom: 3px solid var(--primary); overflow-x: auto; position: sticky; top: 78px; z-index: 9; }
         .tab-btn { flex: 1; padding: 16px 20px; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--secondary); white-space: nowrap; font-size: 0.8rem; }
         .tab-btn.active { background: var(--primary); color: white; }
 
@@ -45,16 +39,25 @@
         .content-pane { display: none; }
         .content-pane.active { display: block; animation: fadeIn 0.5s ease; }
 
-        /* Typography */
+        /* Typography & Components */
         .sanskrit { color: #d35400; font-style: italic; font-weight: 600; background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; }
         h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-size: 1.4rem; margin: 30px 0 20px; }
         h3 { color: var(--secondary); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px; }
-        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
         
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
-        th { background: #f9f9f9; color: var(--primary); }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+        th, td { padding: 12px 15px; border: 1px solid #eee; text-align: left; }
+        th { background: var(--accent-soft); color: var(--secondary); }
+
+        .highlight-box { background: var(--accent-soft); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .step-list { counter-reset: step-counter; list-style: none; padding: 0; }
+        .step-list li { margin-bottom: 15px; padding-left: 45px; position: relative; line-height: 1.6; }
+        .step-list li::before { 
+            counter-increment: step-counter; content: counter(step-counter); 
+            position: absolute; left: 0; top: 0; width: 30px; height: 30px; 
+            background: var(--primary); color: white; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;
+        }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -89,70 +92,68 @@
         <section class="tab-panel">
             <article id="cosmic" class="content-pane active">
                 <h2>The Viśvarūpa (Universal Presence)</h2>
-                <p>Mahāviṣṇu is described as a colossal presence encompassing the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>). Every element of nature is a part of His body:</p>
+                <p>Mahāviṣṇu is described as the colossal presence encompassing the three worlds (<span class="sanskrit">bhū, bhuvaḥ, svaḥ</span>). Every element of nature is a direct manifestation of His form:</p>
                 
-                <ul>
-                    <li><strong>Feet:</strong> The Earth (<span class="sanskrit">bhūmi</span>).</li>
-                    <li><strong>Head:</strong> The Heavens (<span class="sanskrit">svarloka</span>).</li>
-                    <li><strong>Eyes:</strong> The Sun (fierce heat for justice) and the Moon (cool grace for devotees).</li>
-                    <li><strong>Breath:</strong> The Wind (<span class="sanskrit">vāyu</span>).</li>
-                    <li><strong>Abdomen:</strong> Contains all the oceans of the universe.</li>
-                </ul>
+                <table>
+                    <tr><th>Body Part</th><th>Cosmic Equivalent</th></tr>
+                    <tr><td><strong>Feet</strong></td><td>The Earth (<span class="sanskrit">bhūmi</span>).</td></tr>
+                    <tr><td><strong>Head</strong></td><td>The Heavens (<span class="sanskrit">svarloka</span>).</td></tr>
+                    <tr><td><strong>Eyes</strong></td><td>The Sun (Justice/Heat) and Moon (Grace/Coolness).</td></tr>
+                    <tr><td><strong>Breath</strong></td><td>The Wind (<span class="sanskrit">vāyu</span>).</td></tr>
+                    <tr><td><strong>Abdomen</strong></td><td>The Oceans of the universe.</td></tr>
+                </table>
                 <div class="highlight-box">
-                    <strong>The Purpose of Pralaya:</strong> Just as our bodies need the night for rest, the <span class="sanskrit">jīvātmā</span> needs the period of dissolution (<span class="sanskrit">pralaya</span>) to rest before starting the next cycle of life.
+                    <strong>The Purpose of Pralaya:</strong> Just as our physical bodies require sleep to rejuvenate, the <span class="sanskrit">jīvātma</span> (soul) requires the period of universal dissolution (<span class="sanskrit">pralaya</span>) to rest in the Lord before the next cycle of manifestation.
                 </div>
             </article>
 
             <article id="dhyanam" class="content-pane">
                 <h2>Meditating on the Form</h2>
-                <p>Before chanting, we engage in <span class="sanskrit">dhyānam</span>. One of the most significant verses analyzed is <strong>"Śāntākāraṃ"</strong>:</p>
-                <table>
-                    <tr><th>Term</th><th>Meaning</th></tr>
-                    <tr><td><strong>Śāntākāraṃ</strong></td><td>A form of absolute peace and bliss (<span class="sanskrit">ānanda</span>).</td></tr>
-                    <tr><td><strong>Bhujagaśayanaṃ</strong></td><td>Resting on the serpent Ādiśeṣa.</td></tr>
-                    <tr><td><strong>Padmanābhaṃ</strong></td><td>The lotus emerging from His navel, the source of creation.</td></tr>
-                    <tr><td><strong>Meghavarṇaṃ</strong></td><td>Dark like rain clouds, full of compassion (<span class="sanskrit">karuṇā</span>).</td></tr>
-                    <tr><td><strong>Viśvadhāraṃ</strong></td><td>The material support of the universe; like gold to jewelry.</td></tr>
-                </table>
+                <p>Before the recitation of the names, we engage in <span class="sanskrit">dhyānam</span> to steady the mind. The verse <strong>"Śāntākāraṃ"</strong> offers a complete visual meditation:</p>
+                
+                <h3>Breakdown of Śāntākāraṃ</h3>
+                <ul>
+                    <li><strong>Śāntākāraṃ:</strong> A form that is the embodiment of absolute peace.</li>
+                    <li><strong>Bhujagaśayanaṃ:</strong> Resting on the serpent Ādiśeṣa (symbolizing time/infinity).</li>
+                    <li><strong>Padmanābhaṃ:</strong> The lotus of creation emerging from His navel.</li>
+                    <li><strong>Meghavarṇaṃ:</strong> A dark complexion like rain-bearing clouds, ready to shower mercy.</li>
+                    <li><strong>Viśvadhāraṃ:</strong> The foundation of the universe; the "gold" within the jewelry.</li>
+                </ul>
+
                 <h3>The Śrīvatsa Mark</h3>
-                <p>On the right side of the Lord's chest is a mark called <span class="sanskrit">Śrīvatsa</span>. This commemorates the moment <strong>Bhṛgu Maharṣi</strong> kicked the Lord to test His patience. Instead of anger, Viṣṇu showed supreme <span class="sanskrit">sāttvika</span> nature, making Him the ultimate refuge.</p>
+                <p>The Lord carries a mark on His chest called <span class="sanskrit">Śrīvatsa</span>. This is a reminder of His patience when <strong>Bhṛgu Maharṣi</strong> tested Him. By choosing love over anger, He solidified His position as the ultimate refuge for devotees.</p>
             </article>
 
             <article id="krishna" class="content-pane">
                 <h2>The Lion-Throne and the Mother's Grace</h2>
-                <p>Kṛṣṇa sits on a <span class="sanskrit">Siṃhāsana</span> (Lion-throne) under the Pārijāta tree. This tree was brought to Earth after the victory over Narakāsura to fulfill Satyabhāmā's wish.</p>
+                <p>Kṛṣṇa is envisioned on a <span class="sanskrit">Siṃhāsana</span> (Lion-throne) under the divine Pārijāta tree. He is flanked by Śrī (Lakṣmī) on His right and Bhū (Satyabhāmā) on His left.</p>
                 
                 <div class="highlight-box">
-                    <strong>The Report Card Analogy:</strong> Just as a child with poor marks approaches a mother to mediate with a stern father, we approach Bhagavān through <strong>Mahālakṣmī</strong>. While the Lord judges our sins, the Mother—residing on His chest—pleads for us, ensuring we are accepted despite our mistakes.
+                    <strong>The Report Card Analogy:</strong> We approach the stern Father (the Lord as Judge) through the compassionate Mother (Lakṣmī). She resides on His chest, whispering for mercy even when our "marks" (karma) are poor.
                 </div>
                 
-                <h3>Attributes of Kṛṣṇa</h3>
+                <h3>Specific Attributes</h3>
                 <ul>
-                    <li><strong>Āyatākṣam:</strong> Broad eyes that extend toward the ears to cast a wide glance of grace (<span class="sanskrit">kaṭākṣam</span>).</li>
-                    <li><strong>Ambudaśyāmam:</strong> Complexion like a water-bearing cloud.</li>
-                    <li><strong>Consorts:</strong> Flanked by Śrī (Lakṣmī) on the right and Bhū (Satyabhāmā) on the left.</li>
+                    <li><strong>Āyatākṣam:</strong> Broad, long eyes that cast a wide glance of protection (<span class="sanskrit">kaṭākṣam</span>).</li>
+                    <li><strong>Ambudaśyāmam:</strong> A complexion that cools the eyes of the beholder, like a dark cloud.</li>
                 </ul>
             </article>
 
             <article id="remedies" class="content-pane">
                 <h2>Practical Remedies for Living</h2>
-                <p>The Guru provides specific guidance for the challenges of modern life using the Sahasranāma:</p>
+                <p>The Sahasranāma is not just a prayer; it is a clinical remedy for modern distress. The Guru highlights specific focus areas:</p>
                 
-                <h3>For Financial Difficulties & Debt</h3>
-                <p>For those struggling with financial burdens, the following is recommended:</p>
-                <ul>
-                    <li><strong>Śloka 65:</strong> Chant this verse (containing the names of Lakṣmī) 10 times daily.</li>
-                    <li><strong>Rṇavimocana Ślokam:</strong> A specific prayer for the removal of debts.</li>
-                </ul>
+                <h3>For Financial Stability</h3>
+                <p>To overcome debt and poverty, consistent focus on <strong>Śloka 65</strong> (which invokes the names of Lakṣmī) and the <strong>Rṇavimocana Ślokam</strong> is recommended.</p>
 
                 <h3>The Path of the Mahāmuni</h3>
-                <p>True spiritual growth follows three steps from the Upaniṣads:</p>
-                <ol>
-                    <li><strong>Śravaṇam:</strong> Listening to the teachings.</li>
-                    <li><strong>Mananam:</strong> Reflecting deeply on the knowledge.</li>
-                    <li><strong>Nididhyāsanam:</strong> Putting the knowledge into action through meditation.</li>
+                <p>Spiritual success is achieved through three progressive stages:</p>
+                <ol class="step-list">
+                    <li><strong>Śravaṇam:</strong> Attentive listening to the Guru's words.</li>
+                    <li><strong>Mananam:</strong> Constant reflection and "chewing" on the concepts.</li>
+                    <li><strong>Nididhyāsanam:</strong> Meditative absorption and living the truth.</li>
                 </ol>
-                <p><em>The main body of the thousand names begins in the next discourse.</em></p>
+                <p><em>With these preparations complete, the thousand names of the Lord begin in the following discourse.</em></p>
             </article>
         </section>
     </main>
@@ -165,23 +166,20 @@
             }
         };
 
-function switchTab(btn, paneId) {
-    // Remove active state
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
-    
-    // Add active state
-    btn.classList.add('active');
-    const target = document.getElementById(paneId);
-    if (target) {
-        target.classList.add('active');
-        // Gentle scroll that won't hide the tabs
-        document.querySelector('.tab-panel').scrollIntoView({
-            behavior: 'smooth', 
-            block: 'nearest' 
-        });
-    }
-}
+        function switchTab(btn, paneId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.content-pane').forEach(p => p.classList.remove('active'));
+            
+            btn.classList.add('active');
+            const target = document.getElementById(paneId);
+            if (target) {
+                target.classList.add('active');
+                document.querySelector('.tab-panel').scrollIntoView({
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }
+        }
 
         function toggleVideo() {
             const content = document.getElementById('videoCollapsible');
