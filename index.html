@@ -63,8 +63,7 @@
 
     <nav class="sidebar">
         <div class="sidebar-header">By Shri. Ramabhadran V Guruji</div>
-        <div id="dynamic-sidebar">
-            </div>
+        <div id="dynamic-sidebar"></div>
     </nav>
 
     <main class="content-wrapper">
@@ -105,33 +104,46 @@
     </main>
 
     <script>
-        // CONFIGURATION: Add your filenames here as you create them!
         const courseDays = [
             { file: 'index.html', label: 'Day 1' },
             { file: 'Days/Day2.html', label: 'Day 2' },
             { file: 'Days/Day3.html', label: 'Day 3' }
         ];
 
-        // Function to build sidebar dynamically
         async function buildSidebar() {
             const container = document.getElementById('dynamic-sidebar');
+            // Detect if we are in the 'Days' folder or root
+            const isInSubfolder = window.location.pathname.includes('/Days/');
             const currentFile = window.location.pathname.split("/").pop() || 'index.html';
 
             for (const day of courseDays) {
                 const link = document.createElement('a');
-                link.href = day.file;
+                
+                // ADJUST PATH LOGIC
+                let finalPath = day.file;
+                if (isInSubfolder) {
+                    // If we're inside /Days/ and want to go to index.html
+                    if (day.file === 'index.html') finalPath = '../index.html';
+                    // If we're inside /Days/ and want Day2.html (already in same folder)
+                    else finalPath = day.file.replace('Days/', '');
+                }
+
+                link.href = finalPath;
                 link.className = 'day-link';
                 
-                // Highlight active link
-                if (day.file.includes(currentFile)) link.classList.add('active');
+                // Compare filename only for active state
+                const dayFileName = day.file.split('/').pop();
+                if (dayFileName === currentFile) link.classList.add('active');
 
-                // Initial placeholder
-                link.innerHTML = `<strong>${day.label}</strong><br>Loading title...`;
+                link.innerHTML = `<strong>${day.label}</strong><br><small>Loading...</small>`;
                 container.appendChild(link);
 
-                // Fetch the title from the actual file
+                // Fetch title with adjusted fetch path
+                let fetchPath = day.file;
+                if (isInSubfolder && day.file === 'index.html') fetchPath = '../index.html';
+
                 try {
-                    const response = await fetch(day.file);
+                    const response = await fetch(fetchPath);
                     const text = await response.text();
                     const doc = new DOMParser().parseFromString(text, 'text/html');
                     const title = doc.querySelector('h1')?.innerText.split(':').pop() || "Module";
@@ -149,7 +161,6 @@
             btn.classList.add('active');
         }
 
-        // Initialize
         buildSidebar();
     </script>
 </body>
